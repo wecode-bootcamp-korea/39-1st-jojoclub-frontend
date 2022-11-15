@@ -1,0 +1,187 @@
+body {
+  background-color: #fdf9ef;
+
+  .allWrap {
+    margin: 50px 150px;
+
+    .myPage {
+      width: 100%;
+      padding: 20px;
+      border-bottom: 1px solid #cccccc;
+      font-family: 'Nanum Myeongjo', Times, 'Times New Roman', myeongjo;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .customer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .newCustomer {
+        width: 45%;
+        margin: 50px 0;
+
+        .bold {
+          font-weight: bold;
+        }
+
+        .inputSignup input {
+          width: 100%;
+          height: 40px;
+          margin: 10px 0;
+          padding: 0 10px;
+          border: 1px solid #cccccc;
+          border-radius: 0%;
+          line-height: middle;
+
+          &:focus {
+            outline: 1px dotted black;
+          }
+
+          &::placeholder {
+            color: #cccccc;
+          }
+        }
+
+        .red {
+          margin: 20px 0;
+          color: #d80000;
+          font-size: 14px;
+          line-height: 25px;
+        }
+
+        .phoneNumberSize {
+          font-size: 14px;
+        }
+
+        .phoneNum {
+          select,
+          input {
+            width: 32%;
+            height: 40px;
+            margin-top: 5px;
+            margin-right: 5px;
+            padding: 0 10px;
+            border: 1px solid #cccccc;
+
+            &:focus {
+              outline: 1px dotted black;
+            }
+
+            &::placeholder {
+              color: #cccccc;
+            }
+          }
+        }
+
+        button {
+          width: 100%;
+          height: 40px;
+          margin-top: 8px;
+          margin-bottom: 13px;
+          border: none;
+          background-color: black;
+          color: white;
+        }
+
+        .certificationNum {
+          width: 100%;
+          height: 40px;
+          margin: 10px 0;
+          padding: 0 10px;
+          border: 1px solid #cccccc;
+          border-radius: 0%;
+          line-height: middle;
+        }
+
+        .agreement {
+          .agreementBold {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .scrollBar {
+            width: 100%;
+            height: 150px;
+            margin: 10px 0;
+            padding: 10px;
+            overflow-y: scroll;
+            border: 1px solid #cccccc;
+            background-color: #fdf9ef;
+            font-size: 14px;
+            line-height: 25px;
+          }
+
+          .agree {
+            font-size: 14px;
+          }
+
+          .allAgree {
+            margin: 10px 0;
+            font-size: 14px;
+          }
+
+          .reception {
+            margin: 30px 0;
+            font-size: 14px;
+          }
+
+          .smallRed {
+            color: red;
+            font-size: 12px;
+            line-height: 25px;
+          }
+
+          .olderThan {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .existingCustomers {
+        width: 50%;
+        margin: 50px 0;
+
+        .bold {
+          font-weight: bold;
+        }
+
+        .inputLogin input {
+          width: 100%;
+          height: 40px;
+          margin: 10px 0;
+          padding: 0 10px;
+          border: 1px solid #cccccc;
+          border-radius: 0%;
+          line-height: middle;
+
+          &:focus {
+            outline: 1px dotted black;
+          }
+
+          &::placeholder {
+            color: #cccccc;
+          }
+        }
+
+        .underline {
+          font-size: 12px;
+          text-decoration: underline;
+        }
+
+        button {
+          width: 100%;
+          height: 38px;
+          margin-top: 40px;
+          border: none;
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+}
