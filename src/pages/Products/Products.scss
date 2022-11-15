@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin fontMyeongjo {
+  color: $color-black;
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 400;
+}
+
+@mixin fontUnderline {
+  color: $color-black;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-decoration: underline;
+}
+
+$color-black: #1c1c1c;
+$color-gray: #707070;
+$color-cream: #fcf9ee;
+$color-cream-stroke: #e2e1d7;
+$color-cream-disabled: #e1e2d7;
+
+.products {
+  @include flexCenter;
+  background-color: $color-cream;
+
+  .info {
+    margin: 0 44px;
+    padding: 42px 0;
+    max-width: 1254px;
+
+    .section {
+      @include flexCenter;
+      flex-wrap: wrap;
+      padding: 10px 0 0;
+      margin: auto;
+
+      .leftColumn {
+        width: 54%;
+        display: flex;
+        flex-flow: column;
+
+        .imgBox {
+          display: flex;
+          flex-direction: column;
+
+          img {
+            width: 472px;
+            height: 472px;
+          }
+
+          .pagenation {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            padding: 0px;
+            cursor: pointer;
+
+            li {
+              position: relative;
+              width: 20px;
+            }
+          }
+        }
+
+        .share {
+          justify-content: center;
+          margin: 12px auto 0;
+          order: 10;
+
+          span {
+            @include fontUnderline;
+            font-size: 12px;
+            display: inline-flex;
+            flex-direction: column;
+            z-index: 100;
+          }
+        }
+      }
+
+      .rightColumn {
+        width: 46%;
+        max-width: 328px;
+        flex-wrap: wrap;
+
+        .textBadge {
+          font-size: 12px;
+          font-weight: 600;
+          font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .productNameEn {
+          @include fontMyeongjo;
+          font-size: 24px;
+          line-height: 1.3;
+          margin-top: 20px;
+        }
+
+        .productNameKr {
+          @include fontMyeongjo;
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        .price {
+          color: $color-black;
+          margin: 10px 0 24px 0;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 1;
+        }
+
+        .firstReview {
+          @include fontUnderline;
+          display: flex;
+          justify-content: flex-end;
+          margin-left: 10px;
+          margin-bottom: 18px;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        .description {
+          display: inline;
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          line-height: 1.6;
+          margin-top: 16px;
+          margin-bottom: 26px;
+        }
+
+        .btnMore {
+          @include fontUnderline;
+          font-size: 12px;
+          font-weight: 700;
+          border: none;
+          background: 0 0;
+        }
+
+        .sizeThumbnails {
+          display: flex;
+
+          .sizePicker {
+            display: inline-block;
+
+            img {
+              width: 58px;
+              height: inherit;
+            }
+          }
+        }
+
+        .btn {
+          background-color: rgb(33, 33, 33);
+          color: #fff;
+          width: 100%;
+          height: 50px;
+          font-size: 12px;
+          letter-spacing: 1.25px;
+          padding: 0px 16px;
+          margin: 24px 0 30px;
+          overflow-x: hidden;
+          cursor: pointer;
+        }
+
+        .btnWish {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1px 6px;
+          font-size: 12px;
+          font-weight: 400;
+          border: none;
+          background: 0 0;
+        }
+      }
+      .contents {
+        width: 100%;
+        margin-top: 50px;
+
+        h3 {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1.7;
+          margin: 0 48px;
+          padding-top: 20px;
+        }
+
+        .ingredients {
+          border-bottom: 1px solid #e2e1d7;
+          border-top: 1px solid #e2e1d7;
+          justify-content: space-between;
+          align-items: center;
+
+          h2 {
+            @include fontMyeongjo;
+            font-size: 20px;
+            font-weight: 400;
+            padding: 46px 0;
+            display: flex;
+          }
+
+          p {
+            padding-top: 12px;
+            padding-bottom: 40px;
+            display: block;
+            color: $color-black;
+            font-weight: 400;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 1.6;
+          }
+        }
+
+        .usage {
+          border-bottom: 1px solid #e2e1d7;
+          justify-content: space-between;
+          align-items: center;
+
+          h2 {
+            @include fontMyeongjo;
+            font-size: 20px;
+            font-weight: 400;
+            display: flex;
+            padding: 46px 0;
+          }
+
+          p {
+            padding-top: 12px;
+            padding-bottom: 40px;
+            display: block;
+            color: $color-black;
+            font-weight: 400;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+}
