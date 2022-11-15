@@ -13,7 +13,9 @@ function ProductList() {
     <div>
       {productInfoList.map((productInfo, index) => (
         <ul key={index}>
-          <li></li>
+          <li>
+            <img src={productInfo.productImage} alt="product" />
+          </li>
           <li>{productInfo.englishName}</li>
           <li>{productInfo.koreanName}</li>
           <li>{productInfo.price}</li>
