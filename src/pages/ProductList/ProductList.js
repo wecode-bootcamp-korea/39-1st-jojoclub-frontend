@@ -19,6 +19,9 @@ function ProductList() {
               <li className="productImg">
                 <img src={productImage} alt="product" />
               </li>
+              <div className="saveFavorite">
+                <button className="saveBtn" />
+              </div>
               <div className="productDetailWrap">
                 <li className="newProduct">신제품</li>
                 <li className="productEng">{englishName}</li>
