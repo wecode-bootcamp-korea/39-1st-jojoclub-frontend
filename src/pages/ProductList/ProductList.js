@@ -11,25 +11,32 @@ function ProductList() {
   }, []);
   return (
     <div className="productList">
-      <button className="slideLeft">왼쪽</button>
+      <button type="button" className="slideLeft" />
       <div className="productListContainer">
         {productInfoList.map(
           ({ id, productImage, englishName, koreanName, price, size }) => (
-            <ul key={id}>
+            <ul className="productContainer" key={id}>
               <li className="productImg">
                 <img src={productImage} alt="product" />
               </li>
               <div className="productDetailWrap">
+                <li className="newProduct">신제품</li>
                 <li className="productEng">{englishName}</li>
                 <li className="productKor">{koreanName}</li>
-                <li className="priceTag">{price}</li>
-                <li className="sizeTag">{size}</li>
+                <div className="priceNsize">
+                  <li className="priceTag">{price}</li>
+                  <li className="sizeTag">{size}</li>
+                </div>
+
+                <button type="button" className="previewProduct">
+                  미리보기
+                </button>
               </div>
             </ul>
           )
         )}
       </div>
-      <button className="slideRight">오른쪽</button>
+      <button type="button" className="slideRight" />
     </div>
   );
 }
