@@ -1,4 +1,21 @@
-body {
+@mixin buttonStyle {
+  width: 100%;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+@mixin inputStyle {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  padding: 0 10px;
+  border: 1px solid #cccccc;
+  border-radius: 0%;
+  line-height: middle;
+}
+
+.login {
   background-color: #fdf9ef;
 
   .allWrap {
@@ -27,13 +44,7 @@ body {
         }
 
         .inputSignup input {
-          width: 100%;
-          height: 40px;
-          margin: 10px 0;
-          padding: 0 10px;
-          border: 1px solid #cccccc;
-          border-radius: 0%;
-          line-height: middle;
+          @include inputStyle;
 
           &:focus {
             outline: 1px dotted black;
@@ -44,18 +55,18 @@ body {
           }
         }
 
-        .red {
+        .pwCautionMsg {
           margin: 20px 0;
           color: #d80000;
           font-size: 14px;
           line-height: 25px;
         }
 
-        .phoneNumberSize {
+        .phoneNumber {
           font-size: 14px;
         }
 
-        .phoneNum {
+        .phoneNumInput {
           select,
           input {
             width: 32%;
@@ -75,14 +86,11 @@ body {
           }
         }
 
-        button {
-          width: 100%;
+        .signupBtn {
+          @include buttonStyle;
           height: 40px;
           margin-top: 8px;
           margin-bottom: 13px;
-          border: none;
-          background-color: black;
-          color: white;
         }
 
         .certificationNum {
@@ -102,7 +110,7 @@ body {
             font-weight: bold;
           }
 
-          .scrollBar {
+          .scrollBarBox {
             width: 100%;
             height: 150px;
             margin: 10px 0;
@@ -128,13 +136,13 @@ body {
             font-size: 14px;
           }
 
-          .smallRed {
+          .agreementMsg {
             color: red;
             font-size: 12px;
             line-height: 25px;
           }
 
-          .olderThan {
+          .olderThanFourteen {
             margin-top: 10px;
             margin-bottom: 30px;
             font-size: 14px;
@@ -151,13 +159,7 @@ body {
         }
 
         .inputLogin input {
-          width: 100%;
-          height: 40px;
-          margin: 10px 0;
-          padding: 0 10px;
-          border: 1px solid #cccccc;
-          border-radius: 0%;
-          line-height: middle;
+          @include inputStyle;
 
           &:focus {
             outline: 1px dotted black;
@@ -173,15 +175,27 @@ body {
           text-decoration: underline;
         }
 
-        button {
-          width: 100%;
+        .loginBtn {
+          @include buttonStyle;
           height: 38px;
           margin-top: 40px;
-          border: none;
-          background-color: black;
-          color: white;
         }
       }
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .login {
+    width: 100%;
+  }
+  .customer {
+    flex-direction: column;
+  }
+  .newCustomer {
+    width: 100% !important;
+  }
+  .existingCustomers {
+    width: 100% !important;
   }
 }

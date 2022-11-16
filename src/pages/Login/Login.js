@@ -4,12 +4,12 @@ import './Login.scss';
 
 function Login() {
   return (
-    <body>
+    <div className="login">
       <div className="allWrap">
         <div className="myPage">마이페이지</div>
         <div className="customer">
           <div className="newCustomer">
-            <div className="signupInput">
+            <div className="inputSignupBox">
               <p className="bold">신규 고객</p>
               <div className="inputSignup">
                 <input type="text" placeholder="* 이름" />
@@ -23,14 +23,14 @@ function Login() {
               <label>
                 <input type="checkbox" value="showPw" /> 비밀번호 표시
               </label>
-              <p className="red">
+              <p className="pwCautionMsg">
                 영문 대문자, 소문자, 숫자, 특수문자를 모두 조합하여 8자 이상으로
                 구성해주세요. (예시: Jomalone123!)
               </p>
             </div>
-            <div className="phoneNumber">
-              <p className="phoneNumberSize">*휴대전화 번호</p>
-              <div className="phoneNum">
+            <div className="phoneNumberBox">
+              <p className="phoneNumber">*휴대전화 번호</p>
+              <div className="phoneNumInput">
                 <select>
                   <option selected>선택</option>
                   <option>010</option>
@@ -43,18 +43,18 @@ function Login() {
                 <input type="tel" maxlength="4" />
                 <input type="tel" maxlength="4" />
               </div>
-              <button>인증번호 요청</button>
+              <button className="signupBtn">인증번호 요청</button>
               <input
                 className="certificationNum"
                 type="number"
                 placeholder="* 인증번호"
                 disabled
               />
-              <button>인증번호 확인</button>
+              <button className="signupBtn">인증번호 확인</button>
             </div>
             <div className="agreement">
               <p className="agreementBold">*이용 약관(필수)</p>
-              <div className="scrollBar">
+              <div className="scrollBarBox">
                 본 약관은 2017년 04월 06일부터 시행됩니다. 이용약관 Jo Malone
                 London Korea Online 웹사이트(이하 '본 사이트')에 오신 것을
                 환영합니다. Jo Malone London Korea Online(“이하 “회사”)는 아래의
@@ -78,7 +78,7 @@ function Login() {
               <p className="agreementBold">
                 *개인정보의 수집 및 이용에 대한 동의(필수)
               </p>
-              <div className="scrollBar">
+              <div className="scrollBarBox">
                 회사는 본 웹사이트를 통한 회원가입 및 서비스 제공 등을 위하여
                 아래와 같은 개인정보를 수집하고 있습니다. - 이름, 비밀번호,
                 휴대폰 번호, 이메일 주소 수집 및 이용 목적 멤버십 계정 및 고객
@@ -98,7 +98,7 @@ function Login() {
                 마케팅 수신 및 홍보 목적의 개인정보 수집 및 이용에 대한
                 동의(선택)
               </p>
-              <div className="scrollBar">
+              <div className="scrollBarBox">
                 수집하는 개인정보 항목 • 이름, 휴대폰 번호, 이메일 주소 수집 및
                 이용 목적 SMS, DM, 이메일 등 전자적 전송 매체를 통한 개인 맞춤형
                 광고 전송, 이벤트 및 프로모션 관련 정보 안내, 신규
@@ -145,22 +145,22 @@ function Login() {
                   </label>
                 </div>
               </div>
-              <p className="smallRed">
+              <p className="agreementMsg">
                 ※ *는 필수적 동의 사항입니다. 귀하꼐서는 필수항목 수집·이용에
                 대한 동의를 거부하실 수 있으나, 동의를 거부하실 경우 회원가입,
                 서비스 이용 등이 제한될 수 있습니다.
               </p>
-              <p className="olderThan">
+              <p className="olderThanFourteen">
                 <input type="checkbox" /> *가입자 본인은 만 14세 이상입니다. (만
                 14세 이상부터 회원가입이 가능합니다)
               </p>
-              <button>회원 가입</button>
+              <button className="signupBtn">회원 가입</button>
             </div>
           </div>
 
           <div className="existingCustomers">
             <p className="bold">기존 고객</p>
-            <div className="loginInput">
+            <div className="inputLoginBox">
               <div className="inputLogin">
                 <input type="text" placeholder="* 이메일 주소" />
               </div>
@@ -170,11 +170,11 @@ function Login() {
             </div>
             <p className="underline">여기를 클릭하세요.</p>
             {/* 비밀번호 힌트를 보시려면 이메일 주소를 입력해 주세요. */}
-            <button>로그인</button>
+            <button className="loginBtn">로그인</button>
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 
