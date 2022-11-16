@@ -1,3 +1,4 @@
+@import '/src/styles/variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
 
 @mixin flexCenter {
@@ -18,15 +19,9 @@
   text-decoration: underline;
 }
 
-$color-black: #1c1c1c;
-$color-gray: #707070;
-$color-cream: #fcf9ee;
-$color-cream-stroke: #e2e1d7;
-$color-cream-disabled: #e1e2d7;
-
 .products {
   @include flexCenter;
-  background-color: $color-cream;
+  background-color: $background-color;
 
   .info {
     margin: 0 44px;
@@ -73,7 +68,7 @@ $color-cream-disabled: #e1e2d7;
           margin: 12px auto 0;
           order: 10;
 
-          span {
+          .btnShare {
             @include fontUnderline;
             font-size: 12px;
             display: inline-flex;
@@ -116,12 +111,10 @@ $color-cream-disabled: #e1e2d7;
         }
 
         .firstReview {
-          @include fontUnderline;
+          @include linkNav;
           display: flex;
           justify-content: flex-end;
-          margin-left: 10px;
-          margin-bottom: 18px;
-          font-size: 12px;
+          margin: 0 0 18px 10px;
           font-weight: 600;
         }
 
@@ -131,13 +124,11 @@ $color-cream-disabled: #e1e2d7;
           font-weight: 400;
           letter-spacing: 0.04em;
           line-height: 1.6;
-          margin-top: 16px;
-          margin-bottom: 26px;
+          margin: 16px 0 26px 0;
         }
 
         .btnMore {
-          @include fontUnderline;
-          font-size: 12px;
+          @include linkNav;
           font-weight: 700;
           border: none;
           background: 0 0;
@@ -206,8 +197,7 @@ $color-cream-disabled: #e1e2d7;
           }
 
           p {
-            padding-top: 12px;
-            padding-bottom: 40px;
+            padding: 12px 0 40px 0;
             display: block;
             color: $color-black;
             font-weight: 400;
@@ -231,8 +221,7 @@ $color-cream-disabled: #e1e2d7;
           }
 
           p {
-            padding-top: 12px;
-            padding-bottom: 40px;
+            padding: 12px 0 40px 0;
             display: block;
             color: $color-black;
             font-weight: 400;

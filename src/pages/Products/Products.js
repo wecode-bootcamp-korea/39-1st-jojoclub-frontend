@@ -1,9 +1,7 @@
-// import React, { useState, useEffect } from 'react';
 import React from 'react';
 import './Products.scss';
 
 function Products() {
-  // const [showMore, setShowMore] = useState(false);
   return (
     <div className="products">
       <div className="info">
@@ -17,7 +15,7 @@ function Products() {
               </div>
             </div>
             <div className="share">
-              <span>공유하기</span>
+              <span className="btnShare">공유하기</span>
             </div>
           </div>
           <div className="rightColumn">
@@ -33,10 +31,7 @@ function Products() {
               디자인으로 제작되었습니다. 약 45시간 동안 태울 수 있으며 캔들
               리드도 포함되어 있습니다. 캔들 사이즈는 높이
             </p>
-            {/* {showMore ? text : `${text.substring(0, 250)}`}
-            <button className="btnMore" onClick={() => setShowMore(!showMore)}>
-              Show more>{showMore ? 'Show less' : 'Show more'}
-            </button> */}
+            <button className="btnMore" />
             <div className="sizeThumbnails">
               <div className="sizePicker">
                 <img src="/images/products/jo_sku_LGN901_100x100_0.avif" />
