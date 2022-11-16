@@ -1,0 +1,37 @@
+.login {
+  background-color: #fdf9ef;
+
+  .allWrap {
+    margin: 50px 150px;
+
+    .myPage {
+      width: 100%;
+      padding: 20px;
+      border-bottom: 1px solid #cccccc;
+      font-family: 'Nanum Myeongjo', Times, 'Times New Roman', Myeongjo;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .customer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .login {
+    width: 100%;
+  }
+  .customer {
+    flex-direction: column;
+  }
+  .newCustomer {
+    width: 100% !important;
+  }
+  .existingCustomers {
+    width: 100% !important;
+  }
+}

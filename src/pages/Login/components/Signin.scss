@@ -1,0 +1,33 @@
+@import '../styles/mixin';
+
+.existingCustomers {
+  width: 50%;
+  margin: 50px 0;
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .inputLogin input {
+    @include inputStyle;
+
+    &:focus {
+      outline: 1px dotted black;
+    }
+
+    &::placeholder {
+      color: #cccccc;
+    }
+  }
+
+  .underline {
+    font-size: 12px;
+    text-decoration: underline;
+  }
+
+  .loginBtn {
+    @include buttonStyle;
+    height: 38px;
+    margin-top: 40px;
+  }
+}
