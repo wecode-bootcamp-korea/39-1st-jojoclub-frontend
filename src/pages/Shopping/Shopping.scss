@@ -1,0 +1,21 @@
+.title{
+  text-align: center;
+}
+.subtitle{
+  text-align: center;
+}
+.listitems{
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  padding: 30px 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.buybutton{
+  align-content: flex-end;
+  width: 300px; 
+  height: 50px;
+  background-color: black;
+  color: white;
+}
