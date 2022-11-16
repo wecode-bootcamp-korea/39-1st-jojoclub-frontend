@@ -1,8 +1,7 @@
 import React from 'react';
-import Signup from './Signup';
-import Signin from './Signin';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
 import './Login.scss';
-// import './src/styles/variables.scss';
 
 function Login() {
   return (
