@@ -1,4 +1,4 @@
-.productListContainerWrap {
+.productList {
   display: flex;
   position: relative;
   align-items: center;
@@ -6,24 +6,21 @@
   width: 100%;
   height: 50%;
   overflow: hidden;
-}
+  .productListContainer {
+    display: flex;
+    justify-content: space-around;
 
-.productImg {
-  width: 250px;
-  height: 250px;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.productListContainer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.productDetailWrap {
+    .productImg {
+      width: 359px;
+      height: 359px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .productDetailWrap {
+    }
+  }
 }
 
 .slideLeft {
