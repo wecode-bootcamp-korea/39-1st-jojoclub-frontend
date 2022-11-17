@@ -42,10 +42,22 @@ export default function Signup() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/
   );
 
+  // const validateLowercaseChar = userInfo.pw.match(/^(?=.*[a-z])$/);
+  // const validateUppercaseChar = userInfo.pw.match(/^(?=.*[A-Z])$/);
+  // const validateNumbers = userInfo.pw.match([0 - 9]);
+  // const validatePwLength = userInfo.pw.length >= 8;
+  // const validateSpecialChar = userInfo.pw.match([$@$!%*?&]);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const [allChecked, setAllChecked] = useState(false);
+
+  const allCheckedHandler = () => {
+    setAllChecked(!allChecked);
   };
 
   return (
@@ -79,6 +91,15 @@ export default function Signup() {
             onChange={handleUserInfo}
           />
         </div>
+        {/* <div className="passwordCondition">
+          <ul className="passwordConditionList">
+            <li>최소 한 글자 이상의 소문자를 입력해주세요.</li>
+            <li>최소 한 글자 이상의 대문자를 입력해주세요.</li>
+            <li>최소 한 개 이상의 숫자를 포함해주세요.</li>
+            <li>여덟 글자 이상으로 생성해주세요.</li>
+            <li>최소 한 개 이상의 특수문자를 포함해주세요.</li>
+          </ul>
+        </div> */}
         <label>
           <input type="checkbox" value="showPw" onChange={togglePassword} />
           비밀번호 표시
@@ -119,7 +140,12 @@ export default function Signup() {
             <div className="scrollBarBox">{info.term}</div>
             <div className="agree">
               <label>
-                <input type="radio" name={info.name} /> 동의
+                <input
+                  type="radio"
+                  name={info.name}
+                  checked={allChecked ? true : false}
+                />
+                동의
               </label>
               <label>
                 <input type="radio" name={info.name} /> 동의하지 않음
@@ -128,7 +154,8 @@ export default function Signup() {
           </div>
         ))}
         <div className="allAgree">
-          <input type="checkbox" /> 위 모든 항목에 동의합니다
+          <input type="checkbox" onChange={allCheckedHandler} /> 위 모든 항목에
+          동의합니다
         </div>
         <div className="whetherToReceive">
           {RECEPTION.map(accept => (
