@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 $background-color: #fcf9ee;
 
@@ -37,7 +37,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin titleH4 {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -46,7 +45,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin bodyText {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
@@ -55,7 +53,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin bodyText2 {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   letter-spacing: 0.04em;
   color: $color-black;
@@ -63,7 +60,6 @@ $color-warning: #ebbb00;
 
 //Buttons & Links
 @mixin link {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.17em;
@@ -74,7 +70,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkSmall {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.17em;
@@ -85,7 +80,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkFooter {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
@@ -93,7 +87,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkBold {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 1.15;
@@ -103,7 +96,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkCap {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 10px;
   line-height: 1;
   letter-spacing: 0.025em;
@@ -114,7 +106,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkList {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   letter-spacing: 0;
   text-decoration: none;
@@ -128,7 +119,6 @@ $color-warning: #ebbb00;
 }
 
 @mixin linkNav {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0;
