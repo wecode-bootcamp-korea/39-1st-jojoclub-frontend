@@ -1,0 +1,37 @@
+[{    "id": 1,
+"image_url": "sample",
+"enName": "White Snowdrop Body Lotion",
+"koName": "화이스 스노우드롭 바디로션",
+"price": "110,000",
+"pricenum": 110000,
+"size": "50ML",
+"qty": 1
+},
+{    "id": 2,
+"image_url": "sample",
+"enName": "White Moss & Snowdrop Cologne",
+"koName": "화이스 모스 앤 스노우드롭 코롱",
+"price": "150,000",
+"pricenum":150000,
+"size": "100ML",
+"qty": 1
+},
+{    "id": 3,
+"image_url": "sample",
+"enName": "Body Scrub",
+"koName": "바디 스크럽",
+"price": "170,000",
+"pricenum":170000,
+"size": "50ML",
+"qty": 2
+},
+{    "id": 4,
+"image_url": "sample",
+"enName": "Honey lipbalm",
+"koName": "허니 립밤",
+"price": "220,000",
+"pricenum":220000,
+"size": "100ML",
+"qty": 3
+}
+]
