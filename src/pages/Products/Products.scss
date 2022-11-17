@@ -1,234 +1,232 @@
 @import '/src/styles/variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&display=swap');
-
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin fontMyeongjo {
-  color: $color-black;
-  font-family: 'Nanum Myeongjo', serif;
-  font-weight: 400;
-}
-
-@mixin fontUnderline {
-  color: $color-black;
-  font-family: 'Noto Sans KR', sans-serif;
-  text-decoration: underline;
-}
 
 .products {
-  @include flexCenter;
   background-color: $background-color;
+
+  .bannerImg {
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
 
   .info {
     margin: 0 44px;
-    padding: 42px 0;
-    max-width: 1254px;
+    position: relative;
+    min-height: 800px;
 
-    .section {
-      @include flexCenter;
+    .layoutInfoFull {
+      display: flex;
       flex-wrap: wrap;
-      padding: 10px 0 0;
-      margin: auto;
+      max-width: 1254px;
+      padding: 42px 0;
+      margin: 0 auto;
 
-      .leftColumn {
-        width: 54%;
+      .category {
+        @include linkSmall;
+        padding: 0 44px 0 0;
+        left: 0;
+        position: absolute;
+        top: 37px;
         display: flex;
-        flex-flow: column;
 
-        .imgBox {
+        ol {
           display: flex;
-          flex-direction: column;
+          position: relative;
+          margin: 0;
+          padding: 0;
 
-          img {
-            width: 472px;
-            height: 472px;
+          p {
+            display: flex;
           }
 
-          .pagenation {
-            position: relative;
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            padding: 0px;
-            cursor: pointer;
+          li {
+            display: flex;
+            padding: 0 10px;
+            line-height: 1.6;
 
-            li {
-              position: relative;
-              width: 20px;
+            a {
+              text-decoration: none;
             }
-          }
-        }
-
-        .share {
-          justify-content: center;
-          margin: 12px auto 0;
-          order: 10;
-
-          .btnShare {
-            @include fontUnderline;
-            font-size: 12px;
-            display: inline-flex;
-            flex-direction: column;
-            z-index: 100;
           }
         }
       }
 
-      .rightColumn {
-        width: 46%;
-        max-width: 328px;
+      .leftColumnSection {
+        display: flex;
+        flex-flow: column;
+        width: 68%;
+
+        .carousel {
+          width: 100%;
+          max-width: 472px;
+          margin: 0 auto;
+          padding: 0;
+
+          .slideImg {
+            img {
+              width: 300px;
+            }
+          }
+          .slideBar {
+            margin: 16px 0 0;
+            padding-left: 12px;
+            position: relative;
+
+            .slideBarDot {
+              position: relative;
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              padding: 0px;
+              cursor: pointer;
+              list-style: none;
+            }
+          }
+        }
+        .btnShare {
+          @include linkBold;
+          display: flex;
+          justify-content: center;
+          margin: 12px auto 0;
+          font-weight: 400;
+        }
+      }
+      .rightColumnSection {
+        display: flex;
         flex-wrap: wrap;
+        width: 32%;
+        max-width: 328px;
 
-        .textBadge {
-          font-size: 12px;
+        .badge {
+          @include bodyText2;
           font-weight: 600;
-          font-family: 'Noto Sans KR', sans-serif;
+          letter-spacing: 1px;
         }
 
-        .productNameEn {
-          @include fontMyeongjo;
-          font-size: 24px;
-          line-height: 1.3;
-          margin-top: 20px;
+        .nameEn {
+          @include titleH2;
+          margin: 20px 0 13px;
         }
 
-        .productNameKr {
-          @include fontMyeongjo;
-          font-size: 20px;
-          line-height: 24px;
+        .nameKr {
+          @include titleH3;
         }
 
         .price {
-          color: $color-black;
-          margin: 10px 0 24px 0;
-          font-size: 12px;
+          @include bodyText2;
+          display: flex;
+          margin: 10px 0 24px;
+          padding: 0;
+          width: 100%;
           font-weight: 600;
-          line-height: 1;
         }
-
-        .firstReview {
-          @include linkNav;
+        .reviewBox {
           display: flex;
           justify-content: flex-end;
-          margin: 0 0 18px 10px;
-          font-weight: 600;
+          margin: 0 0 36px;
+          width: 100%;
+          min-height: 24px;
+
+          .averageRating {
+            @include bodyText2;
+            margin: 0px 8px;
+          }
+
+          .btnReadReview {
+            @include linkBold;
+            margin: 0px 8px;
+          }
         }
 
         .description {
-          display: inline;
-          font-size: 12px;
-          font-weight: 400;
-          letter-spacing: 0.04em;
-          line-height: 1.6;
-          margin: 16px 0 26px 0;
+          @include bodyText;
         }
 
-        .btnMore {
-          @include linkNav;
-          font-weight: 700;
-          border: none;
-          background: 0 0;
-        }
-
-        .sizeThumbnails {
+        .sizePicker {
           display: flex;
 
-          .sizePicker {
-            display: inline-block;
-
-            img {
-              width: 58px;
-              height: inherit;
+          .pickerTrack {
+            .trackItem {
+              display: block;
             }
           }
         }
 
-        .btn {
-          background-color: rgb(33, 33, 33);
-          color: #fff;
+        .btnCart {
+          background-color: $color-black;
+          color: $background-color;
           width: 100%;
           height: 50px;
-          font-size: 12px;
-          letter-spacing: 1.25px;
-          padding: 0px 16px;
           margin: 24px 0 30px;
-          overflow-x: hidden;
-          cursor: pointer;
+          padding: 0px 16px;
+          position: relative;
         }
 
-        .btnWish {
-          display: flex;
-          justify-content: flex-end;
-          padding: 1px 6px;
-          font-size: 12px;
-          font-weight: 400;
-          border: none;
-          background: 0 0;
+        .wishListBox {
+          margin: 0 0 0 auto;
+
+          .wishList {
+            @include bodyText;
+          }
+
+          .wishIcon {
+            padding: 0;
+            margin-left: 8px;
+          }
+        }
+        .borderBox {
+          width: 100%;
+          border-top: 1px solid #e2e1d7;
+          border-bottom: 1px solid #e2e1d7;
+          padding: 10px 0 12px;
         }
       }
-      .contents {
+
+      .infoContentSection {
         width: 100%;
         margin-top: 50px;
 
-        h3 {
-          font-size: 12px;
-          font-weight: 400;
-          line-height: 1.7;
-          margin: 0 48px;
-          padding-top: 20px;
-        }
+        .ingredients,
+        .howToUse {
+          .accordion {
+            margin: 0 48px;
 
-        .ingredients {
-          border-bottom: 1px solid #e2e1d7;
-          border-top: 1px solid #e2e1d7;
-          justify-content: space-between;
-          align-items: center;
-
-          h2 {
-            @include fontMyeongjo;
-            font-size: 20px;
-            font-weight: 400;
-            padding: 46px 0;
-            display: flex;
+            .contentHeader {
+              @include titleH2;
+              padding: 46px 0;
+            }
+            .contentBody {
+              @include bodyText;
+              padding: 12px 0 40px;
+              border-bottom: 1px solid #e2e1d7;
+            }
           }
-
-          p {
-            padding: 12px 0 40px 0;
-            display: block;
-            color: $color-black;
-            font-weight: 400;
-            text-decoration: none;
-            font-size: 12px;
-            line-height: 1.6;
+          .contentBody2 {
+            @include bodyText;
+            margin: 0 48px;
+            padding-top: 20px;
           }
         }
-
-        .usage {
-          border-bottom: 1px solid #e2e1d7;
-          justify-content: space-between;
-          align-items: center;
-
-          h2 {
-            @include fontMyeongjo;
-            font-size: 20px;
-            font-weight: 400;
-            display: flex;
-            padding: 46px 0;
-          }
-
-          p {
-            padding: 12px 0 40px 0;
-            display: block;
-            color: $color-black;
-            font-weight: 400;
-            text-decoration: none;
-            font-size: 12px;
-            line-height: 1.6;
-          }
+      }
+    }
+    .layoutInfoContent {
+      .howToUseCologne {
+        @include titleH3;
+      }
+      .productList {
+        @include titleH3;
+      }
+      .review {
+        .contentHeader {
+          @include titleH3;
         }
       }
     }
