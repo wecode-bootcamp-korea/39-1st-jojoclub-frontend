@@ -29,7 +29,7 @@
       padding: 42px 0;
       margin: 0 auto;
 
-      .category {
+      .categoryWrap {
         @include linkSmall;
         padding: 0 44px 0 0;
         left: 0;
@@ -37,17 +37,13 @@
         top: 37px;
         display: flex;
 
-        ol {
+        .category {
           display: flex;
           position: relative;
           margin: 0;
           padding: 0;
 
-          p {
-            display: flex;
-          }
-
-          li {
+          .cateList {
             display: flex;
             padding: 0 10px;
             line-height: 1.6;

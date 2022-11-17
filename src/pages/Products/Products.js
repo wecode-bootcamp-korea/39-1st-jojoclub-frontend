@@ -9,22 +9,20 @@ function Products() {
       </div>
       <div className="info">
         <div className="layoutInfoFull">
-          <div className="category">
-            {/* 수정 필요 */}
-            <ol>
-              <li>
+          <div className="categoryWrap">
+            <ol className="category">
+              <li className="cateList">
                 <a href="/" title="홈">
                   <p className="home">홈</p>
                 </a>
               </li>
-              <p className="tt">/</p>
-              <li>
+              <p>/</p>
+              <li className="cateList">
                 <a href="/" title="코롱">
                   <p>코롱</p>
                 </a>
               </li>
             </ol>
-            {/* 여기까지 */}
           </div>
           <div className="leftColumnSection">
             <div className="carousel">
