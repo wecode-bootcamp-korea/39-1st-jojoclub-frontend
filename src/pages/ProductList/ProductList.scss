@@ -9,6 +9,7 @@
   .productListContainer {
     display: flex;
     justify-content: space-around;
+
     overflow-x: scroll; //레이아웃 승인 완료 되면 지울것임
     white-space: nowrap;
     .productContainer {
@@ -104,5 +105,8 @@
   button:hover {
     opacity: 0.8;
     cursor: pointer;
+  }
+  .openModal {
+    z-index: +2;
   }
 }

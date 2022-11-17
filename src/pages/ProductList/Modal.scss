@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 130vh;
+  background-color: #4b4a47;
+
+  .modalContainer {
+    display: flex;
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+    height: 60vh;
+    transform: translate(0, 115%);
+    background-color: #fcf9ee;
+    .closeBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-style: none;
+      background-color: transparent;
+      background-image: url('../../../public/images/productlist/close.png');
+      background-size: cover;
+      cursor: pointer;
+    }
+    .content {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+  }
+}
