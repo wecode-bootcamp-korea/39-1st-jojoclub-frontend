@@ -5,16 +5,70 @@ function Pay() {
   return (
     <div className="pay">
       <main>
+        <ul>
+          <li>주문서 작성</li>
+          <li>주문 검토</li>
+          <li>결제</li>
+          <li>최종 확인</li>
+        </ul>
+        <p>배송지 정보</p>
+        *는 필수 입력 정보입니다.
+        <div>
+          <input type="text" />
+        </div>
+        <div className="address">
+          <input type="text" />
+          <button>우편번호</button>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+        <input type="text" />
+        <p>*휴대전화 번호</p>
+        <div className="threeinput">
+          <select>
+            <option selected>선택</option>
+            <option>010</option>
+            <option>011</option>
+            <option>016</option>
+            <option>017</option>
+            <option>018</option>
+            <option>019</option>
+          </select>
+          <input type="text" />
+          <input type="text" />
+        </div>
+        연락처
+        <div className="threeinput">
+          <select>
+            <option selected>선택</option>
+            <option>010</option>
+            <option>011</option>
+            <option>016</option>
+            <option>017</option>
+            <option>018</option>
+            <option>019</option>
+          </select>
+          <input type="text" />
+          <input type="text" />
+        </div>
+        <div className="needbox">
+          <input type="text" />
+        </div>
+        배송 정보
+        <h2>선물 포장</h2>
+        <div className="package">
+          <input type="radio" name="option" /> 선물 포장 서비스 선택
+        </div>
         <p>
-          결제하기 단계로 이동하기 전에 아래 고객님의 주문사항을 확인해주세요
+          *정품 구매 시 위 말론 선릉을 대표하는 시그니처 박스에 정성스럽게
+          포장해 드립니다.
         </p>
-        <div>결제방법</div>
-        <input type="radio" name="payway" /> 신용카드
-        <input type="radio" name="payway" /> 무통장 입금
-        <input type="radio" name="payway" /> Kakao Pay
-        <input type="radio" name="payway" /> Payco
-        <input type="radio" name="payway" /> SSG Pay
-        <input type="radio" name="payway" /> 네이버페이
+        <p>
+          *쇼핑백 동봉을 원하실 경우 장바구니 하단 페이지에서 별도 구매해 주시기
+          바랍니다.
+        </p>
+        <button className="buy">결제하기</button>
       </main>
       <div className="asidemenu">
         <aside>
@@ -51,5 +105,4 @@ function Pay() {
     </div>
   );
 }
-
 export default Pay;

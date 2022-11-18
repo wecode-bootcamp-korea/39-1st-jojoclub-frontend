@@ -1,17 +1,107 @@
+@import '/src/styles/variables';
+@import '/src/pages/Login/styles/mixin';
 
-.asidemenu{
-  flex: 1;
-  margin: 10px;
+*{
+  background-color:$background-color;
+}
+.pay{
+  display: flex;
   font-size: 12px;
-  aside{
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid black;
-    h2{
-      text-align: center;
+
+  main{
+    flex: 1.5;
+    margin: 50px;
+    
+      ul{
+        display: inline-block;
+       
+        li{
+          margin: 40px;
+          float:left;
+        }
+      }
+    input{
+      width:350px;
+      height: 40px;
+      margin: 10px 0;
+      padding: 0 10px;
+      border: 1px solid #cccccc;
+      background-color: white;
     }
-    p{
-      margin: 10px;
+    .address{
+      input{
+        width:220px;
+      }
+      button{
+        width:120px;
+        height:40px;
+        margin-left: 10px;
+        background-color: black;
+        color: white;
+      }
+    }
+    .threeinput{
+
+      select{
+        width:110px;
+        height: 40px;
+        margin-right: 10px;
+        background-color: white;
+      }
+
+      input{
+        width:110px;
+        margin-right: 10px
+        
+      }
+    }
+    .needbox{
+      input{
+        height: 80px;
     }
   }
+  .package{
+    input{
+      width: 17px;
+      height: 17px;
+      margin-right: 10px;
+    }
+  }
+  h2{
+    padding: 10px 0;
+    border-bottom: 1px solid black;
+  }
+  p{
+    margin: 20px 0;
+  }
+  .buy{
+    width: 120px;
+    height: 50px;
+    background-color: black;
+    color: white;
+  }
+  }
 }
+
+  .asidemenu{
+    flex: 1;
+    margin: 10px;
+    font-size: 12px;
+
+    aside{
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid black;
+
+      h2{
+        text-align: center;
+      }
+
+      p{
+        margin: 10px;
+      }
+    }
+    
+  }
+
+
