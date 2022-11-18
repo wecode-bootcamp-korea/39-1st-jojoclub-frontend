@@ -1,0 +1,17 @@
+
+.asidemenu{
+  flex: 1;
+  margin: 10px;
+  font-size: 12px;
+  aside{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    h2{
+      text-align: center;
+    }
+    p{
+      margin: 10px;
+    }
+  }
+}
