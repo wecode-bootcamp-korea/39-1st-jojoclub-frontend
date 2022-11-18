@@ -14,17 +14,23 @@
     flex: 2;
     margin:0 30px;
 
+    .items{
+      @include bodyText2;
+    }
+
       .title{
         margin:20px;
-        font-size: 2em;
+        @include titleH1;
         text-align: center;
       }
       .subtitle{
+        @include titleH4;
         margin:20px;
         text-align: center;
       }
 
       .listitems{
+        @include titleH4;
         @include itemlist;
         padding: 30px 0;
         border-top: 1px solid #cccccc;
@@ -32,7 +38,8 @@
       }
 
       .buyitems{
-        @include itemlist;
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
         padding: 30px 0;
         p{
           margin-bottom:10px;
@@ -88,8 +95,12 @@
     }
 
       .freeitem{
+        @include bodyText2;
         @include itemlist;
         padding: 50px 0;
+        .price{
+          text-align: right;
+        }
       }
       .buttonarea{
         display: flex; 
@@ -126,7 +137,7 @@
         .recommend{
           display: flex;
           flex-direction: column;
-         
+          @include bodyText2;
 
         .recommendbtn{
           display: flex; 

@@ -27,6 +27,18 @@ function Shopping() {
     setItemInfo([recommenditem[index], ...itemInfo]);
   };
 
+  //상품 수량 변경
+  const changeQty = (id, num) => {
+    setItemInfo(
+      itemInfo.map(item => {
+        if (item.id === id) {
+          item.qty = num;
+        }
+        return item;
+      })
+    );
+  };
+
   //추천 상품 리스트
   const recommenditem = [
     {
@@ -73,21 +85,24 @@ function Shopping() {
           <div>수량</div>
           <div>총 합계</div>
         </div>
-        {itemInfo.map((itemdata, i) => {
-          return (
-            <Shoppinglist
-              itemdata={itemdata}
-              itemInfo={itemInfo}
-              setItemInfo={setItemInfo}
-              key={itemdata.id}
-            />
-          );
-        })}
+        <div className="items">
+          {itemInfo.map((itemdata, i) => {
+            return (
+              <Shoppinglist
+                itemdata={itemdata}
+                itemInfo={itemInfo}
+                setItemInfo={setItemInfo}
+                key={itemdata.id}
+                onChangeQty={changeQty}
+              />
+            );
+          })}
+        </div>
         <div className="freeitem">
           <div>선물 박스(BODY CREME)</div>
           <div>증정품</div>
           <div>1</div>
-          <div>₩0</div>
+          <div className="price">₩0</div>
         </div>
         <p className="totalpay">합계 ₩{totalprice()}</p>
         <div className="buttonarea">

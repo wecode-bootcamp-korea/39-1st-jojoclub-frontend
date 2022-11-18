@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shopping.scss';
 
-function Shoppinglist({ itemdata, itemInfo, setItemInfo }) {
+function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
   //상품리스트 삭제
   const removeItem = id => setItemInfo(itemInfo.filter(item => item.id !== id));
 
@@ -9,17 +9,20 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo }) {
   const qtySelect = [...Array(8).keys()].map(key => key + 1);
   const [qtyOpen, setQtyOpen] = useState(false);
 
-  //수량 선택창 또 다른 방법
-  /* const QtyInput = () => {
-     const arr = [];
-     for (let i = 1; i < 9; i++) {
-       arr.push(<button>{i}</button>);
-     }
-     return arr; 
-   };*/
+  //수량 선택창 끄기
+  const modalclose = () => {
+    if (qtyOpen === true) setQtyOpen(false);
+  };
+
+  //수량 선택하여 수량 바꾸기
+  const qtychange = num => {
+    itemdata.qty = num;
+    onChangeQty(itemdata.id, num);
+  };
 
   return (
-    <div className="buyitems" key={itemdata.id}>
+    <div className="buyitems" key={itemdata.id} onClick={modalclose}>
+      <div>image</div>
       <div>
         <p>{itemdata.koName}</p>
         <p>{itemdata.enName}</p>
@@ -36,7 +39,16 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo }) {
         </button>
         <div className={`qtybtn ${qtyOpen ? 'active' : 'inactive'}`}>
           {qtySelect.map((btn, i) => {
-            return <button key={i}>{btn}</button>;
+            return (
+              <button
+                key={i}
+                onClick={() => {
+                  qtychange(btn);
+                }}
+              >
+                {btn}
+              </button>
+            );
           })}
         </div>
       </div>
