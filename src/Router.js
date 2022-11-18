@@ -7,6 +7,7 @@ import Products from './pages/Products/Products';
 import Shopping from './pages/Shopping/Shopping';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import Pay from './pages/Pay/Pay';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/productList" element={<ProductList />} />
         <Route path="/products" element={<Products />} />
         <Route path="/shopping" element={<Shopping />} />
+        <Route path="/pay" element={<Pay />} />
       </Routes>
       <Footer />
     </BrowserRouter>
