@@ -9,25 +9,12 @@ function Pay() {
           결제하기 단계로 이동하기 전에 아래 고객님의 주문사항을 확인해주세요
         </p>
         <div>결제방법</div>
-        신용카드
-        <input type="radio" name="payway">
-          신용카드
-        </input>
-        <input type="radio" name="payway">
-          무통장 입급
-        </input>
-        <input type="radio" name="payway">
-          Kakao Pay
-        </input>
-        <input type="radio" name="payway">
-          Payco
-        </input>
-        <input type="radio" name="payway">
-          SSG Pay
-        </input>
-        <input type="radio" name="payway">
-          네이버페이
-        </input>
+        <input type="radio" name="payway" /> 신용카드
+        <input type="radio" name="payway" /> 무통장 입금
+        <input type="radio" name="payway" /> Kakao Pay
+        <input type="radio" name="payway" /> Payco
+        <input type="radio" name="payway" /> SSG Pay
+        <input type="radio" name="payway" /> 네이버페이
       </main>
       <div className="asidemenu">
         <aside>
