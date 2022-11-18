@@ -51,13 +51,36 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
-    setShowPassword(!showPassword);
+    setShowPassword(prev => !prev);
   };
 
-  const [allChecked, setAllChecked] = useState(false);
+  const [agreeList, setAgreeList] = useState({
+    usingTerm: false,
+    personal: false,
+    marketing: false,
+  });
 
-  const allCheckedHandler = () => {
-    setAllChecked(!allChecked);
+  const handleAgree = name => {
+    setAgreeList(prev => ({ ...prev, [name]: true }));
+  };
+
+  const handleDisAgree = name => {
+    setAgreeList(prev => ({ ...prev, [name]: false }));
+  };
+
+  const isAllChecked = () => {
+    const isAllCheck = Object.values(agreeList).every(el => el === true);
+    let newObj = {};
+    if (isAllCheck) {
+      for (let key in agreeList) {
+        newObj = { ...newObj, [key]: false };
+      }
+    } else {
+      for (let key in agreeList) {
+        newObj = { ...newObj, [key]: true };
+      }
+    }
+    setAgreeList(newObj);
   };
 
   return (
@@ -134,32 +157,45 @@ export default function Signup() {
         <button className="signupBtn">인증번호 확인</button>
       </div>
       <div className="agreement">
-        {AGREE_INFO.map(info => (
-          <div>
-            <p className="agreementBold">{info.title}</p>
-            <div className="scrollBarBox">{info.term}</div>
+        {AGREE_INFO.map(({ id, title, name, term }) => (
+          <div key={id}>
+            <p className="agreementBold">{title}</p>
+            <div className="scrollBarBox">{term}</div>
             <div className="agree">
               <label>
                 <input
                   type="radio"
-                  name={info.name}
-                  checked={allChecked ? true : false}
+                  name={name}
+                  checked={agreeList[name]}
+                  onClick={() => handleAgree(name)}
                 />
                 동의
               </label>
               <label>
-                <input type="radio" name={info.name} /> 동의하지 않음
+                <input
+                  type="radio"
+                  name={name}
+                  checked={!agreeList[name]}
+                  onClick={() => handleDisAgree(name)}
+                />
+                동의하지 않음
               </label>
             </div>
           </div>
         ))}
         <div className="allAgree">
-          <input type="checkbox" onChange={allCheckedHandler} /> 위 모든 항목에
-          동의합니다
+          <label>
+            <input
+              type="checkbox"
+              onChange={isAllChecked}
+              checked={Object.values(agreeList).every(el => el === true)}
+            />
+            위 모든 항목에 동의합니다
+          </label>
         </div>
         <div className="whetherToReceive">
-          {RECEPTION.map(accept => (
-            <div className="reception">
+          {RECEPTION.map((accept, index) => (
+            <div key={index} className="reception">
               {accept.title}
               <label>
                 <input type="radio" name={accept.name} /> 수신함
@@ -176,8 +212,10 @@ export default function Signup() {
           등이 제한될 수 있습니다.
         </p>
         <p className="olderThanFourteen">
-          <input type="checkbox" /> *가입자 본인은 만 14세 이상입니다. (만 14세
-          이상부터 회원가입이 가능합니다)
+          <label>
+            <input type="checkbox" /> *가입자 본인은 만 14세 이상입니다. (만
+            14세 이상부터 회원가입이 가능합니다)
+          </label>
         </p>
         <button
           disabled={!signupIsValidate || validatePassword < 0}
