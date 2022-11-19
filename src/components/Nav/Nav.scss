@@ -1,0 +1,153 @@
+@import '/src/styles/variables';
+
+@mixin li-default {
+  padding: 20px;
+  float: left;
+  color: #1c1c1c;
+  font-size: 13px;
+  list-style: none;
+}
+@mixin navstyle {
+  width: 100%;
+  background-color: $background-color;
+}
+@mixin hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.nav{
+  .menu {
+    margin-top: 17px;
+    margin-left: 40px;
+    padding-bottom: 30px;
+    float: left;
+    color: #1c1c1c;
+    font-size: 13px;
+  }
+
+  .logo {
+    display: block;
+    width: 180px;
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .navigate {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 65px;
+    padding-top:10px;
+    background-color: $background-color;
+    
+    li:hover{
+      @include hover;
+    }
+
+    .icons {
+    margin-right: 30px;
+
+    span {
+      margin-top: 8px;
+      margin-right: 20px;
+      color: #1c1c1c;
+      font-size: 28px;
+      font-weight: 200;
+    }
+    }
+  }
+
+  .inactive{
+    display: none;
+  }
+
+  .dropmenuall{
+    position: relative;
+
+  .hovernav {
+    @include navstyle;
+    position: absolute;
+
+    .secondmenulist{
+      display: inline-block;
+      margin-left: 20px;
+
+      .secondmenu{
+        @include li-default;
+      }
+
+      li:hover{
+        @include hover;
+      }
+    }
+  }
+
+  .dropmenu{
+    position: absolute;
+    top:50px;
+    padding-bottom: 20px;
+    background-color: $background-color;
+    
+    .scents{
+      display: flex;
+      margin-left: 17px;
+
+      .scent {
+      width: 160px;
+      height: 80px;
+      margin: 20px;
+      }
+
+      h2{
+      margin-bottom: 20px;
+      margin-left: 20px;
+      color: #1c1c1c;
+      font-size: 13px;
+      }
+
+      p{
+      margin-bottom: 12px;
+      margin-left: 20px;
+      color: #1c1c1c;
+      font-size: 12px;
+      }
+    }
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  .story{
+    position: absolute;
+    @include navstyle;
+
+    .secondmenu{
+      @include li-default;
+      display: inline-block;
+      width: 100%;
+      padding-left: 40px;
+    }
+
+    li:hover{
+      @include hover;
+    }
+
+    .storymenu{
+      @include navstyle;
+      padding-bottom: 20px;
+
+      .wecode{
+        width: 200px;
+        margin-left: 40px;
+      }
+
+      p {
+        margin:12px 0 12px 40px;
+        color: #1c1c1c;
+        font-size: 12px;
+      }
+    }
+  }
+}
+}
