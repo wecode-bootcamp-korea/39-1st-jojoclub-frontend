@@ -218,14 +218,149 @@
     }
     .layoutInfoContent {
       .howToUseCologne {
-        @include titleH3;
       }
       .productList {
-        @include titleH3;
+        display: flex;
       }
       .review {
+        display: flex;
         .contentHeader {
-          @include titleH3;
+          display: flex;
+        }
+
+        .colorBoxColor1 {
+          transition: 1s;
+          background-color: #333;
+        }
+
+        .colorBoxColor2 {
+          transition: 1s;
+          background-color: #333;
+        }
+        .colorBoxColor3 {
+          transition: 1s;
+          background-color: #0ac3dd;
+        }
+
+        .colorBoxColor4 {
+          transition: 1s;
+          background-color: plum;
+        }
+
+        .colorBoxColor5 {
+          transition: 1s;
+          background-color: rgb(103, 0, 193);
+        }
+
+        .slide1 {
+          display: inline-block;
+
+          transform: translateX(0px);
+          transition: 1s;
+        }
+
+        .fa-egg {
+          color: #333;
+        }
+
+        .mainColorBox {
+          width: 100%;
+          height: 500px;
+          padding-right: 300px;
+          padding-left: 300px;
+          white-space: nowrap;
+          .slideShowBody {
+            flex-flow: column nowrap;
+
+            .slideShowContents {
+              .fa-chevron-left {
+                transition: 0.3s;
+                color: #fff;
+                cursor: pointer;
+
+                &:hover {
+                  scale: 1.2;
+                  transition: 0.3s;
+                }
+              }
+
+              .fa-chevron-right {
+                transition: 0.3s;
+                color: #fff;
+                cursor: pointer;
+
+                &:hover {
+                  scale: 1.2;
+                  transition: 0.3s;
+                }
+              }
+            }
+
+            .slideShowChckeBox {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              cursor: pointer;
+
+              .slideCheck {
+                width: 35px;
+                height: 6px;
+                margin-top: 5px;
+                margin-right: 5px;
+                margin-left: 5px;
+                transition: 1s;
+                border-radius: 8px;
+                background-color: rgba(233, 233, 233, 0.5);
+                appearance: none;
+                cursor: pointer;
+
+                &:checked {
+                  width: 40px;
+                  height: 7px;
+                  transition: 1s;
+                  border-radius: 8px;
+                  background-color: rgba(255, 255, 255, 0.9);
+                  appearance: none;
+                }
+              }
+            }
+          }
+
+          .colorBoxContent {
+            .colorBoxText {
+              color: white;
+              font-family: 'Noto Sans KR', sans-serif;
+              font-size: 35px;
+              white-space: nowrap;
+              .siteName {
+                font-family: 'Alfa Slab One', cursive;
+              }
+
+              .fa-egg {
+                margin-right: 7px;
+              }
+
+              .colorBoxText2 {
+                margin-top: 10px;
+              }
+            }
+
+            .colorBoxIneer {
+              position: relative;
+              width: 350px;
+              .colorBoxInput {
+                width: 350px;
+                height: 45px;
+                margin-top: 15px;
+                padding: 5px 40px 5px 15px;
+                border: 2px solid #fff;
+                border-radius: 15px;
+                background: none;
+                color: #fff;
+                font-size: 20px;
+              }
+            }
+          }
         }
       }
     }
