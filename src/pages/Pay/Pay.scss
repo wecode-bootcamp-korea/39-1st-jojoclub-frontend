@@ -10,16 +10,24 @@
 
   main{
     flex: 1.5;
-    margin: 50px;
+
+   img{
+    width: 500px;
+    margin-top: 50px;
+    margin-left: 50px;
+   }
     
       ul{
         display: inline-block;
+        margin: 0 50px;
        
         li{
           margin: 40px;
           float:left;
         }
       }
+    .deliveryinfo{
+      margin: 50px;
     input{
       width:350px;
       height: 40px;
@@ -50,7 +58,7 @@
       }
 
       input{
-        width:110px;
+        width:130px;
         margin-right: 10px
         
       }
@@ -81,6 +89,7 @@
     color: white;
   }
   }
+}
 }
 
   .asidemenu{
