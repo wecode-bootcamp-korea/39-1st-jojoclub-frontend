@@ -102,6 +102,11 @@ function ProductList() {
           )
         )}
       </div>
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        productInfo={getInfo}
+      />
     </>
   );
 }
