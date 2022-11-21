@@ -1,3 +1,4 @@
+@import '/src/styles/variables';
 * {
   margin: 0;
   padding: 0;
@@ -7,16 +8,15 @@
   position: fixed;
   z-index: 1;
   width: 100vw;
-  height: 130vh;
-  background-color: #4b4a47;
-
+  height: 110vh;
+  background: rgba(28, 28, 28, 0.8);
   .modalContainer {
     display: flex;
     position: relative;
     z-index: 3;
     width: 100vw;
     height: 60vh;
-    transform: translate(0, 115%);
+    transform: translate(0, 80%);
     background-color: #fcf9ee;
     .closeBtn {
       position: fixed;
@@ -32,9 +32,64 @@
       cursor: pointer;
     }
     .content {
+      display: flex;
       position: fixed;
       top: 20px;
-      left: 20px;
+      left: 300px;
+      justify-content: center;
+    }
+  }
+}
+
+.leftColumnSection {
+  display: flex;
+  flex-flow: column;
+  width: 68%;
+
+  .carousel {
+    width: 100%;
+    max-width: 472px;
+    margin: 0 auto;
+    padding: 0;
+
+    .slideImg {
+      .sildeItem {
+        img {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+.rightColumnSection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 32%;
+  max-width: 328px;
+  .productsContainer {
+    .badge {
+      @include bodyText2;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .nameEn {
+      @include titleH2;
+      margin: 20px 0 13px;
+    }
+
+    .nameKr {
+      @include titleH3;
+    }
+
+    .price {
+      @include bodyText2;
+      display: flex;
+      width: 100%;
+      margin: 10px 0 24px;
+      padding: 0;
+      font-weight: 600;
     }
   }
 }
