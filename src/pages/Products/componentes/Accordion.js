@@ -14,7 +14,11 @@ function Accordion({ title, content }) {
             setCheck(e => !e);
           }}
         >
-          {isCheck ? '-' : '+'}
+          {isCheck ? (
+            <span class="material-symbols-outlined">expand_less</span>
+          ) : (
+            <span class="material-symbols-outlined">expand_more</span>
+          )}
         </button>
       </div>
 

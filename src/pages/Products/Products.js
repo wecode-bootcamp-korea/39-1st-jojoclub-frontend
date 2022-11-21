@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Products.scss';
 import Accordion from './componentes/Accordion';
+import ImageSlide from './componentes/ImageSlide';
 
 function Products() {
   const [products, setProducts] = useState([]);
+
+  const slides = [
+    { url: '/images/products/imgslide_item_01.png', title: 'test1' },
+    { url: '/images/products/imgslide_item_02.png', title: 'test2' },
+    { url: '/images/products/imgslide_item_03.png', title: 'test3' },
+    { url: '/images/products/imgslide_item_04.png', title: 'test4' },
+  ];
 
   useEffect(() => {
     fetch('/data/products.json')
@@ -35,49 +43,65 @@ function Products() {
             </ol>
           </div>
           <div className="leftColumnSection">
-            <div className="carousel">
-              <div className="slideImg">
-                <div className="sildeItem">
-                  <img src="/images/products/imgslide_item_01.png" />
-                </div>
-              </div>
-              <ul className="slideBar">
-                <li className="slideBarDot" />
-                <li className="slideBarDot" />
-              </ul>
-            </div>
+            <ImageSlide slides={slides} />
             <span className="btnShare">공유하기</span>
           </div>
           <div className="rightColumnSection">
-            {products.map(({ id, nameEn, nameKr, price, description }) => (
-              <ul className="productsContainer" key={id}>
-                <li className="badge">베스트 셀러</li>
-                <li className="nameEn">{nameEn}</li>
-                <li className="nameKr">{nameKr}</li>
-                <li className="price">{price}</li>
-                <li className="reviewBox">
-                  <span className="averageRating">4.9/5</span>
-                  <span className="btnReadReview">리뷰 보기</span>
-                </li>
-                <li className="description">{description}</li>
-                <li className="sizePicker">
-                  <div className="pickerTrack">
-                    <div className="trackItem">
-                      <img src="/images/products/jo_sku_LGN901_100x100_0.png" />
+            {products.map(
+              ({
+                id,
+                nameEn,
+                nameKr,
+                price,
+                description,
+                size30,
+                size50,
+                size100,
+              }) => (
+                <ul className="productsContainer" key={id}>
+                  <li className="badge">베스트 셀러</li>
+                  <li className="nameEn">{nameEn}</li>
+                  <li className="nameKr">{nameKr}</li>
+                  <li className="price">{price}</li>
+                  <li className="reviewBox">
+                    <span className="averageRating">4.9/5</span>
+                    <span className="btnReadReview">리뷰 보기</span>
+                  </li>
+                  <li className="description">{description}</li>
+                  <li className="sizePicker">
+                    <div className="pickerTrack">
+                      <li className="trackItem">
+                        <img src={size100} alt="size100ml" />
+                        <p className="trackSize">100ML</p>
+                      </li>
+                      <li className="trackItem">
+                        <img
+                          clssName="trackItemImg"
+                          src={size50}
+                          alt="size50ml"
+                        />
+                        <p className="trackSize">50ML</p>
+                      </li>
+                      <li className="trackItem">
+                        <img src={size30} alt="size30ml" />
+                        <p className="trackSize">30ML</p>
+                      </li>
                     </div>
-                    <div className="trackItem" />
-                  </div>
-                </li>
-                <li className="btnBox">
-                  <button className="btnCart">장바구니 담기</button>
-                </li>
-                <li className="wishListBox">
-                  <div className="wishList">위시리스트</div>
-                  <div className="wishIcon" />
-                </li>
-                <li className="borderBox" />
-              </ul>
-            ))}
+                  </li>
+                  <li className="btnBox">
+                    <button className="btnCart">장바구니</button>
+                    <button className="btnCart">바로구매</button>
+                  </li>
+                  <li className="wishListBox">
+                    <div className="wishList">위시리스트</div>
+                    <div className="wishIcon">
+                      <span class="material-symbols-outlined">bookmark</span>
+                    </div>
+                  </li>
+                  <li className="borderBox" />
+                </ul>
+              )
+            )}
           </div>
           <div className="infoContentSection">
             <div className="ingredients">

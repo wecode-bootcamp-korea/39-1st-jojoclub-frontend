@@ -61,45 +61,11 @@
         flex-flow: column;
         width: 68%;
 
-        .carousel {
-          width: 100%;
-          max-width: 472px;
-          margin: 0 auto;
-          padding: 0;
-
-          .slideImg {
-            .sildeItem {
-              img {
-                width: 100%;
-                cursor: zoom-in;
-              }
-            }
-          }
-          .slideBar {
-            display: flex;
-            position: relative;
-            align-items: center;
-            justify-content: center;
-            margin: 16px 0 0;
-
-            .slideBarDot {
-              display: inline-block;
-              position: relative;
-              width: 5px;
-              height: 5px;
-              margin: 8px;
-              padding: 0px;
-              border-radius: 50%;
-              background-color: $color-black;
-              cursor: pointer;
-            }
-          }
-        }
         .btnShare {
           @include linkBold;
           display: flex;
           justify-content: center;
-          margin: 12px auto 0;
+          margin: 44px auto 0;
           font-weight: 400;
         }
       }
@@ -132,6 +98,7 @@
             padding: 0;
             font-weight: 600;
           }
+
           .reviewBox {
             display: flex;
             justify-content: flex-end;
@@ -161,13 +128,29 @@
             display: flex;
 
             .pickerTrack {
+              display: flex;
+
               .trackItem {
-                display: block;
+                display: inline-block;
+                margin: 0 auto;
+                text-align: center;
+                row-gap: 10px;
+                cursor: pointer;
+
+                .trackItemImg {
+                }
+
+                .trackSize {
+                  @include linkCap;
+                }
               }
             }
           }
 
           .btnBox {
+            display: flex;
+            column-gap: 8px;
+
             .btnCart {
               position: relative;
               width: 100%;
@@ -181,11 +164,13 @@
 
           .wishListBox {
             display: flex;
+            align-items: center;
             justify-content: flex-end;
             margin: 0 0 0 auto;
 
             .wishList {
               @include bodyText;
+              font-size: 12px;
             }
 
             .wishIcon {
@@ -222,42 +207,6 @@
       .productList {
       }
       .review {
-      }
-
-      .colorBoxContent {
-        .colorBoxText {
-          color: white;
-          font-family: 'Noto Sans KR', sans-serif;
-          font-size: 35px;
-          white-space: nowrap;
-          .siteName {
-            font-family: 'Alfa Slab One', cursive;
-          }
-
-          .fa-egg {
-            margin-right: 7px;
-          }
-
-          .colorBoxText2 {
-            margin-top: 10px;
-          }
-        }
-
-        .colorBoxIneer {
-          position: relative;
-          width: 350px;
-          .colorBoxInput {
-            width: 350px;
-            height: 45px;
-            margin-top: 15px;
-            padding: 5px 40px 5px 15px;
-            border: 2px solid #fff;
-            border-radius: 15px;
-            background: none;
-            color: #fff;
-            font-size: 20px;
-          }
-        }
       }
     }
   }
