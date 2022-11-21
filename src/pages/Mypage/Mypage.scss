@@ -44,6 +44,11 @@
       margin: 30px 0;
       @include bodyText2;
       font-weight: 600;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
     }
 
     .customerManagement {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Mypage.scss';
 
 export default function Mypage() {
@@ -8,9 +9,15 @@ export default function Mypage() {
         <p className="mypageTab">마이페이지</p>
         <p className="logout">로그아웃</p>
         <ul className="menuList">
-          <li>회원정보 입력</li>
-          <li>배송주소록</li>
-          <li>주문내역 보기</li>
+          <Link>
+            <li>회원정보 입력</li>
+          </Link>
+          <Link>
+            <li>배송주소록</li>
+          </Link>
+          <Link>
+            <li>주문내역 보기</li>
+          </Link>
         </ul>
         <div className="customerManagement">
           <p>고객관리 지원팀</p>
