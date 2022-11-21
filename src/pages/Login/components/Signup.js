@@ -4,25 +4,43 @@ import { AGREE_INFO, RECEPTION } from '../AgreeInfo';
 import './Signup.scss';
 
 export default function Signup() {
-  const signupFetchFunction = e => {
-    signupIsValidate
-      ? navigate('/')
-      : alert('아이디 또는 비밀번호를 확인해 주세요.');
-  };
-  // const signupFetchFunction = () => {
-  //   fetch('api주소', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json;charset=utf-8' },
-  //     body: JSON.stringify({ name: name, email: emailValue, password: pwValue }),
-  //   })
-  //     .then(response => response.json());
-  //     .then(response => console.log(response));
+  // const signupFetchFunction = e => {
+  //   signupIsValidate
+  //     ? navigate('/')
+  //     : alert('아이디 또는 비밀번호를 확인해 주세요.');
   // };
+
+  const signupFetchFunction = e => {
+    fetch('http://10.58.52.180:3000/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        name: userInfo.name,
+        email: userInfo.email,
+        password: userInfo.pw,
+        phoneNumber: userInfo.phoneNum,
+      }),
+    })
+      .then(response => {
+        if (response.ok !== true) {
+          throw new Error('error');
+        }
+        return response.json();
+      })
+      .catch(err => {
+        alert('회원가입 실패');
+      })
+      .then(data => {
+        alert('회원가입 성공!');
+        navigate('/');
+      });
+  };
 
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
     pw: '',
+    phoneNum: '',
   });
 
   const handleUserInfo = event => {
@@ -36,11 +54,11 @@ export default function Signup() {
   const signupIsValidate =
     userInfo.name.length > 0 &&
     userInfo.email.includes('@') &&
-    userInfo.pw.length > 0;
+    userInfo.pw.length >= 6;
 
-  const validatePassword = userInfo.pw.search(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/
-  );
+  // const validatePassword = userInfo.pw.search(
+  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/
+  // );
 
   // const validateLowercaseChar = userInfo.pw.match(/^(?=.*[a-z])$/);
   // const validateUppercaseChar = userInfo.pw.match(/^(?=.*[A-Z])$/);
@@ -134,7 +152,15 @@ export default function Signup() {
       </div>
       <div className="phoneNumberBox">
         <p className="phoneNumber">*휴대전화 번호</p>
-        <div className="phoneNumInput">
+        <input
+          className="phoneNumInput"
+          type="text"
+          name="phoneNum"
+          placeholder="000-0000-0000"
+          value={userInfo.phoneNum}
+          onChange={handleUserInfo}
+        />
+        {/* <div className="phoneNumInput">
           <select>
             <option selected>선택</option>
             <option>010</option>
@@ -146,7 +172,7 @@ export default function Signup() {
           </select>
           <input type="tel" maxlength="4" />
           <input type="tel" maxlength="4" />
-        </div>
+        </div> */}
         <button className="signupBtn">인증번호 요청</button>
         <input
           className="certificationNum"
@@ -218,7 +244,7 @@ export default function Signup() {
           </label>
         </p>
         <button
-          disabled={!signupIsValidate || validatePassword < 0}
+          disabled={!signupIsValidate}
           className="signupBtn"
           onClick={signupFetchFunction}
         >

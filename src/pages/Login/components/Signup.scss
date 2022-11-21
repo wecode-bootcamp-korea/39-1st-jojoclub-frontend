@@ -32,24 +32,35 @@
   }
 
   .phoneNumInput {
-    select,
-    input {
-      width: 32%;
-      height: 40px;
-      margin-top: 5px;
-      margin-right: 5px;
-      padding: 0 10px;
-      border: 1px solid #cccccc;
+    @include inputStyle;
 
-      &:focus {
-        outline: 1px dotted black;
-      }
+    &:focus {
+      outline: 1px dotted black;
+    }
 
-      &::placeholder {
-        color: #cccccc;
-      }
+    &::placeholder {
+      color: #cccccc;
     }
   }
+  // .phoneNumInput {
+  //   select,
+  //   input {
+  //     width: 32%;
+  //     height: 40px;
+  //     margin-top: 5px;
+  //     margin-right: 5px;
+  //     padding: 0 10px;
+  //     border: 1px solid #cccccc;
+
+  //     &:focus {
+  //       outline: 1px dotted black;
+  //     }
+
+  //     &::placeholder {
+  //       color: #cccccc;
+  //     }
+  //   }
+  // }
 
   .signupBtn {
     @include buttonStyle;

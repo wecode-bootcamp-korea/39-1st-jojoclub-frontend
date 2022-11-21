@@ -3,32 +3,32 @@ import { useNavigate } from 'react-router-dom';
 import './Signin.scss';
 
 export default function Signin() {
-  const signinFetchFunction = e => {
-    signinIsValidate
-      ? navigate('/')
-      : alert('아이디 또는 비밀번호를 확인해 주세요.');
-  };
-
-  // const signinFetchFunction = () => {
-  //   fetch('api주소', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json;charset=utf-8' },
-  //     body: JSON.stringify({ email: emailValue, password: pwValue }),
-  //   })
-  //     .then(response => {
-  //       if (response.status !== 200) {
-  //         throw new Error('error');
-  //       }
-  //       return response.json();
-  //     })
-  //     .catch(err => {
-  //       alert('아이디 또는 비밀번호를 확인해주세요.');
-  //     })
-  //     .then(data => {
-  //       localStorage.setItem('token', data.accessToken);
-  //       navigate('/');
-  //     });
+  // const signinFetchFunction = e => {
+  //   signinIsValidate
+  //     ? navigate('/')
+  //     : alert('아이디 또는 비밀번호를 확인해 주세요.');
   // };
+
+  const signinFetchFunction = () => {
+    fetch('http://10.58.52.180:3000/users/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({ email: userInfo.email, password: userInfo.pw }),
+    })
+      .then(response => {
+        if (response.status !== 200) {
+          throw new Error('error');
+        }
+        return response.json();
+      })
+      .catch(err => {
+        alert('아이디 또는 비밀번호를 확인해주세요.');
+      })
+      .then(data => {
+        localStorage.setItem('token', data.accessToken);
+        navigate('/');
+      });
+  };
 
   const [userInfo, setUserInfo] = useState({
     email: '',
@@ -43,7 +43,7 @@ export default function Signin() {
   const navigate = useNavigate();
 
   const signinIsValidate =
-    userInfo.email.includes('@') && userInfo.pw.length > 7;
+    userInfo.email.includes('@') && userInfo.pw.length >= 6;
 
   return (
     <div className="existingCustomers">
