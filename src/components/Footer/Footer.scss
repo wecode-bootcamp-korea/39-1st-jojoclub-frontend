@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.footer {
+  @include bodyText2;
+  margin: 40px;
+
+  .listWrap {
+    display: flex;
+    line-height: 350%;
+
+    .listName {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .customerService {
+      width: 20%;
+    }
+
+    .companyIntroduction {
+      width: 20%;
+    }
+
+    .socialNetwork {
+      width: 20%;
+    }
+  }
+
+  .bottomText {
+    margin-top: 70px;
+    line-height: 150%;
+  }
+}
