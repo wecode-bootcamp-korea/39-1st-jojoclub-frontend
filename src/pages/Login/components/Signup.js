@@ -132,19 +132,19 @@ export default function Signup() {
             onChange={handleUserInfo}
           />
         </div>
-        {/* <div className="passwordCondition">
-          <ul className="passwordConditionList">
-            <li>최소 한 글자 이상의 소문자를 입력해주세요.</li>
-            <li>최소 한 글자 이상의 대문자를 입력해주세요.</li>
-            <li>최소 한 개 이상의 숫자를 포함해주세요.</li>
-            <li>여덟 글자 이상으로 생성해주세요.</li>
-            <li>최소 한 개 이상의 특수문자를 포함해주세요.</li>
-          </ul>
-        </div> */}
         <label>
           <input type="checkbox" value="showPw" onChange={togglePassword} />
           비밀번호 표시
         </label>
+        <div className="inputSignup">
+          <input
+            type="password"
+            placeholder="* 비밀번호 재확인"
+            name="pw"
+            value={userInfo.pw}
+            onChange={handleUserInfo}
+          />
+        </div>
         <p className="pwCautionMsg">
           영문 대문자, 소문자, 숫자, 특수문자를 모두 조합하여 8자 이상으로
           구성해주세요. (예시: Jomalone123!)
@@ -160,27 +160,6 @@ export default function Signup() {
           value={userInfo.phoneNum}
           onChange={handleUserInfo}
         />
-        {/* <div className="phoneNumInput">
-          <select>
-            <option selected>선택</option>
-            <option>010</option>
-            <option>011</option>
-            <option>016</option>
-            <option>017</option>
-            <option>018</option>
-            <option>019</option>
-          </select>
-          <input type="tel" maxlength="4" />
-          <input type="tel" maxlength="4" />
-        </div> */}
-        <button className="signupBtn">인증번호 요청</button>
-        <input
-          className="certificationNum"
-          type="number"
-          placeholder="* 인증번호"
-          disabled
-        />
-        <button className="signupBtn">인증번호 확인</button>
       </div>
       <div className="agreement">
         {AGREE_INFO.map(({ id, title, name, term }) => (
