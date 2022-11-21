@@ -8,6 +8,10 @@
     display: flex;
     line-height: 350%;
 
+    li:hover {
+      text-decoration: underline;
+    }
+
     .listName {
       font-size: 13px;
       font-weight: bold;
