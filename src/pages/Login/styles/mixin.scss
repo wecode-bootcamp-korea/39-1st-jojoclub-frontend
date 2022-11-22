@@ -6,6 +6,7 @@
 }
 
 @mixin inputStyle {
+  position: relative;
   width: 100%;
   height: 40px;
   margin: 10px 0;
@@ -13,4 +14,26 @@
   border: 1px solid #cccccc;
   border-radius: 0%;
   line-height: middle;
+
+  &:focus {
+    outline: 1px dotted black;
+  }
+}
+
+@mixin label {
+  position: absolute;
+  top: 23px;
+  left: 10px;
+  transform-origin: 0 0;
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+  color: #cccccc;
+  font-size: 14px;
+}
+
+@mixin placeholderSlide {
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    transform: translateY(-1.2em) scale(0.8);
+  }
 }

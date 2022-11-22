@@ -8,15 +8,16 @@
     font-weight: bold;
   }
 
-  .inputSignup input {
-    @include inputStyle;
+  .inputSignup {
+    position: relative;
+    @include placeholderSlide;
 
-    &:focus {
-      outline: 1px dotted black;
+    input {
+      @include inputStyle;
     }
 
-    &::placeholder {
-      color: #cccccc;
+    label {
+      @include label;
     }
   }
 
@@ -33,10 +34,6 @@
 
   .phoneNumInput {
     @include inputStyle;
-
-    &:focus {
-      outline: 1px dotted black;
-    }
 
     &::placeholder {
       color: #cccccc;

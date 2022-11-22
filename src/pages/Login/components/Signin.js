@@ -53,19 +53,21 @@ export default function Signin() {
           <input
             name="email"
             type="text"
-            placeholder="* 이메일 주소"
+            placeholder=" "
             value={userInfo.email}
             onChange={handleUserInfo}
           />
+          <label for="name">* 이메일 주소</label>
         </div>
         <div className="inputLogin">
           <input
             name="pw"
             type="password"
-            placeholder="* 비밀번호"
+            placeholder=" "
             value={userInfo.pw}
             onChange={handleUserInfo}
           />
+          <label for="name">* 비밀번호</label>
         </div>
       </div>
       <p className="underline">여기를 클릭하세요.</p>

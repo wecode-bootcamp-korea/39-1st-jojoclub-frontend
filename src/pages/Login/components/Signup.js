@@ -32,7 +32,7 @@ export default function Signup() {
       })
       .then(data => {
         alert('회원가입 성공!');
-        navigate('/');
+        navigate('/mypage');
       });
   };
 
@@ -72,6 +72,29 @@ export default function Signup() {
     setShowPassword(prev => !prev);
   };
 
+  const [confirmPw, setConfirmPw] = useState({
+    pw: '',
+    pwConfirm: '',
+    pwCheck: '비밀번호 입력',
+  });
+
+  const handlePwConfirm = event => {
+    const { name, value } = event.target;
+    setConfirmPw(prev => ({ ...prev, [name]: value }));
+    handlePwCheck();
+    //setTimeout(handlePwCheck, 100);
+  };
+
+  const handlePwCheck = () => {
+    if (confirmPw.pw.length < 1 || confirmPw.pwConfirm.length < 1) {
+      setConfirmPw({ pwCheck: '비밀번호 입력' });
+    } else if (confirmPw.pw === confirmPw.pwConfirm) {
+      setConfirmPw({ pwCheck: '일치' });
+    } else {
+      setConfirmPw({ pwCheck: '불일치' });
+    }
+  };
+
   const [agreeList, setAgreeList] = useState({
     usingTerm: false,
     personal: false,
@@ -108,29 +131,35 @@ export default function Signup() {
         <div className="inputSignup">
           <input
             type="text"
-            placeholder="* 이름"
+            placeholder=" "
             name="name"
+            id="name"
             value={userInfo.name}
             onChange={handleUserInfo}
           />
+          <label for="name">* 이름</label>
         </div>
         <div className="inputSignup">
           <input
             type="text"
-            placeholder="* 이메일 주소"
+            placeholder=" "
             name="email"
+            id="email"
             value={userInfo.email}
             onChange={handleUserInfo}
           />
+          <label for="name">* 이메일 주소</label>
         </div>
         <div className="inputSignup">
           <input
             type={showPassword ? 'text' : 'password'}
-            placeholder="* 비밀번호"
+            placeholder=" "
             name="pw"
-            value={userInfo.pw}
-            onChange={handleUserInfo}
+            id="pw"
+            value={(userInfo.pw, confirmPw.pw)}
+            onChange={(handleUserInfo, handlePwConfirm)}
           />
+          <label for="name">* 비밀번호</label>
         </div>
         <label>
           <input type="checkbox" value="showPw" onChange={togglePassword} />
@@ -139,15 +168,17 @@ export default function Signup() {
         <div className="inputSignup">
           <input
             type="password"
-            placeholder="* 비밀번호 재확인"
-            name="pw"
-            value={userInfo.pw}
-            onChange={handleUserInfo}
+            placeholder=" "
+            name="pwConfirm"
+            value={confirmPw.pwConfirm}
+            onChange={handlePwConfirm}
           />
+          <label for="name">* 비밀번호 재확인</label>
         </div>
+        <div>비밀번호 일치여부: {confirmPw.pwCheck}</div>
         <p className="pwCautionMsg">
-          영문 대문자, 소문자, 숫자, 특수문자를 모두 조합하여 8자 이상으로
-          구성해주세요. (예시: Jomalone123!)
+          영문 소문자, 숫자, 특수문자를 모두 조합하여 6자 이상으로 구성해주세요.
+          (예시: Jomalone123!)
         </p>
       </div>
       <div className="phoneNumberBox">
