@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Mypage.scss';
 
 export default function Mypage() {
+  const [form, setForm] = useState({
+    year: '2022',
+    month: '01',
+    day: '01',
+  });
+
+  const now = new Date();
+  let years = [];
+  for (let y = now.getFullYear(); y >= 1930; y -= 1) {
+    years.push(y);
+  }
+  let months = [];
+  for (let m = 1; m <= 12; m += 1) {
+    if (m < 10) {
+      months.push('0' + m.toString());
+    } else {
+      months.push(m.toString());
+    }
+  }
+  let days = [];
+  let date = new Date(form.year, form.month, 0).getDate();
+  for (let d = 1; d <= date; d += 1) {
+    if (d < 10) {
+      days.push('0' + d.toString());
+    } else {
+      days.push(d.toString());
+    }
+  }
+
   return (
     <div className="mypage">
       <div className="leftMenu">
@@ -40,10 +69,12 @@ export default function Mypage() {
           </p>
           <div className="personalInfo">
             <p className="personalInfoManagementFont">개인정보 관리</p>
-            <p>이름</p>
+            <p>이름:</p>
             <p>(고객 이름)</p>
             <p>이메일 주소:</p>
             <p>(고객 이메일)</p>
+            <p>휴대전화 번호:</p>
+            <p>(고객 폰번호)</p>
             <div>
               <input
                 className="passwordChange"
@@ -57,56 +88,45 @@ export default function Mypage() {
           </div>
           <div className="address">
             <p className="addressFont">주소</p>
-            <div>
-              <input
-                className="inputAddress"
-                type="address"
-                placeholder="*주소"
-              />
-            </div>
-            <div>
-              <input
-                className="inputAddress"
-                type="address"
-                placeholder="*상세주소"
-              />
-            </div>
-            <p>*휴대전화 번호</p>
-            <div className="phoneNumber">
-              <select>
-                <option selected>선택</option>
-                <option>010</option>
-                <option>011</option>
-                <option>016</option>
-                <option>017</option>
-                <option>018</option>
-                <option>019</option>
-              </select>
-              <input type="tel" maxlength="4" />
-              <input type="tel" maxlength="4" />
-            </div>
-            <p>연락처</p>
-            <div className="phoneNumber">
-              <select>
-                <option selected>선택</option>
-                <option>010</option>
-                <option>011</option>
-                <option>016</option>
-                <option>017</option>
-                <option>018</option>
-                <option>019</option>
-              </select>
-              <input type="tel" maxlength="4" />
-              <input type="tel" maxlength="4" />
+            <div className="inputAddress">
+              <input id="address" type="address" placeholder=" " />
+              <label for="address">* 주소</label>
             </div>
           </div>
           <div className="additionalInformation">
             <p className="additionalInformationFont">추가정보(선택)</p>
             <p>고객님의 생일은 언제입니까?</p>
             <div className="birthday">
-              <select />
-              <select />
-              <select />
+              <select
+                value={form.year}
+                onChange={e => setForm({ ...form, year: e.target.value })}
+              >
+                {years.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={form.month}
+                onChange={e => setForm({ ...form, month: e.target.value })}
+              >
+                {months.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={form.day}
+                onChange={e => setForm({ ...form, day: e.target.value })}
+              >
+                {days.map(item => (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
             </div>
             <p>성별</p>
             <label>
