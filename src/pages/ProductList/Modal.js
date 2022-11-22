@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Modal.scss';
 
 const Modal = ({ open, onClose, productInfo }) => {
@@ -9,9 +10,14 @@ const Modal = ({ open, onClose, productInfo }) => {
       .then(res => res.json())
       .then(data => setProductInfoList(data));
   }, [productInfo]);
-
   console.log(productInfo);
   console.log(productInfoList);
+
+  //장바구니로 데이터 보내기
+  // const [getInfo, setGetInfo] = useState(0);
+  // const addToCart = id => {
+  //   setGetInfo(id);
+  // };
 
   if (!open) return null;
   return (
@@ -20,7 +26,6 @@ const Modal = ({ open, onClose, productInfo }) => {
         <div className="modalClose">
           <button onClick={onClose} className="closeBtn" />
         </div>
-        {/* 여기서부터 모달 컨텐츠. 부모컴포넌트에서 받아와야 함 */}
         <div className="content">
           <div className="previewProductSection">
             {productInfoList.map(
@@ -34,10 +39,15 @@ const Modal = ({ open, onClose, productInfo }) => {
                     <li className="description">{shortDescription}</li>
                     <li className="price">{price}</li>
                     <li className="btnBox">
-                      <button className="btnCart">장바구니 담기</button>
+                      <Link to="/shopping">
+                        {/* <button className="btnCart" onClick={addToCart}> */}
+                        <button className="btnCart">장바구니 담기</button>
+                      </Link>
                     </li>
                     <li className="btnBox">
-                      <button className="btnBuyNow">바로 구매하기</button>
+                      <Link to="#">
+                        <button className="btnBuyNow">바로 구매하기</button>
+                      </Link>
                     </li>
                   </ul>
                 </div>
