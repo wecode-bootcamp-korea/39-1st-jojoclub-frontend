@@ -28,7 +28,11 @@ const ImageSlide = ({ slides }) => {
       <div className="rightArrowStyles" onClick={goToNext}>
         <span class="material-symbols-outlined">chevron_right</span>
       </div>
-      <div className="sildeItem" />
+      <div className="sildeItem">
+        {slides.map(slide => {
+          return <img src={slide.url} className="slideImg" />;
+        })}
+      </div>
       <div className="slideBar">
         {slides.map((slide, slideIndex) => (
           <li

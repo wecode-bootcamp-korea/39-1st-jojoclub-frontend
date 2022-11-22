@@ -134,10 +134,12 @@
                 display: inline-block;
                 margin: 0 auto;
                 text-align: center;
-                row-gap: 10px;
                 cursor: pointer;
+                row-gap: 10px;
 
                 .trackItemImg {
+                  width: 30px;
+                  height: 30px;
                 }
 
                 .trackSize {

@@ -2,18 +2,22 @@
 
 .carousel {
   position: relative;
-  width: 100%;
+  width: 472px;
   max-width: 472px;
   height: 100%;
   margin: 0 auto;
+  overflow: hidden;
 
   .sildeItem {
-    width: 100%;
+    display: flex;
+    width: 400%;
     height: 100%;
-    // background-image: url(${slides[currentIndex].url});
-    background-color: #999;
     background-position: center;
     background-size: cover;
+
+    .slideImg {
+      width: 472px;
+    }
   }
 
   .leftArrowStyles {
