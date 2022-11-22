@@ -39,10 +39,8 @@ const Modal = ({ open, onClose, productInfo }) => {
                     <li className="description">{shortDescription}</li>
                     <li className="price">{price}</li>
                     <li className="btnBox">
-                      <Link to="/shopping">
-                        {/* <button className="btnCart" onClick={addToCart}> */}
-                        <button className="btnCart">장바구니 담기</button>
-                      </Link>
+                      {/* <button className="btnCart" onClick={addToCart}> */}
+                      <button className="btnCart">장바구니 담기</button>
                     </li>
                     <li className="btnBox">
                       <Link to="#">
