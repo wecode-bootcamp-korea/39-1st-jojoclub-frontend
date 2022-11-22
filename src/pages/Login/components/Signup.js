@@ -82,16 +82,15 @@ export default function Signup() {
     const { name, value } = event.target;
     setConfirmPw(prev => ({ ...prev, [name]: value }));
     handlePwCheck();
-    //setTimeout(handlePwCheck, 100);
   };
 
   const handlePwCheck = () => {
     if (confirmPw.pw.length < 1 || confirmPw.pwConfirm.length < 1) {
-      setConfirmPw({ pwCheck: '비밀번호 입력' });
+      setConfirmPw(prev => ({ ...prev, pwCheck: '비밀번호 입력' }));
     } else if (confirmPw.pw === confirmPw.pwConfirm) {
-      setConfirmPw({ pwCheck: '일치' });
-    } else {
-      setConfirmPw({ pwCheck: '불일치' });
+      setConfirmPw(prev => ({ ...prev, pwCheck: '일치' }));
+    } else if (confirmPw.pw !== confirmPw.pwConfirm) {
+      setConfirmPw(prev => ({ ...prev, pwCheck: '불일치' }));
     }
   };
 
@@ -109,17 +108,12 @@ export default function Signup() {
     setAgreeList(prev => ({ ...prev, [name]: false }));
   };
 
+  const isAllCheck = Object.values(agreeList).every(el => el === true);
+
   const isAllChecked = () => {
-    const isAllCheck = Object.values(agreeList).every(el => el === true);
     let newObj = {};
-    if (isAllCheck) {
-      for (let key in agreeList) {
-        newObj = { ...newObj, [key]: false };
-      }
-    } else {
-      for (let key in agreeList) {
-        newObj = { ...newObj, [key]: true };
-      }
+    for (let key in agreeList) {
+      newObj = { ...newObj, [key]: !isAllCheck };
     }
     setAgreeList(newObj);
   };
@@ -224,7 +218,7 @@ export default function Signup() {
             <input
               type="checkbox"
               onChange={isAllChecked}
-              checked={Object.values(agreeList).every(el => el === true)}
+              checked={isAllCheck}
             />
             위 모든 항목에 동의합니다
           </label>
