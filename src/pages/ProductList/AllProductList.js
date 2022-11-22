@@ -47,56 +47,70 @@ const AllProductList = () => {
   return (
     <>
       <div className="allProductListTitle"> 전체 아이템 보기</div>
-      <div>
-        <input
-          type="checkbox"
-          name="scent[]"
-          value="citrus"
-          onChange={handleCheckbox}
-        />
-        시트러스
-        <input
-          type="checkbox"
-          name="scent[]"
-          value="fruity"
-          onChange={handleCheckbox}
-        />
-        프루티
-        <input
-          type="checkbox"
-          name="scent[]"
-          value="floral"
-          onChange={handleCheckbox}
-        />
-        플로럴
-        <input
-          type="checkbox"
-          name="scent[]"
-          value="lightfloral"
-          onChange={handleCheckbox}
-        />
-        라이트 플로럴
-        <input
-          type="checkbox"
-          name="scent[]"
-          value="spicy"
-          onChange={handleCheckbox}
-        />
-        스파이시
-        <input
-          type="checkbox"
-          name="gender[]"
-          value="men"
-          onChange={handleCheckbox}
-        />
-        남자
-        <input
-          type="checkbox"
-          name="gender[]"
-          value="women"
-          onChange={handleCheckbox}
-        />
-        여자
+      <div className="filterWrap">
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="scent[]"
+            value="citrus"
+            onChange={handleCheckbox}
+          />
+          시트러스
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="scent[]"
+            value="fruity"
+            onChange={handleCheckbox}
+          />
+          프루티
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="scent[]"
+            value="floral"
+            onChange={handleCheckbox}
+          />
+          플로럴
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="scent[]"
+            value="lightfloral"
+            onChange={handleCheckbox}
+          />
+          라이트 플로럴
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="scent[]"
+            value="spicy"
+            onChange={handleCheckbox}
+          />
+          스파이시
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="gender[]"
+            value="men"
+            onChange={handleCheckbox}
+          />
+          남자
+        </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="gender[]"
+            value="women"
+            onChange={handleCheckbox}
+          />
+          여자
+        </div>
       </div>
       <div className="allProductListContainer">
         {productInfoList.map(
@@ -117,7 +131,7 @@ const AllProductList = () => {
                   <button
                     type="button"
                     className="previewProduct"
-                    onClick={() => setOpenModal(true)}
+                    onClick={() => handleModal(id)}
                   >
                     미리보기
                   </button>

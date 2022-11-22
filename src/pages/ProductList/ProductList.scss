@@ -8,21 +8,22 @@ body {
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
   height: 50%;
   @include bodyText;
+  overflow: hidden;
 
   .productListContainer {
     display: flex;
     position: relative;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    transform: translateX(0);
     white-space: nowrap;
 
     .productContainer {
       position: relative;
+      width: 25%;
       max-width: 3000px;
       height: 630px;
       margin: 5px 10px;
@@ -45,6 +46,7 @@ body {
       .productDetailWrap {
         margin-top: 10px;
         text-align: center;
+
         .newProduct {
           display: inline-block;
           width: 194px;
@@ -53,6 +55,7 @@ body {
           border-bottom: 0.8px solid $color-cream-stroke;
           @include bodyText2;
         }
+
         .productEng {
           padding: 20px 0;
           cursor: pointer;
@@ -76,20 +79,7 @@ body {
       }
     }
   }
-  //make it responsive
 
-  // @media screen and (max-width: 900px) {
-  //   .productImg {
-  //     width: calc(100% / 2);
-  //   }
-  // }
-
-  // @media screen and (max-width: 550px) {
-  //   .productImg {
-  //     width: 100%;
-  //   }
-  // }
-  //button
   .slideLeft {
     position: absolute;
     z-index: 1;
@@ -102,11 +92,13 @@ body {
     background-color: transparent;
     background-image: url('../../../public/images/productlist/back-arrow.png');
     background-size: cover;
+
     button:hover {
       opacity: 0.8;
       cursor: pointer;
     }
   }
+
   .slideRight {
     position: absolute;
     z-index: 1;
@@ -120,10 +112,12 @@ body {
     background-image: url('../../../public/images/productlist/forward-arrow.png');
     background-size: cover;
   }
+
   button:hover {
     opacity: 0.8;
     cursor: pointer;
   }
+
   .openModal {
     z-index: +2;
   }
@@ -137,6 +131,7 @@ body {
   min-height: 100vh;
   overflow: hidden;
   white-space: nowrap;
+
   .productImg {
     display: flex;
     align-items: center;
@@ -145,6 +140,7 @@ body {
     height: 359px;
     cursor: pointer;
     object-fit: cover;
+
     img {
       width: 300px;
       height: 300px;
@@ -156,6 +152,7 @@ body {
     max-width: 3000px;
     height: 630px;
     margin: 20px 0px;
+
     .productDetailWrap {
       margin-top: 10px;
       text-align: center;
@@ -171,16 +168,23 @@ body {
     .productEng {
       padding: 20px 0;
       cursor: pointer;
+      @include titleH4;
+    }
+    .productKor {
+      @include titleH4;
     }
 
     .priceNsize {
       display: flex;
       justify-content: center;
       padding: 20px 0;
+      @include bodyText2;
+
       .priceTag {
         padding-right: 10px;
       }
     }
+
     .previewProduct {
       width: 130px;
       height: 45px;
@@ -197,4 +201,18 @@ body {
   padding-top: 20px;
   padding-bottom: 50px;
   text-align: center;
+}
+
+.filterWrap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .checkboxWrap {
+    padding: 0 20px;
+    @include bodyText;
+    input {
+      margin-right: 5px;
+    }
+  }
 }

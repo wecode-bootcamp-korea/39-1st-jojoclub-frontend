@@ -10,14 +10,18 @@ const Modal = ({ open, onClose, productInfo }) => {
       .then(res => res.json())
       .then(data => setProductInfoList(data));
   }, [productInfo]);
-  console.log(productInfo);
-  console.log(productInfoList);
 
   //장바구니로 데이터 보내기
-  // const [getInfo, setGetInfo] = useState(0);
-  // const addToCart = id => {
-  //   setGetInfo(id);
-  // };
+
+  const sendItem = () => {
+    fetch('api/carts', {
+      method: 'POST',
+      headers: {},
+      body: JSON.stringify({ product_id: productInfo }),
+    })
+      .then()
+      .then();
+  };
 
   if (!open) return null;
   return (
@@ -40,7 +44,9 @@ const Modal = ({ open, onClose, productInfo }) => {
                     <li className="price">{price}</li>
                     <li className="btnBox">
                       {/* <button className="btnCart" onClick={addToCart}> */}
-                      <button className="btnCart">장바구니 담기</button>
+                      <button className="btnCart" onClick={sendItem}>
+                        장바구니 담기
+                      </button>
                     </li>
                     <li className="btnBox">
                       <Link to="#">

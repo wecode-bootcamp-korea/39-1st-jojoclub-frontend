@@ -22,12 +22,18 @@ function ProductList() {
   //캐러셀 만들기 (미완)
   const productListContainerRef = useRef();
   const [index, setIndex] = useState(0);
+
   const handleSlideLeft = () => {
-    setIndex(index + 1);
-    productListContainerRef.current.style.transform = `translateX(-(25 * ${
-      index + 1
-    })%)`;
-    console.log(index);
+    productListContainerRef.current.style.transform = `translateX(${
+      (index + 1) * -10
+    }%)`;
+    setIndex(prev => prev + 1);
+  };
+  const handleSlideRight = () => {
+    productListContainerRef.current.style.transform = `translateX(${
+      (index + 1) * 10
+    }%)`;
+    setIndex(prev => prev + 1);
   };
 
   return (
@@ -63,7 +69,11 @@ function ProductList() {
             )
           )}
         </div>
-        <button type="button" className="slideRight" />
+        <button
+          type="button"
+          className="slideRight"
+          onClick={handleSlideRight}
+        />
         <Modal
           open={openModal}
           onClose={() => setOpenModal(false)}
