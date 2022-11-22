@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.footer {
+  @include bodyText2;
+  margin: 40px;
+
+  .listWrap {
+    display: flex;
+    line-height: 350%;
+
+    li:hover {
+      text-decoration: underline;
+    }
+
+    .listName {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .listBox {
+      width: 20%;
+    }
+  }
+
+  .bottomText {
+    margin-top: 70px;
+    line-height: 150%;
+  }
+}
