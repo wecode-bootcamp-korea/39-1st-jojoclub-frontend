@@ -14,7 +14,7 @@ function ProductList() {
   const [index, setIndex] = useState(0);
   const handleSlideLeft = () => {
     setIndex(index + 1);
-    productListContainerRef.current.style.transform = `translate(-(25 * ${
+    productListContainerRef.current.style.transform = `translateX(-(25 * ${
       index + 1
     })%)`;
     console.log(index);

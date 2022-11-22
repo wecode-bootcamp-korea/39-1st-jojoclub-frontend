@@ -1,9 +1,9 @@
 @import '/src/styles/variables';
 
-@mixin productListStyle {
-  width: 100%;
+body {
   background-color: $background-color;
 }
+
 .productList {
   display: flex;
   position: relative;
@@ -17,7 +17,6 @@
     display: flex;
     position: relative;
     align-items: center;
-    // justify-content: space-around;
     min-height: 100vh;
     overflow: hidden;
     white-space: nowrap;
@@ -27,15 +26,19 @@
       max-width: 3000px;
       height: 630px;
       margin: 5px 10px;
-      // transform: translate(600px);
+
       .productImg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 359px;
         height: 359px;
-        object-fit: cover;
         cursor: pointer;
+        object-fit: cover;
+
         img {
-          width: 359px;
-          height: 359px;
+          width: 300px;
+          height: 300px;
         }
       }
 
@@ -131,24 +134,32 @@
   position: relative;
   flex-wrap: wrap;
   align-items: center;
-  // justify-content: space-around;
   min-height: 100vh;
   overflow: hidden;
   white-space: nowrap;
   .productImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 359px;
     height: 359px;
-    object-fit: cover;
     cursor: pointer;
+    object-fit: cover;
     img {
-      width: 359px;
-      height: 359px;
+      width: 300px;
+      height: 300px;
     }
   }
 
-  .productDetailWrap {
-    margin-top: 10px;
-    text-align: center;
+  .productContainer {
+    position: relative;
+    max-width: 3000px;
+    height: 630px;
+    margin: 20px 0px;
+    .productDetailWrap {
+      margin-top: 10px;
+      text-align: center;
+    }
     .newProduct {
       display: inline-block;
       width: 194px;
@@ -183,4 +194,7 @@
 .allProductListTitle {
   @include bodyText;
   @include titleH1;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
 }

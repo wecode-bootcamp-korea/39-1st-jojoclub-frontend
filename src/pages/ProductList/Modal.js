@@ -24,14 +24,7 @@ const Modal = ({ open, onClose, productInfo }) => {
         <div className="content">
           <div className="previewProductSection">
             {productInfoList.map(
-              ({
-                id,
-                englishName,
-                koreanName,
-                price,
-                shortDescription,
-                productImage,
-              }) => (
+              ({ id, englishName, price, shortDescription, productImage }) => (
                 <div className="productsContainer" key={id}>
                   <div className="productImage">
                     <img src={productImage} alt="sample" />
