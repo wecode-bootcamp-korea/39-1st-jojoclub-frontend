@@ -8,10 +8,10 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   const slides = [
-    { url: '/images/products/imgslide_item_01.png', title: 'test1' },
-    { url: '/images/products/imgslide_item_02.png', title: 'test2' },
-    { url: '/images/products/imgslide_item_03.png', title: 'test3' },
-    { url: '/images/products/imgslide_item_04.png', title: 'test4' },
+    { url: '/images/products/imgslide_item_01.png', title: 'imgslide1' },
+    { url: '/images/products/imgslide_item_02.png', title: 'imgslide2' },
+    { url: '/images/products/imgslide_item_03.png', title: 'imgslide3' },
+    { url: '/images/products/imgslide_item_04.png', title: 'imgslide4' },
   ];
 
   useEffect(() => {
