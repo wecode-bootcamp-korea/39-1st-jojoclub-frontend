@@ -25,7 +25,7 @@ const Modal = ({ open, onClose, productInfo }) => {
 
   if (!open) return null;
   return (
-    <div className="overlay">
+    <div className="modal">
       <div className="modalContainer">
         <div className="modalClose">
           <button onClick={onClose} className="closeBtn" />

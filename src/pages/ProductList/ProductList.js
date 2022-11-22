@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './ProductList.scss';
 import Modal from './Modal';
-import './Modal.scss';
 import AllProductList from './AllProductList';
+import './ProductList.scss';
+import './Modal.scss';
+
 function ProductList() {
   //제품 정보 가져오기 (완성)
   const [productInfoList, setProductInfoList] = useState([]);
+
   useEffect(() => {
     fetch('/data/productList.json')
       .then(response => response.json())
@@ -15,12 +17,14 @@ function ProductList() {
   const [openModal, setOpenModal] = useState(false);
   //모달로 데이터 보내기 (완성)
   const [getInfo, setGetInfo] = useState(0);
+
   const handleModal = id => {
     setOpenModal(true);
     setGetInfo(id);
   };
   //캐러셀 만들기 (미완)
   const productListContainerRef = useRef();
+
   const [index, setIndex] = useState(0);
 
   const handleSlideLeft = () => {
@@ -29,6 +33,7 @@ function ProductList() {
     }%)`;
     setIndex(prev => prev + 1);
   };
+
   const handleSlideRight = () => {
     productListContainerRef.current.style.transform = `translateX(${
       (index + 1) * 10

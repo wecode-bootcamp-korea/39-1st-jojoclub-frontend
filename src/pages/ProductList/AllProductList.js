@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import './ProductList.scss';
 import Modal from './Modal';
 import './Modal.scss';
+import './ProductList.scss';
 
 const AllProductList = () => {
   //제품 정보 가져오기 (완성)
   const [productInfoList, setProductInfoList] = useState([]);
+
   useEffect(() => {
     fetch('/data/productList.json')
       .then(response => response.json())
@@ -17,6 +18,7 @@ const AllProductList = () => {
   const [openModal, setOpenModal] = useState(false);
   //모달로 데이터 보내기 (완성)
   const [getInfo, setGetInfo] = useState(0);
+
   const handleModal = id => {
     setOpenModal(true);
     setGetInfo(id);
@@ -29,7 +31,9 @@ const AllProductList = () => {
     lightfloral: false,
     spicy: false,
   });
+
   const [searchParams, setSearchParams] = useSearchParams();
+
   const handleCheckbox = e => {
     checkState[e.target.value] = e.target.checked;
     setCheckState({ ...checkState });
@@ -44,6 +48,7 @@ const AllProductList = () => {
     }
     setSearchParams(searchParams);
   };
+
   return (
     <>
       <div className="allProductListTitle"> 전체 아이템 보기</div>

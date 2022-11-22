@@ -93,7 +93,7 @@ body {
     background-image: url('../../../public/images/productlist/back-arrow.png');
     background-size: cover;
 
-    button:hover {
+    &:hover {
       opacity: 0.8;
       cursor: pointer;
     }
