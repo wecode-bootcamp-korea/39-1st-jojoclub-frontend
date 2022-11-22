@@ -1,0 +1,70 @@
+@import '/src/styles/variables';
+*{
+  background-color: $background-color;
+}
+.scentlist{
+  
+  header{
+    h1{
+      margin: 20px;
+      text-align: center;
+      @include titleH1;
+    }
+    h2{
+      width: 425px;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      text-align: center;
+      @include bodyText ;
+    }
+    img{
+      width:100%;
+      height: 250px;
+    }
+}
+
+.itemlist{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px;
+
+  .itemid{
+    display: flex;
+    flex-direction: column;
+    @include bodyText2;
+    width: 25%;
+    padding:30px;
+
+  .shopbtn{
+    display: flex; 
+    justify-content: center;
+
+    button{
+      padding: 10px 25px;
+      border:1px solid black;
+      background-color: $background-color;
+      cursor: pointer;
+    }
+  }
+
+    .krname{
+      margin:10px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    .engname{
+      margin-bottom :50px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .price{
+      margin:10px;
+      text-align: center;
+    }
+  }
+}
+}
+
+
+
