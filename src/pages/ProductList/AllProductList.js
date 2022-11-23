@@ -8,11 +8,15 @@ const AllProductList = () => {
   //제품 정보 가져오기 (완성)
   const [productInfoList, setProductInfoList] = useState([]);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch(`http://10.58.52.119:3000/product?${searchParams.toString()}`, {
+      headers: { 'content-Type': 'application/json;charset=utf-8' },
+    })
       .then(response => response.json())
       .then(result => setProductInfoList(result));
-  }, []);
+  }, [searchParams]);
 
   //모달윈도우 (완성)
   const [openModal, setOpenModal] = useState(false);
@@ -31,8 +35,6 @@ const AllProductList = () => {
     lightfloral: false,
     spicy: false,
   });
-
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleCheckbox = e => {
     checkState[e.target.value] = e.target.checked;
@@ -102,7 +104,7 @@ const AllProductList = () => {
           <input
             type="checkbox"
             name="gender[]"
-            value="men"
+            value="male"
             onChange={handleCheckbox}
           />
           남자
@@ -111,7 +113,7 @@ const AllProductList = () => {
           <input
             type="checkbox"
             name="gender[]"
-            value="women"
+            value="female"
             onChange={handleCheckbox}
           />
           여자
@@ -128,7 +130,7 @@ const AllProductList = () => {
               <li className="productEng">{enName}</li>
               <li className="productKor">{koName}</li>
               <div className="priceNsize">
-                <li className="priceTag">{price}</li>
+                <li className="priceTag">₩{price}</li>
                 <li className="sizeTag">{size}</li>
               </div>
               <div className="openModal">
