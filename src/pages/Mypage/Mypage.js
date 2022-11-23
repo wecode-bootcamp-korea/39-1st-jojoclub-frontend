@@ -1,8 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './Mypage.scss';
 
 export default function Mypage() {
+  // const addressFetchFunction = () => {
+  //   fetch('API주소', {
+  //     method: 'PATCH',
+  //     headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  //     body: JSON.stringify({ address: userAddress }),
+  //   })
+  //     .then(res => {
+  //       if (res.status !== 200) {
+  //         throw new Error('error');
+  //       }
+  //       return res.json();
+  //     })
+  //     .catch(err => {
+  //       alert('주소를 입력해주세요.');
+  //     })
+  //     .then(data => {
+  //       Navigate('/');
+  //     });
+  // };
+
+  const [userAddress, setUserAddress] = useState('');
+  const handleUserAddress = e => {
+    const userAddress = e.target.value;
+    setUserAddress();
+  };
+
   const [form, setForm] = useState({
     year: '2022',
     month: '01',
@@ -38,13 +64,13 @@ export default function Mypage() {
         <p className="mypageTab">마이페이지</p>
         <p className="logout">로그아웃</p>
         <ul className="menuList">
-          <Link>
+          <Link to="/mypage">
             <li>회원정보 입력</li>
           </Link>
-          <Link>
-            <li>배송주소록</li>
+          <Link to="/shopping">
+            <li>장바구니</li>
           </Link>
-          <Link>
+          <Link to="/">
             <li>주문내역 보기</li>
           </Link>
         </ul>
@@ -89,7 +115,13 @@ export default function Mypage() {
           <div className="address">
             <p className="addressFont">주소</p>
             <div className="inputAddress">
-              <input id="address" type="address" placeholder=" " />
+              <input
+                id="address"
+                type="address"
+                placeholder=" "
+                value={userAddress}
+                onChange={handleUserAddress}
+              />
               <label for="address">* 주소</label>
             </div>
           </div>
@@ -135,61 +167,6 @@ export default function Mypage() {
             <label>
               <input type="radio" name="gender" /> 남성
             </label>
-          </div>
-          <div className="agreeToReceive">
-            <p className="agreeToReceiveFont">조 말론 런던 소식 받기 (선택)</p>
-            <p>
-              온라인 부티크 뉴스레터 및 문자 수신에 동의하시면 조 말론 런던의
-              신제품 선출시 소식과 이벤트, 혜택 등 다양한 최신 정보를 받아보실
-              수 있습니다.
-            </p>
-            <div className="reception">
-              <div>뉴스레터 수신여부</div>
-              <label>
-                <input type="radio" name="reception1" /> 수신함
-              </label>
-              <label>
-                <input type="radio" name="reception1" /> 수신안함
-              </label>
-            </div>
-            <div className="reception">
-              <div>MMS 수신여부</div>
-              <label>
-                <input type="radio" name="reception2" /> 수신함
-              </label>
-              <label>
-                <input type="radio" name="reception2" /> 수신안함
-              </label>
-            </div>
-            <div className="reception">
-              <div>DM 수신여부</div>
-              <label>
-                <input type="radio" name="reception3" /> 수신함
-              </label>
-              <label>
-                <input type="radio" name="reception3" /> 수신안함
-              </label>
-            </div>
-            <p>
-              조 말론 런던의 신제품, 이벤트 등 최신 정보를 받아보시려면 수신에
-              동의하여 주세요.
-            </p>
-            <p>
-              온라인 부티크 신제품 출시 소식과 각종 프로모션 코드 혜택은
-              뉴스레터 및 MMS 수신에 동의 해주셔야 받아보실 수 있습니다.
-            </p>
-            <p className="informationMsg">
-              가입하신 이메일 주소로 뉴스레터가 발송 됩니다. 원치 않으시는 경우
-              '수신안함'에 체크하여 주십시오.
-            </p>
-            <p>
-              회원탈퇴를 하시면 조 말론 런던 신제품 소식 및 이벤트 행사 내용과
-              관련된 정보를 제공받으실 수 없고 관련된 서비스의 제공이 불가능하게
-              됩니다.
-            </p>
-            <p>
-              회원탈퇴를 원하시는 경우에는 <a>여기</a>를 클릭하세요.
-            </p>
           </div>
           <button className="confirmBtn">확인</button>
         </div>
