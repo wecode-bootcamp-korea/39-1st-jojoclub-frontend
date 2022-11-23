@@ -5,7 +5,7 @@ import './Mypage.scss';
 export default function Mypage() {
   const [userInfo, setUserInfo] = useState([]);
   useEffect(() => {
-    fetch('주소', {
+    fetch('api주소', {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         Authorization: localStorage.getItem('accessToken'),
@@ -16,9 +16,13 @@ export default function Mypage() {
   }, []);
 
   const addressFetchFunction = () => {
-    fetch('API주소', {
+    fetch('http://10.58.52.180:3000/users/address', {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+      },
       body: JSON.stringify({ address: userAddress }),
     })
       .then(res => {
