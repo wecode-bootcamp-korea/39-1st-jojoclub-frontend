@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { APIS } from '../../config';
 import Accordion from './componentes/Accordion';
 import ImageSlide from './componentes/ImageSlide';
 import './Products.scss';
 
 function Products() {
-  const [productInfo, setProductInfo] = useState([]);
+  const params = useParams();
+  const userId = params.id;
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetch(`http://10.58.52.119:3000/product/${userId}`)
+      .then(response => response.json())
+      .then(result => setUser(result.data));
+  }, [userId]);
+
+  const { productId, enName, koName, content } = user;
+
+  console.log(productId, enName);
 
   const slides = [
     { url: '/images/products/purfume_s100_01.png', title: 'imgslide1' },
     { url: '/images/products/purfume_pack_02.png', title: 'imgslide2' },
   ];
-
-  useEffect(() => {
-    fetch('/data/productInfo.json')
-      .then(response => response.json())
-      .then(result => setProductInfo(result));
-  }, []);
 
   const sendItem = () => {
     fetch(`${APIS.carts}`, {
@@ -59,71 +66,58 @@ function Products() {
             <span className="btnShare">공유하기</span>
           </div>
           <div className="rightColumnSection">
-            {productInfo.map(
-              ({
-                id,
-                nameEn,
-                nameKr,
-                price,
-                description,
-                size30,
-                size50,
-                size100,
-              }) => (
-                <ul className="productsContainer" key={id}>
-                  <li className="badge">베스트 셀러</li>
-                  <li className="nameEn">{nameEn}</li>
-                  <li className="nameKr">{nameKr}</li>
-                  <li className="price">{price}</li>
-                  <li className="reviewBox">
-                    <span className="averageRating">4.9/5</span>
-                    <span className="btnReadReview">리뷰 보기</span>
+            <ul className="productsContainer" key={productId}>
+              <li className="badge">베스트 셀러</li>
+              <li className="nameEn">{enName}</li>
+              <li className="nameKr">{koName}</li>
+              <li className="price">{options[0].price}</li>
+              <li className="reviewBox">
+                <span className="averageRating">4.9/5</span>
+                <span className="btnReadReview">리뷰 보기</span>
+              </li>
+              <li className="description">{content}</li>
+              <li className="sizePicker">
+                <div className="pickerTrack">
+                  <li className="trackItem">
+                    <img
+                      className="trackItemImg"
+                      src={options[0].size}
+                      alt="size100ml"
+                    />
+                    <p className="trackSize">100ML</p>
                   </li>
-                  <li className="description">{description}</li>
-                  <li className="sizePicker">
-                    <div className="pickerTrack">
-                      <li className="trackItem">
-                        <img
-                          className="trackItemImg"
-                          src={size100}
-                          alt="size100ml"
-                        />
-                        <p className="trackSize">100ML</p>
-                      </li>
-                      <li className="trackItem">
-                        <img
-                          className="trackItemImg"
-                          src={size50}
-                          alt="size50ml"
-                        />
-                        <p className="trackSize">50ML</p>
-                      </li>
-                      <li className="trackItem">
-                        <img
-                          className="trackItemImg"
-                          src={size30}
-                          alt="size30ml"
-                        />
-                        <p className="trackSize">30ML</p>
-                      </li>
-                    </div>
+                  <li className="trackItem">
+                    <img
+                      className="trackItemImg"
+                      src={options[0].size}
+                      alt="size50ml"
+                    />
+                    <p className="trackSize">50ML</p>
                   </li>
-                  <li className="btnBox">
-                    <button className="btnCart" onClick={sendItem}>
-                      장바구니
-                    </button>
-                    <button className="btnCart">바로구매</button>
+                  <li className="trackItem">
+                    <img
+                      className="trackItemImg"
+                      src={options[0].size}
+                      alt="size30ml"
+                    />
+                    <p className="trackSize">30ML</p>
                   </li>
-                  <li className="wishListBox">
-                    <div className="wishList">위시리스트</div>
-                    <div className="wishIcon">
-                      <span class="material-symbols-outlined">bookmark</span>
-                    </div>
-                  </li>
-                  <li className="borderBox" />
-                </ul>
-              )
-            )}
+                </div>
+              </li>
+              <li className="btnBox">
+                <button className="btnCart" onClick={sendItem}>
+                  장바구니
+                </button>
+                <button className="btnCart">바로구매</button>
+              </li>
+              <li className="wishListBox">
+                <div className="wishList">위시리스트</div>
+                <div className="wishIcon">
+                  <span class="material-symbols-outlined">bookmark</span>
+                </div>
+              </li>
+              <li className="borderBox" />
+            </ul>
           </div>
           <div className="infoContentSection">
             <div className="ingredients">
