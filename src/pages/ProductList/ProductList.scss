@@ -17,14 +17,15 @@ body {
     display: flex;
     position: relative;
     align-items: center;
+    width: 2500px;
     min-height: 100vh;
     transform: translateX(0);
+    transition: all 1s;
     white-space: nowrap;
 
     .productContainer {
       position: relative;
       width: 25%;
-      max-width: 3000px;
       height: 630px;
       margin: 5px 10px;
 

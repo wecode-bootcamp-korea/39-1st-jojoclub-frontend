@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Modal from './Modal';
 import AllProductList from './AllProductList';
+import ProductListCopy from './ProductListCopy';
 import './ProductList.scss';
 import './Modal.scss';
 
@@ -23,56 +24,56 @@ function ProductList() {
     setGetInfo(id);
   };
   //캐러셀 만들기 (미완)
-  const productListContainerRef = useRef();
+  const productListContainerRef = useRef(null);
 
   const [index, setIndex] = useState(0);
 
   const handleSlideLeft = () => {
-    productListContainerRef.current.style.transform = `translateX(${
-      (index + 1) * -10
-    }%)`;
-    setIndex(prev => prev + 1);
+    if (index < 1) return;
+    setIndex(prev => prev - 1);
   };
 
   const handleSlideRight = () => {
-    productListContainerRef.current.style.transform = `translateX(${
-      (index + 1) * 10
-    }%)`;
+    if (index >= productInfoList.length - 4) return;
     setIndex(prev => prev + 1);
   };
+
+  useEffect(() => {
+    productListContainerRef.current.style.transform = `translateX(${
+      index * -15
+    }%)`;
+  }, [index]);
 
   return (
     <>
       <div className="productList">
         <button type="button" className="slideLeft" onClick={handleSlideLeft} />
         <div className="productListContainer" ref={productListContainerRef}>
-          {productInfoList.map(
-            ({ id, productImage, englishName, koreanName, price, size }) => (
-              <ul className="productContainer" key={id}>
-                <li className="productImg">
-                  <img src={productImage} alt="product" />
-                </li>
-                <div className="productDetailWrap">
-                  <li className="newProduct">신제품</li>
-                  <li className="productEng">{englishName}</li>
-                  <li className="productKor">{koreanName}</li>
-                  <div className="priceNsize">
-                    <li className="priceTag">{price}</li>
-                    <li className="sizeTag">{size}</li>
-                  </div>
-                  <div className="openModal">
-                    <button
-                      type="button"
-                      className="previewProduct"
-                      onClick={() => handleModal(id)}
-                    >
-                      미리보기
-                    </button>
-                  </div>
+          {productInfoList.map(({ id, img, enName, koName, price, size }) => (
+            <ul className="productContainer" key={id}>
+              <li className="productImg">
+                <img src={img} alt="product" />
+              </li>
+              <div className="productDetailWrap">
+                <li className="newProduct">신제품</li>
+                <li className="productEng">{enName}</li>
+                <li className="productKor">{koName}</li>
+                <div className="priceNsize">
+                  <li className="priceTag">₩{price}</li>
+                  <li className="sizeTag">{size}</li>
                 </div>
-              </ul>
-            )
-          )}
+                <div className="openModal">
+                  <button
+                    type="button"
+                    className="previewProduct"
+                    onClick={() => handleModal(id)}
+                  >
+                    미리보기
+                  </button>
+                </div>
+              </div>
+            </ul>
+          ))}
         </div>
         <button
           type="button"
@@ -85,6 +86,7 @@ function ProductList() {
           productInfo={getInfo}
         />
       </div>
+      <ProductListCopy />
       <AllProductList />
     </>
   );

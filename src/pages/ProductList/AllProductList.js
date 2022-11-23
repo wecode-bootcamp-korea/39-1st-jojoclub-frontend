@@ -118,33 +118,31 @@ const AllProductList = () => {
         </div>
       </div>
       <div className="allProductListContainer">
-        {productInfoList.map(
-          ({ id, productImage, englishName, koreanName, price, size }) => (
-            <ul className="productContainer" key={id}>
-              <li className="productImg">
-                <img src={productImage} alt="product" />
-              </li>
-              <div className="productDetailWrap">
-                <li className="newProduct">신제품</li>
-                <li className="productEng">{englishName}</li>
-                <li className="productKor">{koreanName}</li>
-                <div className="priceNsize">
-                  <li className="priceTag">{price}</li>
-                  <li className="sizeTag">{size}</li>
-                </div>
-                <div className="openModal">
-                  <button
-                    type="button"
-                    className="previewProduct"
-                    onClick={() => handleModal(id)}
-                  >
-                    미리보기
-                  </button>
-                </div>
+        {productInfoList.map(({ id, img, enName, koName, price, size }) => (
+          <ul className="productContainer" key={id}>
+            <li className="productImg">
+              <img src={img} alt="product" />
+            </li>
+            <div className="productDetailWrap">
+              <li className="newProduct">신제품</li>
+              <li className="productEng">{enName}</li>
+              <li className="productKor">{koName}</li>
+              <div className="priceNsize">
+                <li className="priceTag">{price}</li>
+                <li className="sizeTag">{size}</li>
               </div>
-            </ul>
-          )
-        )}
+              <div className="openModal">
+                <button
+                  type="button"
+                  className="previewProduct"
+                  onClick={() => handleModal(id)}
+                >
+                  미리보기
+                </button>
+              </div>
+            </div>
+          </ul>
+        ))}
       </div>
       <Modal
         open={openModal}

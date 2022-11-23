@@ -1,0 +1,166 @@
+@import '/src/styles/variables';
+
+body {
+  background-color: $background-color;
+}
+
+.productContainer {
+  position: relative;
+  width: 25%;
+  max-width: 3000px;
+  height: 630px;
+  margin: 5px 10px;
+
+  .productImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 359px;
+    height: 359px;
+    cursor: pointer;
+    object-fit: cover;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .productDetailWrap {
+    margin-top: 10px;
+    text-align: center;
+
+    .newProduct {
+      display: inline-block;
+      width: 194px;
+      padding: 10px 0;
+      border-top: 0.8px solid $color-cream-stroke;
+      border-bottom: 0.8px solid $color-cream-stroke;
+      @include bodyText2;
+    }
+
+    .productEng {
+      padding: 20px 0;
+      cursor: pointer;
+    }
+
+    .priceNsize {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      .priceTag {
+        padding-right: 10px;
+      }
+    }
+    .previewProduct {
+      width: 130px;
+      height: 45px;
+      border: 0.5px solid $color-cream-stroke;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.openModal {
+  z-index: +2;
+}
+
+.allProductListContainer {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .productImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 359px;
+    height: 359px;
+    cursor: pointer;
+    object-fit: cover;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .productContainer {
+    position: relative;
+    max-width: 3000px;
+    height: 630px;
+    margin: 20px 0px;
+
+    .productDetailWrap {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .newProduct {
+      display: inline-block;
+      width: 194px;
+      padding: 10px 0;
+      border-top: 0.8px solid $color-cream-stroke;
+      border-bottom: 0.8px solid $color-cream-stroke;
+      @include bodyText2;
+    }
+    .productEng {
+      padding: 20px 0;
+      cursor: pointer;
+      @include titleH4;
+    }
+    .productKor {
+      @include titleH4;
+    }
+
+    .priceNsize {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      @include bodyText2;
+
+      .priceTag {
+        padding-right: 10px;
+      }
+    }
+
+    .previewProduct {
+      width: 130px;
+      height: 45px;
+      border: 0.5px solid $color-cream-stroke;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+.allProductListTitle {
+  @include bodyText;
+  @include titleH1;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.filterWrap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  .checkboxWrap {
+    padding: 0 20px;
+    @include bodyText;
+    input {
+      margin-right: 5px;
+    }
+  }
+}

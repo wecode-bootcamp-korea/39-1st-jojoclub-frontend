@@ -1,11 +1,11 @@
 [
   {
     "id": 2,
-    "productImage": "images/productlist/product_sample_02.png",
-    "englishName": "Midnight Musk & Amber Cologne",
-    "koreanName": "미드나이트 머스크 앤 앰버 코롱",
+    "img": "images/productlist/product_sample_02.png",
+    "enName": "Midnight Musk & Amber Cologne",
+    "koName": "미드나이트 머스크 앤 앰버 코롱",
     "price": "₩220,000",
     "size": "100ML",
-    "shortDescription": "스노우볼이 각인된 보틀에 담긴 산뜻한 우디 향."
+    "content": "스노우볼이 각인된 보틀에 담긴 산뜻한 우디 향."
   }
 ]
