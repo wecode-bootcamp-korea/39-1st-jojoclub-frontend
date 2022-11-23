@@ -34,6 +34,7 @@ export default function Signin() {
     email: '',
     pw: '',
   });
+  const { email, pw } = userInfo;
 
   const handleUserInfo = event => {
     const { name, value } = event.target;
@@ -54,7 +55,7 @@ export default function Signin() {
             name="email"
             type="text"
             placeholder=" "
-            value={userInfo.email}
+            value={email}
             onChange={handleUserInfo}
           />
           <label htmlFor="name">* 이메일 주소</label>
@@ -64,7 +65,7 @@ export default function Signin() {
             name="pw"
             type="password"
             placeholder=" "
-            value={userInfo.pw}
+            value={pw}
             onChange={handleUserInfo}
           />
           <label htmlFor="name">* 비밀번호</label>
