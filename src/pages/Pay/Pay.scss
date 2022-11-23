@@ -26,8 +26,10 @@
           float:left;
         }
       }
+
     .deliveryinfo{
       margin: 50px;
+
     input{
       width:350px;
       height: 40px;
@@ -36,38 +38,13 @@
       border: 1px solid #cccccc;
       background-color: white;
     }
-    .address{
-      input{
-        width:220px;
-      }
-      button{
-        width:120px;
-        height:40px;
-        margin-left: 10px;
-        background-color: black;
-        color: white;
-      }
-    }
-    .threeinput{
-
-      select{
-        width:110px;
-        height: 40px;
-        margin-right: 10px;
-        background-color: white;
-      }
-
-      input{
-        width:130px;
-        margin-right: 10px
-        
-      }
-    }
+ 
     .needbox{
       input{
         height: 80px;
     }
   }
+
   .package{
     input{
       width: 17px;
@@ -75,42 +52,84 @@
       margin-right: 10px;
     }
   }
-  h2{
-    padding: 10px 0;
-    border-bottom: 1px solid black;
-  }
-  p{
-    margin: 20px 0;
-  }
-  .buy{
-    width: 120px;
-    height: 50px;
-    background-color: black;
-    color: white;
-  }
+    h2{
+      padding: 10px 0;
+      border-bottom: 1px solid black;
+    }
+    p{
+      margin: 20px 0;
+    }
+    .buy{
+      width: 120px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
   }
 }
 }
+.asidemenu{
+  flex: 1;
+  margin: 10px;
+  font-size: 12px;
 
-  .asidemenu{
-    flex: 1;
-    margin: 10px;
-    font-size: 12px;
+  aside{
+    margin: 20px;
+    padding: 20px 20px 30px 20px;
+    border: 1px solid #cccccc;
 
-    aside{
-      margin: 20px;
-      padding: 20px;
-      border: 1px solid black;
+        a{
+          display: block;
+          margin:20px 0;
+          text-decoration: underline;
+        }
 
-      h2{
-        text-align: center;
-      }
+    .coupon{
+      height: 45px;
+      margin:20px 0;
+      border: 1px solid #cccccc;
+    }
+
+    button{
+      width: 120px;
+      height: 45px;
+      margin-left: 10px;
+      border: 0.5px solid black;
+      border-radius: 0;
+      background-color: white;
+    }
+
+    h2{
+      margin-bottom: 20px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    p{
+      @include bodyText2;
+      line-height: 1.8;
+    }
+
+    .pricetag{
+      margin-top: 30px;
+      font-weight: 600;
 
       p{
-        margin: 10px;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0 25px;
+
+      }
+      .deliveryprice{
+        border-bottom: 1px solid #cccccc;
       }
     }
-    
   }
+  a{
+    color: black;
+  }
+}
+
 
 
