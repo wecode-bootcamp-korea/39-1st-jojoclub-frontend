@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import './Mypage.scss';
 
 export default function Mypage() {
-  // const addressFetchFunction = () => {
-  //   fetch('API주소', {
-  //     method: 'PATCH',
-  //     headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  //     body: JSON.stringify({ address: userAddress }),
-  //   })
-  //     .then(res => {
-  //       if (res.status !== 200) {
-  //         throw new Error('error');
-  //       }
-  //       return res.json();
-  //     })
-  //     .catch(err => {
-  //       alert('주소를 입력해주세요.');
-  //     })
-  //     .then(data => {
-  //       Navigate('/');
-  //     });
-  // };
+  const [userInfo, setUserInfo] = useState([]);
+  useEffect(() => {
+    fetch('주소', {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        Authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(response => response.json())
+      .then(data => setUserInfo(data));
+  }, []);
+
+  const addressFetchFunction = () => {
+    fetch('API주소', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({ address: userAddress }),
+    })
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('error');
+        }
+        return res.json();
+      })
+      .catch(err => {
+        alert('주소를 입력해주세요.');
+      })
+      .then(data => {
+        Navigate('/');
+      });
+  };
 
   const [userAddress, setUserAddress] = useState('');
   const handleUserAddress = e => {
-    const userAddress = e.target.value;
-    setUserAddress();
+    setUserAddress(e.target.value);
   };
 
   const [form, setForm] = useState({
@@ -96,11 +107,11 @@ export default function Mypage() {
           <div className="personalInfo">
             <p className="personalInfoManagementFont">개인정보 관리</p>
             <p>이름:</p>
-            <p>(고객 이름)</p>
+            <p>{userInfo.name}</p>
             <p>이메일 주소:</p>
-            <p>(고객 이메일)</p>
+            <p>{userInfo.email}</p>
             <p>휴대전화 번호:</p>
-            <p>(고객 폰번호)</p>
+            <p>{userInfo.phoneNumber}</p>
             <div>
               <input
                 className="passwordChange"
@@ -168,7 +179,9 @@ export default function Mypage() {
               <input type="radio" name="gender" /> 남성
             </label>
           </div>
-          <button className="confirmBtn">확인</button>
+          <button className="confirmBtn" onClick={addressFetchFunction}>
+            확인
+          </button>
         </div>
       </div>
     </div>
