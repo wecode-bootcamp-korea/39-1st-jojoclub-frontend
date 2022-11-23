@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { APIS } from '../../config';
 import Accordion from './componentes/Accordion';
 import ImageSlide from './componentes/ImageSlide';
 import './Products.scss';
@@ -19,13 +20,16 @@ function Products() {
   }, []);
 
   const sendItem = () => {
-    fetch('api/carts', {
+    fetch(`${APIS.carts}`, {
       method: 'POST',
-      headers: {},
-      body: JSON.stringify({ product_id: productInfo }),
+      headers: {
+        'content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({ productOptionId: 2, quantity: 1 }),
     })
-      .then()
-      .then();
+      .then(response => response.json())
+      .then(data => console.log(data));
   };
 
   return (

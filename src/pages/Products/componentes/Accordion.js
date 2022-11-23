@@ -11,7 +11,7 @@ function Accordion({ title, content }) {
         <button
           className="accordionIcon"
           onClick={() => {
-            setCheck(e => !e);
+            setCheck(prev => !prev);
           }}
         >
           {isCheck ? (
