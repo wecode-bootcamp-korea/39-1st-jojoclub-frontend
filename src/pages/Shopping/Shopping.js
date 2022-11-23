@@ -11,8 +11,7 @@ function Shopping() {
     fetch('http://10.58.52.180:3000/carts', {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+        Authorization: localStorage.getItem('accessToken'),
       },
     })
       .then(response => response.json())
@@ -39,7 +38,7 @@ function Shopping() {
 
   //추천 상품 장바구니 담기
   const addItem = index => {
-    setItemInfo([recommenditem[index], ...itemInfo]);
+    setItemInfo([RECOMMEND_ITEM[index], ...itemInfo]);
   };
 
   //상품 수량 변경
@@ -55,38 +54,6 @@ function Shopping() {
   };
 
   //추천 상품 리스트
-  const recommenditem = [
-    {
-      index: 0,
-      id: 8,
-      image_url: 'sample',
-      koName: '쇼핑백(s)',
-      enName: 'small gift bag',
-      price: '100',
-      pricenum: 100,
-      qty: 1,
-    },
-    {
-      index: 1,
-      id: 9,
-      image_url: 'sample',
-      koName: '쇼핑백(m)',
-      enName: 'medium gift bag',
-      price: 100,
-      pricenum: 100,
-      qty: 1,
-    },
-    {
-      index: 2,
-      id: 10,
-      image_url: 'sample',
-      koName: '블로썸 허니 코롱',
-      enName: 'blossom honey cologne',
-      price: '100',
-      pricenum: 100,
-      qty: 1,
-    },
-  ];
 
   //장바구니 추가
 
@@ -134,7 +101,7 @@ function Shopping() {
         </div>
         <div className="recommendtitle">추천 상품</div>
         <div className="recommenditemlist">
-          {recommenditem.map(itemdata => {
+          {RECOMMEND_ITEM.map(itemdata => {
             return (
               <div className="recommend" key={itemdata.id}>
                 <div className="recommendimg">{itemdata.image_url}</div>
@@ -205,3 +172,36 @@ function Shopping() {
 }
 
 export default Shopping;
+
+const RECOMMEND_ITEM = [
+  {
+    index: 0,
+    id: 8,
+    image_url: 'sample',
+    koName: '쇼핑백(s)',
+    enName: 'small gift bag',
+    price: '100',
+    pricenum: 100,
+    qty: 1,
+  },
+  {
+    index: 1,
+    id: 9,
+    image_url: 'sample',
+    koName: '쇼핑백(m)',
+    enName: 'medium gift bag',
+    price: 100,
+    pricenum: 100,
+    qty: 1,
+  },
+  {
+    index: 2,
+    id: 10,
+    image_url: 'sample',
+    koName: '블로썸 허니 코롱',
+    enName: 'blossom honey cologne',
+    price: '100',
+    pricenum: 100,
+    qty: 1,
+  },
+];

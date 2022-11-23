@@ -3,7 +3,6 @@ import './Shopping.scss';
 
 function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
   //상품리스트 삭제
-  const removeItem = id => setItemInfo(itemInfo.filter(item => item.id !== id));
 
   //수량 선택창
   const qtySelect = [...Array(8).keys()].map(key => key + 1);
@@ -11,7 +10,7 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
 
   //수량 선택창 끄기
   const modalclose = () => {
-    if (qtyOpen === true) setQtyOpen(false);
+    if (qtyOpen) setQtyOpen(false);
   };
 
   //수량 선택하여 수량 바꾸기
@@ -21,14 +20,14 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
   };
 
   //장바구니 상품 제거
+  const handelDeleteData = (cartsNum, id) => {
+    setItemInfo(itemInfo.filter(item => item.id !== id));
 
-  const removeData = cartsNum => {
     fetch('http://10.58.52.180:3000/carts', {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json;charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+        Authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
         cartsId: cartsNum,
@@ -72,10 +71,7 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
         <p>₩{itemdata.price * itemdata.quantity}</p>
         <p
           className="deleteitem"
-          onClick={
-            (() => removeItem(itemdata.userNum),
-            () => removeData(itemdata.cartsNum))
-          }
+          onClick={() => handelDeleteData(itemdata.userNum, itemdata.cartsNum)}
         >
           삭제
         </p>
