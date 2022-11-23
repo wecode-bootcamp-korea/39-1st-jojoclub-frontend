@@ -5,6 +5,7 @@ import Main from './pages/Main/Main';
 import ProductList from './pages/ProductList/ProductList';
 import Products from './pages/Products/Products';
 import Shopping from './pages/Shopping/Shopping';
+import Search from './pages/Search/Search';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/productList" element={<ProductList />} />
         <Route path="/products" element={<Products />} />
         <Route path="/shopping" element={<Shopping />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </BrowserRouter>
