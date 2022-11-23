@@ -6,7 +6,6 @@ import ProductList from './pages/ProductList/ProductList';
 import Products from './pages/Products/Products';
 import Shopping from './pages/Shopping/Shopping';
 import Mypage from './pages/Mypage/Mypage';
-import Order from './pages/Mypage/Order';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
@@ -21,7 +20,6 @@ const Router = () => {
         <Route path="/products" element={<Products />} />
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/order" element={<Order />} />
       </Routes>
       <Footer />
     </BrowserRouter>
