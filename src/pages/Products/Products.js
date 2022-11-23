@@ -28,20 +28,6 @@ function Products() {
       .then();
   };
 
-  // const sendItem = () => {
-  //   fetch('http://10.58.52.180:3000/carts', {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-Type': 'application/json;charset=utf-8',
-  //       Authorization:
-  //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
-  //     },
-  //     body: JSON.stringify({ productOptionId: 2, quantity: 1 }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => setProductInfoList(data));
-  // };
-
   return (
     <div className="products">
       <div className="bannerImg">
