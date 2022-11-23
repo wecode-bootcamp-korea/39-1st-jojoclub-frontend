@@ -34,6 +34,7 @@ export default function Signin() {
     email: '',
     pw: '',
   });
+
   const { email, pw } = userInfo;
 
   const handleUserInfo = event => {
@@ -43,8 +44,7 @@ export default function Signin() {
 
   const navigate = useNavigate();
 
-  const signinIsValidate =
-    userInfo.email.includes('@') && userInfo.pw.length >= 6;
+  const signinIsValidate = email.includes('@') && pw.length >= 6;
 
   return (
     <div className="existingCustomers">
