@@ -29,7 +29,7 @@ function SamplePrevArrow(props) {
   );
 }
 //
-function ProductListCopy() {
+function ProductListSlider() {
   //제품 정보 가져오기 (완성)
   const [productInfoList, setProductInfoList] = useState([]);
 
@@ -125,4 +125,4 @@ function ProductListCopy() {
   );
 }
 
-export default ProductListCopy;
+export default ProductListSlider;

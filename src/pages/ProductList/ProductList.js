@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Modal from './Modal';
 import AllProductList from './AllProductList';
-import ProductListCopy from './ProductListCopy';
+import ProductListSlider from './ProductListSlider';
 import './ProductList.scss';
 import './Modal.scss';
 
@@ -86,7 +86,7 @@ function ProductList() {
           productInfo={getInfo}
         />
       </div>
-      <ProductListCopy />
+      <ProductListSlider />
       <AllProductList />
     </>
   );
