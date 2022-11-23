@@ -16,16 +16,32 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
 
   //수량 선택하여 수량 바꾸기
   const qtychange = num => {
-    itemdata.qty = num;
-    onChangeQty(itemdata.id, num);
+    itemdata.quantity = num;
+    onChangeQty(itemdata.userNum, num);
+  };
+
+  //장바구니 상품 제거
+
+  const removeData = cartsNum => {
+    fetch('http://10.58.52.180:3000/carts', {
+      method: 'DELETE',
+      headers: {
+        'content-Type': 'application/json;charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+      },
+      body: JSON.stringify({
+        cartsId: cartsNum,
+      }),
+    });
   };
 
   return (
-    <div className="buyitems" key={itemdata.id} onClick={modalclose}>
+    <div className="buyitems" key={itemdata.userNum} onClick={modalclose}>
       <div>image</div>
       <div>
-        <p>{itemdata.koName}</p>
-        <p>{itemdata.enName}</p>
+        <p>{itemdata.name_ko}</p>
+        <p>{itemdata.name_en}</p>
         <p>{itemdata.size}</p>
       </div>
       <div>₩{itemdata.price}</div>
@@ -35,7 +51,7 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
             setQtyOpen(true);
           }}
         >
-          {itemdata.qty} ⋁
+          {itemdata.quantity} ⋁
         </button>
         <div className={`qtybtn ${qtyOpen ? 'active' : 'inactive'}`}>
           {qtySelect.map((btn, i) => {
@@ -53,8 +69,14 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
         </div>
       </div>
       <div className="totalprice">
-        <p>₩{itemdata.pricenum * itemdata.qty}</p>
-        <p className="deleteitem" onClick={() => removeItem(itemdata.id)}>
+        <p>₩{itemdata.price * itemdata.quantity}</p>
+        <p
+          className="deleteitem"
+          onClick={
+            (() => removeItem(itemdata.userNum),
+            () => removeData(itemdata.cartsNum))
+          }
+        >
           삭제
         </p>
       </div>

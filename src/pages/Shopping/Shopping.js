@@ -8,7 +8,13 @@ function Shopping() {
   const [itemInfo, setItemInfo] = useState([]);
 
   useEffect(() => {
-    fetch('/data/shoppingdata.json')
+    fetch('http://10.58.52.180:3000/carts', {
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+      },
+    })
       .then(response => response.json())
       .then(data => setItemInfo(data));
   }, []);
@@ -17,7 +23,7 @@ function Shopping() {
   let totalprice = () => {
     let total = 0;
     for (let i = 0; i < itemInfo.length; i++) {
-      total += itemInfo[i].pricenum * itemInfo[i].qty;
+      total += itemInfo[i].price * itemInfo[i].quantity;
     }
     return total;
   };
@@ -26,7 +32,7 @@ function Shopping() {
   let totalqty = () => {
     let total = 0;
     for (let i = 0; i < itemInfo.length; i++) {
-      total += itemInfo[i].qty;
+      total += itemInfo[i].quantity;
     }
     return total;
   };
@@ -41,7 +47,7 @@ function Shopping() {
     setItemInfo(
       itemInfo.map(item => {
         if (item.id === id) {
-          item.qty = num;
+          item.quantity = num;
         }
         return item;
       })
@@ -84,24 +90,6 @@ function Shopping() {
 
   //장바구니 추가
 
-  //장바구니 상품 제거
-  const [removeItem, setRemoveItem] = useState('');
-
-  useEffect(() => {
-    fetch('API 주소', {
-      method: 'DELETE',
-      headers: {
-        'content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        productId: '1',
-        sizeId: '10',
-      }),
-    })
-      .then(response => response.json())
-      .then(data => setRemoveItem(data));
-  }, []);
-
   return (
     <div className="shopping">
       <main>
@@ -123,7 +111,7 @@ function Shopping() {
                 itemdata={itemdata}
                 itemInfo={itemInfo}
                 setItemInfo={setItemInfo}
-                key={itemdata.id}
+                key={itemdata.userNum}
                 onChangeQty={changeQty}
               />
             );
