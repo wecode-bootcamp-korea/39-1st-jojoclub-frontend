@@ -16,10 +16,6 @@ const ImageSlide = ({ slides }) => {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = slideIndex => {
-    setCurrentIndex(slideIndex);
-  };
-
   return (
     <div className="carousel">
       <div className="leftArrowStyles" onClick={goToPrevious}>
@@ -28,12 +24,17 @@ const ImageSlide = ({ slides }) => {
       <div className="rightArrowStyles" onClick={goToNext}>
         <span class="material-symbols-outlined">chevron_right</span>
       </div>
-      <div className="sildeItem">
+      <div
+        className="sildeItem"
+        style={{
+          transform: `translateX(calc(-472 * ${currentIndex}px))`,
+        }}
+      >
         {slides.map(slide => {
-          return <img src={slide.url} className="slideImg" />;
+          return <img src={slide.url} className="slideImg" width="1000" />;
         })}
       </div>
-      <div className="slideBar">
+      {/* <div className="slideBar">
         {slides.map((slide, slideIndex) => (
           <li
             className="slideBarDot"
@@ -41,7 +42,7 @@ const ImageSlide = ({ slides }) => {
             onClick={() => goToSlide(slideIndex)}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

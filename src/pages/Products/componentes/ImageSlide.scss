@@ -12,11 +12,15 @@
     display: flex;
     width: 400%;
     height: 100%;
+    transition: 0.5s;
     background-position: center;
     background-size: cover;
 
     .slideImg {
+      display: block;
       width: 472px;
+      height: auto;
+      padding: 50px 150px 0px 150px;
     }
   }
 

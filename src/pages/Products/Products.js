@@ -1,24 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Products.scss';
 import Accordion from './componentes/Accordion';
 import ImageSlide from './componentes/ImageSlide';
+import './Products.scss';
 
 function Products() {
-  const [products, setProducts] = useState([]);
+  const [productInfo, setProductInfo] = useState([]);
 
   const slides = [
-    { url: '/images/products/imgslide_item_01.png', title: 'imgslide1' },
-    { url: '/images/products/imgslide_item_02.png', title: 'imgslide2' },
-    { url: '/images/products/imgslide_item_03.png', title: 'imgslide3' },
-    { url: '/images/products/imgslide_item_04.png', title: 'imgslide4' },
+    { url: '/images/products/purfume_s100_01.png', title: 'imgslide1' },
+    { url: '/images/products/purfume_pack_02.png', title: 'imgslide2' },
   ];
 
   useEffect(() => {
-    fetch('/data/products.json')
+    fetch('/data/productInfo.json')
       .then(response => response.json())
-      .then(result => setProducts(result));
+      .then(result => setProductInfo(result));
   }, []);
+
+  const sendItem = () => {
+    fetch('api/carts', {
+      method: 'POST',
+      headers: {},
+      body: JSON.stringify({ product_id: productInfo }),
+    })
+      .then()
+      .then();
+  };
+
+  // const sendItem = () => {
+  //   fetch('http://10.58.52.180:3000/carts', {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-Type': 'application/json;charset=utf-8',
+  //       Authorization:
+  //         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+  //     },
+  //     body: JSON.stringify({ productOptionId: 2, quantity: 1 }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setProductInfoList(data));
+  // };
 
   return (
     <div className="products">
@@ -47,7 +69,7 @@ function Products() {
             <span className="btnShare">공유하기</span>
           </div>
           <div className="rightColumnSection">
-            {products.map(
+            {productInfo.map(
               ({
                 id,
                 nameEn,
@@ -71,25 +93,35 @@ function Products() {
                   <li className="sizePicker">
                     <div className="pickerTrack">
                       <li className="trackItem">
-                        <img src={size100} alt="size100ml" />
+                        <img
+                          className="trackItemImg"
+                          src={size100}
+                          alt="size100ml"
+                        />
                         <p className="trackSize">100ML</p>
                       </li>
                       <li className="trackItem">
                         <img
-                          clssName="trackItemImg"
+                          className="trackItemImg"
                           src={size50}
                           alt="size50ml"
                         />
                         <p className="trackSize">50ML</p>
                       </li>
                       <li className="trackItem">
-                        <img src={size30} alt="size30ml" />
+                        <img
+                          className="trackItemImg"
+                          src={size30}
+                          alt="size30ml"
+                        />
                         <p className="trackSize">30ML</p>
                       </li>
                     </div>
                   </li>
                   <li className="btnBox">
-                    <button className="btnCart">장바구니</button>
+                    <button className="btnCart" onClick={sendItem}>
+                      장바구니
+                    </button>
                     <button className="btnCart">바로구매</button>
                   </li>
                   <li className="wishListBox">
