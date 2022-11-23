@@ -45,6 +45,7 @@ function ScentList() {
   //     .then(res => res.json())
   //     .then(res => this.setState({ carts: res.carts }));
   // };
+
   return (
     <div className="scentlist">
       <header>
