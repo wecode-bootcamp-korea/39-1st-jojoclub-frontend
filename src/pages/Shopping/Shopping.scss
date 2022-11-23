@@ -68,6 +68,7 @@
       .qtybtn{
         display: flex;
         position: absolute;
+        z-index: 10;
         top: 0px;
         right:70px;
         flex-direction: column;
@@ -174,15 +175,56 @@
   font-size: 12px;
   aside{
     margin: 20px;
-    padding: 20px;
-    border: 1px solid black;
+    padding: 20px 20px 30px 20px;
+    border: 1px solid #cccccc;
+    a{
+      display: block;
+      margin:20px 0;
+      text-decoration: underline;
+    }
+
+    input{
+      height: 45px;
+      margin:20px 0;
+      border: #e1dfd3;
+    }
+    button{
+      width: 120px;
+      height: 45px;
+      margin-left: 10px;
+      border: 0.5px solid black;
+      border-radius: 0;
+      background-color: white;
+    }
     h2{
+      margin-bottom: 20px;
+      font-size: 13px;
       text-align: center;
     }
     p{
-      margin: 10px;
+      @include bodyText2;
+      
+      line-height: 1.8;
+    }
+    .pricetag{
+      margin-top: 30px;
+      font-weight: 600;
+      p{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0 25px;
+        .price{
+          text-align: end;
+        
+        }
+      }
+      .deliveryprice{
+        border-bottom: 1px solid #cccccc;
+      }
+
     }
   }
+ 
 }
 
 a{
