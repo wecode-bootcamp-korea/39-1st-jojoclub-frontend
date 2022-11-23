@@ -17,7 +17,7 @@ export default function Signup() {
       body: JSON.stringify({
         name: userInfo.name,
         email: userInfo.email,
-        password: userInfo.pw,
+        password: confirmPw.pw,
         phoneNumber: userInfo.phoneNum,
       }),
     })
@@ -40,7 +40,6 @@ export default function Signup() {
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
-    pw: '',
     phoneNum: '',
   });
 
@@ -55,7 +54,8 @@ export default function Signup() {
   const signupIsValidate =
     userInfo.name.length > 0 &&
     userInfo.email.includes('@') &&
-    userInfo.pw.length >= 6;
+    confirmPw.pw.length >= 6 &&
+    userInfo.phoneNum.length >= 8;
 
   // const validatePassword = userInfo.pw.search(
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/
@@ -82,7 +82,6 @@ export default function Signup() {
   const handlePwConfirm = event => {
     const { name, value } = event.target;
     setConfirmPw(prev => ({ ...prev, [name]: value }));
-    handlePwCheck();
   };
 
   const handlePwCheck = () => {
@@ -95,11 +94,9 @@ export default function Signup() {
     }
   };
 
-  // useEffect(() => {
-  //   handlePwCheck();
-  // }, [confirmPw]);
-
-  //console.log(confirmPw);
+  useEffect(() => {
+    handlePwCheck();
+  }, [confirmPw.pw, confirmPw.pwConfirm]);
 
   const [agreeList, setAgreeList] = useState({
     usingTerm: false,
@@ -138,7 +135,7 @@ export default function Signup() {
             value={userInfo.name}
             onChange={handleUserInfo}
           />
-          <label for="name">* 이름</label>
+          <label htmlFor="name">* 이름</label>
         </div>
         <div className="inputSignup">
           <input
@@ -149,7 +146,7 @@ export default function Signup() {
             value={userInfo.email}
             onChange={handleUserInfo}
           />
-          <label for="name">* 이메일 주소</label>
+          <label htmlFor="name">* 이메일 주소</label>
         </div>
         <div className="inputSignup">
           <input
@@ -157,10 +154,10 @@ export default function Signup() {
             placeholder=" "
             name="pw"
             id="pw"
-            value={(userInfo.pw, confirmPw.pw)}
-            onChange={(handleUserInfo, handlePwConfirm)}
+            value={confirmPw.pw}
+            onChange={handlePwConfirm}
           />
-          <label for="name">* 비밀번호</label>
+          <label htmlFor="name">* 비밀번호</label>
         </div>
         <label>
           <input type="checkbox" value="showPw" onChange={togglePassword} />
@@ -174,7 +171,7 @@ export default function Signup() {
             value={confirmPw.pwConfirm}
             onChange={handlePwConfirm}
           />
-          <label for="name">* 비밀번호 재확인</label>
+          <label htmlFor="name">* 비밀번호 재확인</label>
         </div>
         <div>비밀번호 일치여부: {confirmPw.pwCheck}</div>
         <p className="pwCautionMsg">
@@ -205,6 +202,7 @@ export default function Signup() {
                   name={name}
                   checked={agreeList[name]}
                   onClick={() => handleAgree(name)}
+                  readOnly
                 />
                 동의
               </label>
@@ -214,6 +212,7 @@ export default function Signup() {
                   name={name}
                   checked={!agreeList[name]}
                   onClick={() => handleDisAgree(name)}
+                  readOnly
                 />
                 동의하지 않음
               </label>

@@ -57,7 +57,7 @@ export default function Signin() {
             value={userInfo.email}
             onChange={handleUserInfo}
           />
-          <label for="name">* 이메일 주소</label>
+          <label htmlFor="name">* 이메일 주소</label>
         </div>
         <div className="inputLogin">
           <input
@@ -67,7 +67,7 @@ export default function Signin() {
             value={userInfo.pw}
             onChange={handleUserInfo}
           />
-          <label for="name">* 비밀번호</label>
+          <label htmlFor="name">* 비밀번호</label>
         </div>
       </div>
       <p className="underline">여기를 클릭하세요.</p>
