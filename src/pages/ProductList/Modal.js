@@ -21,7 +21,7 @@ const Modal = ({ open, onClose, productInfo }) => {
         Authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
       },
-      body: JSON.stringify({ productOptionId: 2, quantity: 1 }),
+      body: JSON.stringify({ productOptionId: 1, quantity: 1 }),
     })
       .then(response => response.json())
       .then(data => setProductInfoList(data));
@@ -46,7 +46,6 @@ const Modal = ({ open, onClose, productInfo }) => {
                   <li className="description">{content}</li>
                   <li className="price">{price}</li>
                   <li className="btnBox">
-                    {/* <button className="btnCart" onClick={addToCart}> */}
                     <button className="btnCart" onClick={sendItem}>
                       장바구니 담기
                     </button>
