@@ -45,23 +45,4 @@
     font-size: 45px;
     cursor: pointer;
   }
-
-  .slideBar {
-    display: flex;
-    justify-content: center;
-    margin: 16px 0;
-
-    .slideBarDot {
-      width: 5px;
-      height: 5px;
-      margin: 0 8px;
-      color: $color-black;
-      cursor: pointer;
-
-      &:focus {
-        width: 6px;
-        height: 6px;
-      }
-    }
-  }
 }

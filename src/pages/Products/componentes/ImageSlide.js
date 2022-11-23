@@ -34,15 +34,6 @@ const ImageSlide = ({ slides }) => {
           return <img src={slide.url} className="slideImg" width="1000" />;
         })}
       </div>
-      {/* <div className="slideBar">
-        {slides.map((slide, slideIndex) => (
-          <li
-            className="slideBarDot"
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-          />
-        ))}
-      </div> */}
     </div>
   );
 };
