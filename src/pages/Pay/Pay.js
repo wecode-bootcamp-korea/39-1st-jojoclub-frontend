@@ -7,10 +7,11 @@ function Pay() {
   const [deliveryInfo, setDeliveryInfo] = useState([]);
 
   useEffect(() => {
-    fetch('주소', {
+    fetch('http://10.58.52.180:3000/carts', {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
       },
     })
       .then(response => response.json())
