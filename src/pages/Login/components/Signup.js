@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AGREE_INFO, RECEPTION } from '../AgreeInfo';
 import './Signup.scss';
@@ -93,6 +93,12 @@ export default function Signup() {
       setConfirmPw(prev => ({ ...prev, pwCheck: '불일치' }));
     }
   };
+
+  // useEffect(() => {
+  //   handlePwCheck();
+  // }, [confirmPw]);
+
+  //console.log(confirmPw);
 
   const [agreeList, setAgreeList] = useState({
     usingTerm: false,
