@@ -85,7 +85,7 @@ export default function Mypage() {
           <Link to="/shopping">
             <li>장바구니</li>
           </Link>
-          <Link to="/">
+          <Link to="/order">
             <li>주문내역 보기</li>
           </Link>
         </ul>
