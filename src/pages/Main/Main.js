@@ -236,9 +236,9 @@ function Main() {
         </div>
       </div>
 
-      <Link to="#">
+      <a href="#">
         <button type="button" className="toTop" />
-      </Link>
+      </a>
     </>
   );
 }

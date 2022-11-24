@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { APIS } from '../../config';
 import './Mypage.scss';
 
@@ -15,6 +15,8 @@ export default function Mypage() {
   //     .then(response => response.json())
   //     .then(data => setUserInfo(data));
   // }, []);
+
+  const navigate = useNavigate();
 
   const addressFetchFunction = () => {
     fetch(`${APIS.users}/address`, {
@@ -32,10 +34,10 @@ export default function Mypage() {
         return res.json();
       })
       .catch(err => {
-        alert('주소를 입력해주세요.');
+        navigate('/');
       })
       .then(data => {
-        Navigate('/');
+        navigate('/');
       });
   };
 

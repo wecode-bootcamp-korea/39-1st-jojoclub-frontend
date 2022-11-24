@@ -83,17 +83,15 @@ const Modal = ({ open, onClose, productInfo }) => {
                       <li className="description">{content}</li>
                       <li className="price">{price}</li>
                       <li className="btnBox">
-                        <Link to="/productList">
-                          <button
-                            className="btnCart"
-                            onClick={() => {
-                              sendItem(options[0].productOptionId);
-                              alert('장바구니에 상품이 담겼습니다.');
-                            }}
-                          >
-                            장바구니 담기
-                          </button>
-                        </Link>
+                        <button
+                          className="btnCart"
+                          onClick={() => {
+                            sendItem(options[0].productOptionId);
+                            alert('장바구니에 상품이 담겼습니다.');
+                          }}
+                        >
+                          장바구니 담기
+                        </button>
                       </li>
                       {/* <li className="btnBox">
                         <Link to="#">
