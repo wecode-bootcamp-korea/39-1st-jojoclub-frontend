@@ -34,7 +34,7 @@ export default function Signup() {
       .then(data => {
         alert('회원가입 성공!');
         localStorage.setItem('token', data.accessToken);
-        navigate('/mypage');
+        navigate('/login');
       });
   };
 
