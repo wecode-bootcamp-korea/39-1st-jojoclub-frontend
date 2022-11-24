@@ -44,6 +44,11 @@ export default function Mypage() {
     setUserAddress(e.target.value);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.reload();
+  };
+
   const [form, setForm] = useState({
     year: '2022',
     month: '01',
@@ -77,7 +82,9 @@ export default function Mypage() {
     <div className="mypage">
       <div className="leftMenu">
         <p className="mypageTab">마이페이지</p>
-        <p className="logout">로그아웃</p>
+        <Link to="/" className="logout" onClick={handleLogout}>
+          로그아웃
+        </Link>
         <ul className="menuList">
           <Link to="/mypage">
             <li>회원정보 입력</li>
