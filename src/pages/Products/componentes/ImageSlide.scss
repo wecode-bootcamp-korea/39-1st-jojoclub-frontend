@@ -1,0 +1,48 @@
+@import '/src/styles/variables';
+
+.carousel {
+  position: relative;
+  width: 472px;
+  max-width: 472px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .sildeItem {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: 0.5s;
+    background-position: center;
+    background-size: cover;
+
+    .slideImg {
+      display: block;
+      width: 472px;
+      height: auto;
+      padding: 50px 150px 0px 150px;
+    }
+  }
+
+  .leftArrowStyles {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 12px;
+    transform: translate(0, -50%);
+    color: $color-black;
+    font-size: 45px;
+    cursor: pointer;
+  }
+
+  .rightArrowStyles {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 12px;
+    transform: translate(0, -50%);
+    color: $color-black;
+    font-size: 45px;
+    cursor: pointer;
+  }
+}

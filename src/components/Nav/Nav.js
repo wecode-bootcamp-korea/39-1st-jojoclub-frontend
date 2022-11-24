@@ -39,19 +39,13 @@ function Nav() {
         </Link>
         <div className="icons">
           <Link to="/">
-            <span className="icon" class="material-symbols-outlined">
-              search
-            </span>
+            <span className="material-symbols-outlined">search</span>
           </Link>
           <Link to="/login">
-            <span className="icon" class="material-symbols-outlined">
-              person
-            </span>
+            <span className="material-symbols-outlined">person</span>
           </Link>
           <Link to="/shopping">
-            <span className="icon" class="material-symbols-outlined">
-              shopping_bag
-            </span>
+            <span className="material-symbols-outlined">shopping_bag</span>
           </Link>
         </div>
       </nav>

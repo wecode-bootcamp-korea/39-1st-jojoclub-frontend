@@ -1,14 +1,14 @@
-@import '/src/styles/variables.scss';
+@import '/src/styles/variables';
 
 .products {
   background-color: $background-color;
 
   .bannerImg {
     display: flex;
-    height: 100%;
     position: relative;
-    width: 100%;
     z-index: 0;
+    width: 100%;
+    height: 100%;
 
     img {
       display: block;
@@ -18,24 +18,25 @@
   }
 
   .info {
-    margin: 0 44px;
     position: relative;
     min-height: 800px;
+    margin: 0 44px;
 
     .layoutInfoFull {
       display: flex;
       flex-wrap: wrap;
       max-width: 1254px;
-      padding: 42px 0;
       margin: 0 auto;
+      padding: 42px 0;
 
       .categoryWrap {
         @include linkSmall;
-        padding: 0 44px 0 0;
-        left: 0;
+        display: flex;
         position: absolute;
         top: 37px;
-        display: flex;
+        left: 0;
+        padding: 0 44px 0 0;
+        text-decoration: none;
 
         .category {
           display: flex;
@@ -60,38 +61,11 @@
         flex-flow: column;
         width: 68%;
 
-        .carousel {
-          width: 100%;
-          max-width: 472px;
-          margin: 0 auto;
-          padding: 0;
-
-          .slideImg {
-            img {
-              width: 300px;
-            }
-          }
-          .slideBar {
-            margin: 16px 0 0;
-            padding-left: 12px;
-            position: relative;
-
-            .slideBarDot {
-              position: relative;
-              display: inline-block;
-              width: 20px;
-              height: 20px;
-              padding: 0px;
-              cursor: pointer;
-              list-style: none;
-            }
-          }
-        }
         .btnShare {
           @include linkBold;
           display: flex;
           justify-content: center;
-          margin: 12px auto 0;
+          margin: 44px auto 0;
           font-weight: 400;
         }
       }
@@ -100,89 +74,121 @@
         flex-wrap: wrap;
         width: 32%;
         max-width: 328px;
-
-        .badge {
-          @include bodyText2;
-          font-weight: 600;
-          letter-spacing: 1px;
-        }
-
-        .nameEn {
-          @include titleH2;
-          margin: 20px 0 13px;
-        }
-
-        .nameKr {
-          @include titleH3;
-        }
-
-        .price {
-          @include bodyText2;
-          display: flex;
-          margin: 10px 0 24px;
-          padding: 0;
-          width: 100%;
-          font-weight: 600;
-        }
-        .reviewBox {
-          display: flex;
-          justify-content: flex-end;
-          margin: 0 0 36px;
-          width: 100%;
-          min-height: 24px;
-
-          .averageRating {
+        .productsContainer {
+          .badge {
             @include bodyText2;
-            margin: 0px 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
           }
 
-          .btnReadReview {
-            @include linkBold;
-            margin: 0px 8px;
+          .nameEn {
+            @include titleH2;
+            margin: 20px 0 13px;
           }
-        }
 
-        .description {
-          @include bodyText;
-        }
+          .nameKr {
+            @include titleH3;
+          }
 
-        .sizePicker {
-          display: flex;
+          .price {
+            @include bodyText2;
+            display: flex;
+            width: 100%;
+            margin: 10px 0 24px;
+            padding: 0;
+            font-weight: 600;
+          }
 
-          .pickerTrack {
-            .trackItem {
-              display: block;
+          .reviewBox {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            min-height: 24px;
+            margin: 0 0 36px;
+
+            .averageRating {
+              @include bodyText2;
+              margin: 0px 8px;
+            }
+
+            .btnReadReview {
+              @include linkBold;
+              margin: 0px 8px;
             }
           }
-        }
 
-        .btnCart {
-          background-color: $color-black;
-          color: $background-color;
-          width: 100%;
-          height: 50px;
-          margin: 24px 0 30px;
-          padding: 0px 16px;
-          position: relative;
-        }
-
-        .wishListBox {
-          margin: 0 0 0 auto;
-
-          .wishList {
-            @include bodyText;
+          .description {
+            @include bodyText2;
+            display: inline;
+            letter-spacing: 0.04em;
+            line-height: 1.6;
           }
 
-          .wishIcon {
-            padding: 0;
-            margin-left: 8px;
+          .sizePicker {
+            display: flex;
+            padding: 30px 0 10px 0;
+
+            .pickerTrack {
+              display: flex;
+              justify-content: flex-start;
+
+              .trackItem {
+                display: inline-block;
+                align-items: center;
+                justify-content: center;
+                width: 58px;
+                margin: 0 auto;
+                cursor: pointer;
+
+                .trackItemImg {
+                  display: block;
+                  height: 58px;
+                }
+
+                .trackSize {
+                  @include linkCap;
+                }
+              }
+            }
           }
-        }
-        .borderBox {
-          width: 100%;
-          border-top: 1px solid #e2e1d7;
-          border-bottom: 1px solid #e2e1d7;
-          padding: 10px 0 12px;
+
+          .btnBox {
+            display: flex;
+            column-gap: 8px;
+
+            .btnCart {
+              position: relative;
+              width: 100%;
+              height: 50px;
+              margin: 24px 0 30px;
+              padding: 0px 16px;
+              background-color: $color-black;
+              color: $background-color;
+            }
+          }
+
+          .wishListBox {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin: 0 0 0 auto;
+
+            .wishList {
+              @include bodyText;
+              font-size: 12px;
+            }
+
+            .wishIcon {
+              margin-left: 8px;
+              padding: 0;
+            }
+          }
+          .borderBox {
+            width: 100%;
+            padding: 10px 0 12px;
+            border-top: 1px solid #e2e1d7;
+            border-bottom: 1px solid #e2e1d7;
+          }
         }
       }
 
@@ -192,19 +198,6 @@
 
         .ingredients,
         .howToUse {
-          .accordion {
-            margin: 0 48px;
-
-            .contentHeader {
-              @include titleH2;
-              padding: 46px 0;
-            }
-            .contentBody {
-              @include bodyText;
-              padding: 12px 0 40px;
-              border-bottom: 1px solid #e2e1d7;
-            }
-          }
           .contentBody2 {
             @include bodyText;
             margin: 0 48px;
@@ -215,15 +208,10 @@
     }
     .layoutInfoContent {
       .howToUseCologne {
-        @include titleH3;
       }
       .productList {
-        @include titleH3;
       }
       .review {
-        .contentHeader {
-          @include titleH3;
-        }
       }
     }
   }
