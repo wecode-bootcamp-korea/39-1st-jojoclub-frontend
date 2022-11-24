@@ -81,7 +81,7 @@ function Products() {
                   <li className="trackItem">
                     <img
                       className="trackItemImg"
-                      src={options[0].size}
+                      src={options[0].img}
                       alt="size100ml"
                     />
                     <p className="trackSize">100ML</p>
@@ -89,7 +89,7 @@ function Products() {
                   <li className="trackItem">
                     <img
                       className="trackItemImg"
-                      src={options[0].size}
+                      src={options[0].img}
                       alt="size50ml"
                     />
                     <p className="trackSize">50ML</p>
@@ -97,7 +97,7 @@ function Products() {
                   <li className="trackItem">
                     <img
                       className="trackItemImg"
-                      src={options[0].size}
+                      src={options[0].img}
                       alt="size30ml"
                     />
                     <p className="trackSize">30ML</p>
