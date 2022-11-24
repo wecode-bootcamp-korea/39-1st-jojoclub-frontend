@@ -22,12 +22,28 @@ function ScentList() {
   const [searchParams, setSearchParams] = useSearchParams([]);
 
   useEffect(() => {
-    fetch(`http://10.58.52.80:3000/product?${searchParams.toString()}`, {
+    fetch(`${APIS.product}?${searchParams.toString()}`, {
       headers: { 'content-Type': 'application/json;charset=utf-8' },
     })
       .then(response => response.json())
       .then(data => setItemInfo(data));
   }, [searchParams]);
+
+  //장바구니 담기
+  const sendItem = id => {
+    fetch(`${APIS.carts}`, {
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        productOptionId: id,
+        quantity: 1,
+      }),
+    }).then(response => response.json());
+  };
+
   return (
     <div className="scentlist">
       <header>
@@ -39,19 +55,22 @@ function ScentList() {
       <div className="itemlist">
         {itemInfo.map(itemdata => {
           return (
-            <div className="itemid" key={itemdata.id}>
-              <Link to={`/product/${itemdata.id}`}>
-                <img
-                  className="itemimg"
-                  src={itemdata.options[0].img}
-                  alt="item"
-                />
+            <div className="itemid" key={itemdata.productId}>
+              <Link to={`/product/${itemdata.productId}`}>
+                <div className="imgwrap">
+                  <img src={itemdata.imgUrl} alt="item" />
+                </div>
                 <div className="krname">{itemdata.koName}</div>
               </Link>
               <div className="engname">{itemdata.enName}</div>
-              <div className="price">₩{itemdata.price}</div>
+              <div className="price">
+                <span> ₩{itemdata.price}</span>
+                <span> {itemdata.size}</span>
+              </div>
               <div className="shopbtn">
-                <button>장바구니 담기</button>
+                <button onClick={() => sendItem(itemdata.productId)}>
+                  장바구니 담기
+                </button>
               </div>
             </div>
           );

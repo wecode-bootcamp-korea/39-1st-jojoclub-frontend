@@ -32,10 +32,24 @@
   .itemid{
     display: flex;
     flex-direction: column;
-    @include bodyText2;
+    align-items: center;
     width: 25%;
     padding:30px;
-
+    @include bodyText2;
+    
+    .imgwrap{
+      display: flex;
+      justify-content: center;
+      width: 220px;
+      height:220px;
+      
+    
+    img{
+      object-fit: scale-down;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+  }
   .shopbtn{
     display: flex; 
     justify-content: center;
@@ -59,8 +73,11 @@
       text-align: center;
     }
     .price{
+      display: flex;
+      justify-content: space-between;
+      width: 120px;
       margin:10px;
-      text-align: center;
+
     }
   }
 }

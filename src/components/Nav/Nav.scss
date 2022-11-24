@@ -63,6 +63,7 @@
 
   .dropmenuall{
     position: relative;
+    z-index: 10;
 
 
   .hovernav {
@@ -86,9 +87,9 @@
   .dropmenu{
     position: absolute;
     top:50px;
+    width: 100%;
     padding-bottom: 20px;
     background-color: $background-color;
-    
     .scents{
       display: flex;
       margin-left: 17px;
