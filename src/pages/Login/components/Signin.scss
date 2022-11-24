@@ -8,15 +8,16 @@
     font-weight: bold;
   }
 
-  .inputLogin input {
-    @include inputStyle;
+  .inputLogin {
+    position: relative;
+    @include placeholderSlide;
 
-    &:focus {
-      outline: 1px dotted black;
+    input {
+      @include inputStyle;
     }
 
-    &::placeholder {
-      color: #cccccc;
+    label {
+      @include label;
     }
   }
 
