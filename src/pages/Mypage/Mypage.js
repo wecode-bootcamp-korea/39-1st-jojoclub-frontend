@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import { APIS } from '../../config';
 import './Mypage.scss';
 
 export default function Mypage() {
   const [userInfo, setUserInfo] = useState([]);
-  useEffect(() => {
-    fetch('api주소', {
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
-      },
-    })
-      .then(response => response.json())
-      .then(data => setUserInfo(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${APIS.users}`, {
+  //     headers: {
+  //       'Content-Type': 'application/json; charset=utf-8',
+  //       Authorization: localStorage.getItem('accessToken'),
+  //     },
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setUserInfo(data));
+  // }, []);
 
   const addressFetchFunction = () => {
-    fetch('http://10.58.52.180:3000/users/address', {
+    fetch(`${APIS.users}/address`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY2ODk1MjQyNX0.QCBUGO4y1EOTBi8CBAbAYn7QBXYcs5keHQ4JwsqwvxU',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({ address: userAddress }),
     })
       .then(res => {
-        if (res.status !== 200) {
+        if (res.ok !== true) {
           throw new Error('error');
         }
         return res.json();
@@ -46,7 +46,7 @@ export default function Mypage() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.reload();
+    //window.location.reload();
   };
 
   const [form, setForm] = useState({

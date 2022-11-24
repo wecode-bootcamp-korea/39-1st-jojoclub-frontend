@@ -12,17 +12,18 @@ function Products() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(`http://10.58.52.119:3000/product/${userId}`)
+    fetch(`${APIS.product}/${userId}`)
       .then(response => response.json())
-      .then(result => setUser(result.data));
+      .then(result => setUser(result[0]));
   }, [userId]);
 
-  const { productId, enName, koName, content, ingredient, menual } = user;
+  if (!user.enName) return null;
 
-  console.log(productId, enName);
+  const { productId, enName, koName, content, ingredient, manual, options } =
+    user;
 
   const slides = [
-    { url: '/images/products/purfume_s100_01.png', title: 'imgslide1' },
+    { url: options[0]?.img, title: 'imgslide1' },
     { url: '/images/products/purfume_pack_02.png', title: 'imgslide2' },
   ];
 
@@ -34,9 +35,7 @@ function Products() {
         Authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({ productOptionId: 2, quantity: 1 }),
-    })
-      .then(response => response.json())
-      .then(data => console.log(data));
+    }).then(response => response.json());
   };
 
   return (
@@ -70,7 +69,7 @@ function Products() {
               <li className="badge">베스트 셀러</li>
               <li className="nameEn">{enName}</li>
               <li className="nameKr">{koName}</li>
-              <li className="price">{options[0].price}</li>
+              <li className="price">{options[0]?.price}</li>
               <li className="reviewBox">
                 <span className="averageRating">4.9/5</span>
                 <span className="btnReadReview">리뷰 보기</span>
@@ -132,7 +131,7 @@ function Products() {
               <p className="contentBody2">{ingredient}</p>
             </div>
             <div className="howToUse">
-              <Accordion title="사용방법" content={menual} />
+              <Accordion title="사용방법" content={manual} />
             </div>
           </div>
         </div>

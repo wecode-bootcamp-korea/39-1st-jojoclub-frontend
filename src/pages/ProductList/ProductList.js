@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import AllProductList from './AllProductList';
-import ProductListSlider from './ProductListSlider';
+import { APIS } from '../../config';
 import './ProductList.scss';
 import './Modal.scss';
 
@@ -10,7 +11,7 @@ function ProductList() {
   const [productInfoList, setProductInfoList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://10.58.52.80:3000/product`)
+    fetch(`${APIS.product}`)
       .then(response => response.json())
       .then(result => setProductInfoList(result));
   }, []);
@@ -52,13 +53,17 @@ function ProductList() {
           {productInfoList.map(
             ({ productId, imgUrl, enName, koName, price, size }) => (
               <ul className="productContainer" key={productId}>
-                <li className="productImg">
-                  <img src={imgUrl} alt="product" />
-                </li>
+                <Link to={`/products/${productId}`}>
+                  <li className="productImg">
+                    <img src={imgUrl} alt="product" />
+                  </li>
+                </Link>
                 <div className="productDetailWrap">
                   <li className="newProduct">신제품</li>
-                  <li className="productEng">{enName}</li>
-                  <li className="productKor">{koName}</li>
+                  <Link to={`/products/${productId}`}>
+                    <li className="productEng">{enName}</li>
+                    <li className="productKor">{koName}</li>
+                  </Link>
                   <div className="priceNsize">
                     <li className="priceTag">₩{price}</li>
                     <li className="sizeTag">{size}</li>
@@ -89,7 +94,6 @@ function ProductList() {
         />
       </div>
       {/* <ProductListSlider /> */}
-      <AllProductList />
     </>
   );
 }

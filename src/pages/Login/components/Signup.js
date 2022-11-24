@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { APIS } from '../../../config';
 import { AGREE_INFO, RECEPTION } from '../AgreeInfo';
 import './Signup.scss';
 
@@ -11,7 +12,7 @@ export default function Signup() {
   // };
 
   const signupFetchFunction = e => {
-    fetch('http://10.58.52.180:3000/users/signup', {
+    fetch(`${APIS.users}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({
@@ -43,6 +44,12 @@ export default function Signup() {
     phoneNum: '',
   });
 
+  const [confirmPw, setConfirmPw] = useState({
+    pw: '',
+    pwConfirm: '',
+    pwCheck: '비밀번호 입력',
+  });
+
   const handleUserInfo = event => {
     const { name, value } = event.target;
 
@@ -72,12 +79,6 @@ export default function Signup() {
   const togglePassword = () => {
     setShowPassword(prev => !prev);
   };
-
-  const [confirmPw, setConfirmPw] = useState({
-    pw: '',
-    pwConfirm: '',
-    pwCheck: '비밀번호 입력',
-  });
 
   const handlePwConfirm = event => {
     const { name, value } = event.target;

@@ -1,90 +1,84 @@
 @import '/src/styles/variables';
-*{
+body {
   background-color: $background-color;
 }
-.scentlist{
-  
-  header{
-    h1{
+.scentlist {
+  header {
+    h1 {
       margin: 20px;
       text-align: center;
       @include titleH1;
     }
-    h2{
+    h2 {
       width: 425px;
       margin: 0 auto;
       margin-bottom: 50px;
       text-align: center;
-      @include bodyText ;
+      @include bodyText;
     }
-    img{
-      width:100%;
+    img {
+      width: 100%;
       height: 250px;
     }
-}
+  }
 
-.itemlist{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 10px;
-
-  .itemid{
+  .itemlist {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    padding:30px;
-    @include bodyText2;
-    
-    .imgwrap{
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 10px;
+
+    .itemid {
       display: flex;
-      justify-content: center;
-      width: 220px;
-      height:220px;
-      
-    
-    img{
-      object-fit: scale-down;
-      width: 200px;
-      margin-bottom: 10px;
+      flex-direction: column;
+      align-items: center;
+      width: 25%;
+      padding: 30px;
+      @include bodyText2;
+
+      .imgwrap {
+        display: flex;
+        justify-content: center;
+        width: 220px;
+        height: 220px;
+
+        img {
+          object-fit: scale-down;
+          width: 200px;
+          margin-bottom: 10px;
+        }
+      }
+      .shopbtn {
+        display: flex;
+        justify-content: center;
+
+        button {
+          padding: 10px 25px;
+          border: 1px solid black;
+          background-color: $background-color;
+          cursor: pointer;
+        }
+      }
+
+      .krname {
+        margin: 10px;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .engname {
+        margin-bottom: 50px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+        margin: 10px;
+      }
     }
   }
-  .shopbtn{
-    display: flex; 
-    justify-content: center;
-
-    button{
-      padding: 10px 25px;
-      border:1px solid black;
-      background-color: $background-color;
-      cursor: pointer;
-    }
-  }
-
-    .krname{
-      margin:10px;
-      text-align: center;
-      text-decoration: underline;
-    }
-    .engname{
-      margin-bottom :50px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .price{
-      display: flex;
-      justify-content: space-between;
-      width: 120px;
-      margin:10px;
-
-    }
+  a {
+    color: black;
   }
 }
-a{
-  color: black;
-}
-}
-
-
-

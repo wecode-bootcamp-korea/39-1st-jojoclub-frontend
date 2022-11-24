@@ -4,7 +4,7 @@ import './Main.scss';
 
 import { Link } from 'react-router-dom';
 
-//import ProductList from './ProductList';
+import ProductList from '../ProductList/ProductList';
 
 function Main() {
   return (
@@ -12,13 +12,16 @@ function Main() {
       <div className="videoWrap">
         <div className="promoVideo">
           <video
-            className="backgroundVid"
+            // className="backgroundVid"
             autoPlay
             loop
             muted
-            pster="/images/main/snowglobe.png"
+            poster="/images/main/snowglobe.png"
           >
-            <source src="/images/main/snowglobe-vid.mp4" type="video/mp4" />
+            <source
+              src="/images/main/videos/snowglobe-vid.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
 
@@ -28,7 +31,7 @@ function Main() {
           </div>
 
           <div className="collection">
-            <Link to="#">스노우드롭 코롱 보기</Link>
+            <Link to="/products/4">스노우드롭 코롱 보기</Link>
           </div>
         </div>
       </div>
@@ -48,20 +51,20 @@ function Main() {
           </div>
 
           <div className="showProduct">
-            <Link to="#" className="productName">
+            <Link to="/products/11" className="productName">
               화이트 모스 앤 스노우드롭 코롱
             </Link>
 
             <br />
 
-            <Link to="#" className="productDetailPg">
+            <Link to="/products/11" className="productDetailPg">
               제품 보기
             </Link>
           </div>
         </div>
 
         <div className="productPromoImg">
-          <Link to="#">
+          <Link to="/products/11">
             <img
               className="productImgLrg"
               alt="main product"
@@ -72,7 +75,7 @@ function Main() {
       </div>
 
       <div className="onlinePromoSectionWrap">
-        <Link to="#">
+        <Link to="/productList">
           <img
             className="seasonalPromoImg"
             src="/images/main/promo-products5.png"
@@ -81,13 +84,13 @@ function Main() {
         </Link>
 
         <div className="onlinePromoSection">
-          <Link to="#" className="onlinePromoTxt">
+          <Link to="/productList" className="onlinePromoTxt">
             온라인 부티크 단독 혜택
           </Link>
 
           <br />
 
-          <Link to="#" className="productDetailPg">
+          <Link to="/productList" className="productDetailPg">
             더 보기
           </Link>
         </div>
@@ -96,7 +99,7 @@ function Main() {
       <div className="dualProductWrap">
         <div className="productContainer">
           <div className="firstProduct">
-            <Link to="#">
+            <Link to="/products/13">
               <img
                 className="productImgLrg"
                 alt="main product"
@@ -106,13 +109,13 @@ function Main() {
           </div>
 
           <div className="firstProductTxt">
-            <Link to="#" className="productName">
+            <Link to="/products/13" className="productName">
               미드나이트 머스크 앤 앰버 코롱
             </Link>
 
             <br />
 
-            <Link to="#" className="productDetailPg">
+            <Link to="/products/13" className="productDetailPg">
               더 알아보기
             </Link>
           </div>
@@ -120,7 +123,7 @@ function Main() {
 
         <div className="productContainer">
           <div className="firstProduct">
-            <Link to="#">
+            <Link to="/products/7">
               <img
                 className="productImgLrg"
                 alt="main product"
@@ -130,13 +133,13 @@ function Main() {
           </div>
 
           <div className="firstProductTxt">
-            <Link to="#" className="productName">
+            <Link to="/products/7" className="productName">
               오렌지 비터스
             </Link>
 
             <br />
 
-            <Link to="#" className="productDetailPg">
+            <Link to="/products/7" className="productDetailPg">
               더 알아보기
             </Link>
           </div>
@@ -145,12 +148,12 @@ function Main() {
 
       <div className="listTitle">완벽한 선물</div>
 
-      {/* 추후에 <ProductList /> 머지 */}
+      <ProductList />
 
       <div className="dualProductWrap">
         <div className="productContainer">
           <div className="firstProduct">
-            <Link to="#">
+            <Link to="/productList">
               <img
                 className="productImgLrg"
                 alt="main product"
@@ -160,13 +163,13 @@ function Main() {
           </div>
 
           <div className="firstProductTxt">
-            <Link to="#" className="productName">
+            <Link to="/productList" className="productName">
               코롱 컬렉션
             </Link>
 
             <br />
 
-            <Link to="#" className="productDetailPg">
+            <Link to="/productList" className="productDetailPg">
               더 알아보기
             </Link>
           </div>
@@ -174,7 +177,7 @@ function Main() {
 
         <div className="productContainer">
           <div className="firstProduct">
-            <Link to="#">
+            <Link to="/products/17">
               <img
                 className="productImgLrg"
                 alt="main product"
@@ -184,13 +187,13 @@ function Main() {
           </div>
 
           <div className="firstProductTxt">
-            <Link to="#" className="productName">
+            <Link to="/products/17" className="productName">
               파인 앤 유칼립투스
             </Link>
 
             <br />
 
-            <Link to="#" className="productDetailPg">
+            <Link to="/products/17" className="productDetailPg">
               더 알아보기
             </Link>
           </div>

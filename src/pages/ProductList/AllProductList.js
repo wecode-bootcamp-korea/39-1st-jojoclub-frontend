@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import Modal from './Modal';
+import { APIS } from '../../config';
 import './Modal.scss';
 import './ProductList.scss';
 
@@ -11,7 +12,7 @@ const AllProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch(`http://10.58.52.80:3000/product?${searchParams.toString()}`, {
+    fetch(`${APIS.product}?${searchParams.toString()}`, {
       headers: { 'content-Type': 'application/json;charset=utf-8' },
     })
       .then(response => response.json())
@@ -50,7 +51,7 @@ const AllProductList = () => {
     }
     setSearchParams(searchParams);
   };
-
+  console.log(searchParams, checkState);
   return (
     <>
       <div className="allProductListTitle"> 전체 아이템 보기</div>
@@ -130,15 +131,19 @@ const AllProductList = () => {
       </div>
       <div className="allProductListContainer">
         {productInfoList.map(
-          ({ productId, imgUrl, enName, koName, price, size }) => (
-            <ul className="productContainer" key={productId}>
-              <li className="productImg">
-                <img src={imgUrl} alt="product" />
-              </li>
+          ({ productOptionId, imgUrl, enName, koName, price, size }) => (
+            <ul className="productContainer" key={productOptionId}>
+              <Link to={`/products/${productOptionId}`}>
+                <li className="productImg">
+                  <img src={imgUrl} alt="product" />
+                </li>
+              </Link>
               <div className="productDetailWrap">
-                <li className="newProduct">신제품</li>
-                <li className="productEng">{enName}</li>
-                <li className="productKor">{koName}</li>
+                <li className="newProduct">추천제품</li>
+                <Link to={`/products/${productOptionId}`}>
+                  <li className="productEng">{enName}</li>
+                  <li className="productKor">{koName}</li>
+                </Link>
                 <div className="priceNsize">
                   <li className="priceTag">₩{price}</li>
                   <li className="sizeTag">{size}</li>
@@ -147,7 +152,7 @@ const AllProductList = () => {
                   <button
                     type="button"
                     className="previewProduct"
-                    onClick={() => handleModal(productId)}
+                    onClick={() => handleModal(productOptionId)}
                   >
                     미리보기
                   </button>
