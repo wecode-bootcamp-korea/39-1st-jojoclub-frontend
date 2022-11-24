@@ -1,0 +1,77 @@
+@import '/src/styles/variables';
+
+.storyPage {
+  background-color: $background-color;
+
+  .pageNav {
+    @include linkSmall;
+    display: flex;
+    top: 37px;
+    left: 0;
+    padding: 48px 44px 40px 44px;
+    text-decoration: none;
+
+    .category {
+      display: flex;
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .cateList {
+        display: flex;
+        padding: 0 10px;
+        line-height: 1.6;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .contentBlock {
+    display: block;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 56px;
+    padding: 0 44px;
+
+    .splitText {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .textColumn {
+        display: block;
+        width: 48%;
+        padding-bottom: 12px;
+
+        .columnTextH2 {
+          @include titleH2;
+          margin-bottom: 1em;
+        }
+        .columnTextBody {
+          @include bodyText;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .textTout {
+      max-width: 70%;
+      margin: 0 auto;
+      text-align: center;
+
+      .columnTextCenterH2 {
+        @include titleH2;
+      }
+    }
+    .mediaAsset {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
