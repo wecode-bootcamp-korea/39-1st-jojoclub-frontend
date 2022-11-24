@@ -17,7 +17,7 @@ function Products() {
       .then(result => setUser(result.data));
   }, [userId]);
 
-  const { productId, enName, koName, content } = user;
+  const { productId, enName, koName, content, ingredient, menual } = user;
 
   console.log(productId, enName);
 
@@ -129,19 +129,10 @@ function Products() {
                   경우에 따라 변경될 수 있습니다. 최신정보는 제품 포장의 성분을
                   참고하시거나 본사 고객관리지원팀으로 연락 부탁 드립니다."
               />
-              <p className="contentBody2">
-                조 말론 런던의 제품을 구성하는 성분은 변경될 수 있음을
-                알려드립니다. 제품 뒷면의 성분 목록을 확인하시면 가장 최신
-                성분표를 확인하실 수 있습니다.
-              </p>
+              <p className="contentBody2">{ingredient}</p>
             </div>
             <div className="howToUse">
-              <Accordion
-                title="사용방법"
-                content="손목, 귀 뒤 등 맥박이 뛰는 곳에 뿌려줍니다. 단독으로
-                  사용하거나 다른 제품과 함께 컴바이닝할 수 있으며 같은 라인의
-                  바디 제품과 사용할 수 있습니다."
-              />
+              <Accordion title="사용방법" content={menual} />
             </div>
           </div>
         </div>

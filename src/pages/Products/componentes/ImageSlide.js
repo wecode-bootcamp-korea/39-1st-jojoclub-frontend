@@ -31,7 +31,7 @@ const ImageSlide = ({ slides }) => {
         }}
       >
         {slides.map(slide => {
-          return <img src={slide.url} className="slideImg" width="1000" />;
+          return <img src={slide.url} className="slideImg" />;
         })}
       </div>
     </div>
