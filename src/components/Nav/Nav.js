@@ -8,8 +8,6 @@ function Nav() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
 
-  const [menuTitle, setMenuTitle] = useState('');
-
   return (
     <div className="nav">
       <nav className="navigate">
@@ -92,17 +90,19 @@ function Nav() {
               className={`dropmenu ${isProductsOpen ? 'inactive' : 'active'}`}
             >
               <div className="scents">
-                {SCENTS_LIST.map(({ id, imgSrc, imgAlt, title, list }) => {
-                  return (
-                    <Link to={`/scentList/${id}`} key={id}>
-                      <img className="scent" src={imgSrc} alt={imgAlt} />
-                      <h2>{title}</h2>
-                      {list.map(text => {
-                        return <p key={text}>{text}</p>;
-                      })}
-                    </Link>
-                  );
-                })}
+                {SCENTS_LIST.map(
+                  ({ id, imgSrc, imgAlt, title, list, scentEng }) => {
+                    return (
+                      <Link to={`/scentList/${id}?scent[]=${imgAlt}`} key={id}>
+                        <img className="scent" src={imgSrc} alt={imgAlt} />
+                        <h2>{title}</h2>
+                        {list.map(text => {
+                          return <p key={text}>{text}</p>;
+                        })}
+                      </Link>
+                    );
+                  }
+                )}
               </div>
             </div>
           </nav>

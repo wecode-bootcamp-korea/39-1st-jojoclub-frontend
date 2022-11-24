@@ -51,7 +51,7 @@ export const SCENTS_LIST = [
   {
     id: 3,
     imgSrc: '/images/nav/purple.jpg',
-    imgAlt: 'light floral',
+    imgAlt: 'lightfloral',
     title: '라이트 플로랄',
     list: ['피그 앤 로터스 플라워', '와일드 블루벨', '레드 로즈'],
   },

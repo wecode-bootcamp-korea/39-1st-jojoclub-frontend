@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import './ScentList.scss';
 
 function ScentList() {
@@ -19,33 +19,15 @@ function ScentList() {
 
   //item list 가져오기
   const [itemInfo, setItemInfo] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams([]);
 
   useEffect(() => {
-    fetch('/data/itemlist.json')
+    fetch(`http://10.58.52.80:3000/product?${searchParams.toString()}`, {
+      headers: { 'content-Type': 'application/json;charset=utf-8' },
+    })
       .then(response => response.json())
       .then(data => setItemInfo(data));
-  }, []);
-
-  //filtering 기능
-
-  // const setSortParams = e => {
-  //   if (checkState[e.target.value] === true) {
-  //     searchParams.append('scent', e.target.value);
-  //   }
-  //   setSearchParams(searchParams);
-  // };
-
-  //장바구니 담기
-  // const componentDidMount = () => {
-  //   fetch(`${API}/cart`, {
-  //     headers: {
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => this.setState({ carts: res.carts }));
-  // };
-
+  }, [searchParams]);
   return (
     <div className="scentlist">
       <header>
@@ -58,8 +40,14 @@ function ScentList() {
         {itemInfo.map(itemdata => {
           return (
             <div className="itemid" key={itemdata.id}>
-              <img className="itemimg" src={itemdata.image_url} alt="item" />
-              <div className="krname">{itemdata.koName}</div>
+              <Link to={`/product/${itemdata.id}`}>
+                <img
+                  className="itemimg"
+                  src={itemdata.options[0].img}
+                  alt="item"
+                />
+                <div className="krname">{itemdata.koName}</div>
+              </Link>
               <div className="engname">{itemdata.enName}</div>
               <div className="price">₩{itemdata.price}</div>
               <div className="shopbtn">
