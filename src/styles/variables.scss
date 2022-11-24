@@ -14,25 +14,27 @@ $color-valid: #0cc42f;
 $color-warning: #ebbb00;
 
 //Typography
-@mixin titleH1 {
+@mixin Myeongjo {
   color: $color-black;
   font-family: 'Nanum Myeongjo', serif;
+}
+
+@mixin titleH1 {
+  @include Myeongjo;
   font-size: 32px;
   letter-spacing: 0.01em;
   line-height: 1.25;
 }
 
 @mixin titleH2 {
-  color: $color-black;
-  font-family: 'Nanum Myeongjo', serif;
+  @include Myeongjo;
   font-size: 24px;
   letter-spacing: 0.01em;
   line-height: 1.33333;
 }
 
 @mixin titleH3 {
-  color: $color-black;
-  font-family: 'Nanum Myeongjo', serif;
+  @include Myeongjo;
   font-size: 20px;
 }
 
