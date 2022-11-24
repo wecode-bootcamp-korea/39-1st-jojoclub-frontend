@@ -1,0 +1,23 @@
+@import '/src/styles/variables';
+
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 48px;
+
+  .contentHeader {
+    @include titleH2;
+    padding: 46px 0;
+  }
+
+  .accordionIcon {
+    border: 0;
+    background-color: transparent;
+  }
+}
+.contentBody {
+  @include bodyText;
+  margin: 0 48px;
+  padding: 12px 0 40px;
+  border-bottom: 1px solid #e2e1d7;
+}
