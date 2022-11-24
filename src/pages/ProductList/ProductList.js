@@ -10,7 +10,7 @@ function ProductList() {
   const [productInfoList, setProductInfoList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch(`http://10.58.52.80:3000/product`)
       .then(response => response.json())
       .then(result => setProductInfoList(result));
   }, []);
@@ -49,31 +49,33 @@ function ProductList() {
       <div className="productList">
         <button type="button" className="slideLeft" onClick={handleSlideLeft} />
         <div className="productListContainer" ref={productListContainerRef}>
-          {productInfoList.map(({ id, img, enName, koName, price, size }) => (
-            <ul className="productContainer" key={id}>
-              <li className="productImg">
-                <img src={img} alt="product" />
-              </li>
-              <div className="productDetailWrap">
-                <li className="newProduct">신제품</li>
-                <li className="productEng">{enName}</li>
-                <li className="productKor">{koName}</li>
-                <div className="priceNsize">
-                  <li className="priceTag">₩{price}</li>
-                  <li className="sizeTag">{size}</li>
+          {productInfoList.map(
+            ({ productId, imgUrl, enName, koName, price, size }) => (
+              <ul className="productContainer" key={productId}>
+                <li className="productImg">
+                  <img src={imgUrl} alt="product" />
+                </li>
+                <div className="productDetailWrap">
+                  <li className="newProduct">신제품</li>
+                  <li className="productEng">{enName}</li>
+                  <li className="productKor">{koName}</li>
+                  <div className="priceNsize">
+                    <li className="priceTag">₩{price}</li>
+                    <li className="sizeTag">{size}</li>
+                  </div>
+                  <div className="openModal">
+                    <button
+                      type="button"
+                      className="previewProduct"
+                      onClick={() => handleModal(productId)}
+                    >
+                      미리보기
+                    </button>
+                  </div>
                 </div>
-                <div className="openModal">
-                  <button
-                    type="button"
-                    className="previewProduct"
-                    onClick={() => handleModal(id)}
-                  >
-                    미리보기
-                  </button>
-                </div>
-              </div>
-            </ul>
-          ))}
+              </ul>
+            )
+          )}
         </div>
         <button
           type="button"
@@ -86,7 +88,7 @@ function ProductList() {
           productInfo={getInfo}
         />
       </div>
-      <ProductListSlider />
+      {/* <ProductListSlider /> */}
       <AllProductList />
     </>
   );

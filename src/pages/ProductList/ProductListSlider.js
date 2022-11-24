@@ -34,7 +34,7 @@ function ProductListSlider() {
   const [productInfoList, setProductInfoList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productList.json')
+    fetch(`http://10.58.52.80:3000/product`)
       .then(response => response.json())
       .then(result => setProductInfoList(result));
   }, []);
@@ -88,31 +88,33 @@ function ProductListSlider() {
     <div className="productListCopy">
       <div className="productListContainer">
         <Slider {...settings}>
-          {productInfoList.map(({ id, img, enName, koName, price, size }) => (
-            <ul className="productContainer" key={id}>
-              <li className="productImg">
-                <img src={img} alt="product" />
-              </li>
-              <div className="productDetailWrap">
-                <li className="newProduct">신제품</li>
-                <li className="productEng">{enName}</li>
-                <li className="productKor">{koName}</li>
-                <div className="priceNsize">
-                  <li className="priceTag">{price}</li>
-                  <li className="sizeTag">{size}</li>
+          {productInfoList.map(
+            ({ id, imgUrl, enName, koName, price, size }) => (
+              <ul className="productContainer" key={id}>
+                <li className="productImg">
+                  <img src={imgUrl} alt="product" />
+                </li>
+                <div className="productDetailWrap">
+                  <li className="newProduct">신제품</li>
+                  <li className="productEng">{enName}</li>
+                  <li className="productKor">{koName}</li>
+                  <div className="priceNsize">
+                    <li className="priceTag">{price}</li>
+                    <li className="sizeTag">{size}</li>
+                  </div>
+                  <div className="openModal">
+                    <button
+                      type="button"
+                      className="previewProduct"
+                      onClick={() => handleModal(id)}
+                    >
+                      미리보기
+                    </button>
+                  </div>
                 </div>
-                <div className="openModal">
-                  <button
-                    type="button"
-                    className="previewProduct"
-                    onClick={() => handleModal(id)}
-                  >
-                    미리보기
-                  </button>
-                </div>
-              </div>
-            </ul>
-          ))}
+              </ul>
+            )
+          )}
         </Slider>
       </div>
 

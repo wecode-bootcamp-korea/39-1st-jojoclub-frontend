@@ -1,14 +1,7 @@
 import React from 'react';
-import ProductList from '../ProductList/ProductList';
 
 function Main() {
-  return (
-    <>
-      <p>Main page </p>
-
-      <ProductList />
-    </>
-  );
+  return <p>Main page </p>;
 }
 
 export default Main;

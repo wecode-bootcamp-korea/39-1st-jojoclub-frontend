@@ -11,7 +11,7 @@ const AllProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetch(`http://10.58.52.119:3000/product?${searchParams.toString()}`, {
+    fetch(`http://10.58.52.80:3000/product?${searchParams.toString()}`, {
       headers: { 'content-Type': 'application/json;charset=utf-8' },
     })
       .then(response => response.json())
@@ -118,33 +118,44 @@ const AllProductList = () => {
           />
           여자
         </div>
+        <div className="checkboxWrap">
+          <input
+            type="checkbox"
+            name="gender[]"
+            value="unisex"
+            onChange={handleCheckbox}
+          />
+          유니섹스
+        </div>
       </div>
       <div className="allProductListContainer">
-        {productInfoList.map(({ id, img, enName, koName, price, size }) => (
-          <ul className="productContainer" key={id}>
-            <li className="productImg">
-              <img src={img} alt="product" />
-            </li>
-            <div className="productDetailWrap">
-              <li className="newProduct">신제품</li>
-              <li className="productEng">{enName}</li>
-              <li className="productKor">{koName}</li>
-              <div className="priceNsize">
-                <li className="priceTag">₩{price}</li>
-                <li className="sizeTag">{size}</li>
+        {productInfoList.map(
+          ({ productId, imgUrl, enName, koName, price, size }) => (
+            <ul className="productContainer" key={productId}>
+              <li className="productImg">
+                <img src={imgUrl} alt="product" />
+              </li>
+              <div className="productDetailWrap">
+                <li className="newProduct">신제품</li>
+                <li className="productEng">{enName}</li>
+                <li className="productKor">{koName}</li>
+                <div className="priceNsize">
+                  <li className="priceTag">₩{price}</li>
+                  <li className="sizeTag">{size}</li>
+                </div>
+                <div className="openModal">
+                  <button
+                    type="button"
+                    className="previewProduct"
+                    onClick={() => handleModal(productId)}
+                  >
+                    미리보기
+                  </button>
+                </div>
               </div>
-              <div className="openModal">
-                <button
-                  type="button"
-                  className="previewProduct"
-                  onClick={() => handleModal(id)}
-                >
-                  미리보기
-                </button>
-              </div>
-            </div>
-          </ul>
-        ))}
+            </ul>
+          )
+        )}
       </div>
       <Modal
         open={openModal}
