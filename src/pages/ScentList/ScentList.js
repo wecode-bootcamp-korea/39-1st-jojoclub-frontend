@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { APIS } from '../../config';
 import './ScentList.scss';
 
 function ScentList() {
@@ -35,7 +36,7 @@ function ScentList() {
       method: 'POST',
       headers: {
         'content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         productOptionId: id,
@@ -56,7 +57,7 @@ function ScentList() {
         {itemInfo.map(itemdata => {
           return (
             <div className="itemid" key={itemdata.productId}>
-              <Link to={`/product/${itemdata.productId}`}>
+              <Link to={`/products/${itemdata.productId}`}>
                 <div className="imgwrap">
                   <img src={itemdata.imgUrl} alt="item" />
                 </div>

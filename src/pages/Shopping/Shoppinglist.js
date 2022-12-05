@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { APIS } from '../../config';
 import './Shopping.scss';
 
 function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
@@ -20,14 +21,14 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
   };
 
   //장바구니 상품 제거
-  const handelDeleteData = (cartsNum, id) => {
-    setItemInfo(itemInfo.filter(item => item.id !== id));
+  const handelDeleteData = cartsNum => {
+    setItemInfo(itemInfo.filter(item => item.cartsNum !== cartsNum));
 
-    fetch('http://10.58.52.180:3000/carts', {
+    fetch(`${APIS.carts}`, {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         cartsId: cartsNum,
@@ -35,9 +36,13 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
     });
   };
 
+  //if (!itemInfo.enName) return null;
+
   return (
     <div className="buyitems" key={itemdata.userNum} onClick={modalclose}>
-      <div>image</div>
+      <div>
+        <img src={itemdata.image_url} />
+      </div>
       <div>
         <p>{itemdata.name_ko}</p>
         <p>{itemdata.name_en}</p>
@@ -71,7 +76,7 @@ function Shoppinglist({ itemdata, itemInfo, setItemInfo, onChangeQty }) {
         <p>₩{itemdata.price * itemdata.quantity}</p>
         <p
           className="deleteitem"
-          onClick={() => handelDeleteData(itemdata.userNum, itemdata.cartsNum)}
+          onClick={() => handelDeleteData(itemdata.cartsNum)}
         >
           삭제
         </p>

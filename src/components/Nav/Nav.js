@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SCENTS_LIST, ITEMS_LIST } from './navData';
 import './Nav.scss';
@@ -8,11 +8,14 @@ function Nav() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
 
+  const isLogin = !!localStorage.getItem('token');
+  // 우리는 useEffect와 싸우고있어요. 도와주세요 HELP!!!
+
   return (
     <div className="nav">
       <nav className="navigate">
         <ul>
-          <Link to="/productList">
+          <Link to="/allProductList">
             <li
               className="menu"
               onMouseEnter={() => {
@@ -23,7 +26,7 @@ function Nav() {
               쇼핑하기
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/story">
             <li
               className="menu"
               onMouseEnter={() => {
@@ -35,14 +38,15 @@ function Nav() {
             </li>
           </Link>
         </ul>
-        <Link to="/main">
+        <Link to="/">
           <img className="logo" src="/images/nav/title.png" alt="brand" />
         </Link>
         <div className="icons">
-          <Link to="/">
+          <Link to="/search">
             <span className="material-symbols-outlined">search</span>
           </Link>
-          <Link to="/login">
+          {/* <Link to="/login"> */}
+          <Link to={isLogin ? '/mypage' : '/login'}>
             <span className="material-symbols-outlined">person</span>
           </Link>
           <Link to="/shopping">

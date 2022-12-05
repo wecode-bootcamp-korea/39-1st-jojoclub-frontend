@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { APIS } from '../../../config';
 import './Signin.scss';
 
 export default function Signin() {
@@ -10,7 +11,7 @@ export default function Signin() {
   // };
 
   const signinFetchFunction = () => {
-    fetch('http://10.58.52.180:3000/users/signin', {
+    fetch(`${APIS.users}/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({ email: userInfo.email, password: userInfo.pw }),

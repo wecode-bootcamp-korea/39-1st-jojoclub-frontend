@@ -1,137 +1,96 @@
 /* stylelint-disable selector-class-pattern */
 
-// @import '/src/styles/variables';
+@import '/src/styles/variables';
 
 .promoVideo {
   position: relative;
 
-  .backgroundVid {
+  video {
     position: relative;
-
-    z-index: -1;
-
     top: 20;
-
     right: 0;
-
     left: 0;
-
     width: 100%;
-
     height: 860px;
-
     background-size: cover;
-
     object-fit: cover;
   }
 }
 
 .collectionWrap {
   position: absolute;
-
   top: 20%;
-
   left: 50%;
-
   transform: translate(-50%, -50%);
-
+  background-color: transparent;
   text-align: center;
 
   .promoText p {
     margin-bottom: 10px;
-
+    background-color: rgba(255, 255, 255, 0.3);
     color: black;
-
     font-weight: 550;
-
     text-decoration: none;
-
-    // @include titleH1;
+    @include titleH1;
   }
 
   .collection {
     padding: 10px 0;
+    background-color: transparent;
   }
 
   .collection a {
     padding-bottom: 2px;
-
     border-bottom: 0.8px solid black;
-
     text-decoration: none;
-
-    // @include titleH3;
+    @include titleH3;
   }
 }
 
 .dualSectionWrap {
   display: flex;
-
   justify-content: center;
-
   height: 620px;
-
   margin-top: 100px;
-
   margin-bottom: 60px;
 
   .firstDualProduct {
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     width: 620px;
-
     height: 100%;
 
     .productImgMedWrap {
       display: flex;
-
       justify-content: center;
 
       .productImgMed {
         display: flex;
-
         align-items: center;
-
         justify-content: center;
-
-        // width: 400px;
-
         height: 362px;
-
         object-fit: cover;
       }
     }
 
     .showProduct {
       margin-top: 40px;
-
       text-align: center;
 
       .productName {
         display: inline-block;
-
         padding-bottom: 10px;
-
         text-decoration: none;
-
-        // @include titleH2;
+        @include titleH2;
       }
 
       .productDetailPg {
         display: inline-block;
-
         padding-top: 20px;
-
         padding-bottom: 5px;
-
         border-bottom: 0.8px solid black;
-
-        // @include titleH4;
-
+        @include titleH4;
         text-decoration: none;
       }
     }
@@ -139,14 +98,11 @@
 
   .productPromoImg {
     width: 620px;
-
     height: 620px;
 
     .productImgLrg {
       width: 500px;
-
       height: 600px;
-
       object-fit: cover;
     }
   }
@@ -154,20 +110,14 @@
 
 .onlinePromoSectionWrap {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   width: 100%;
-
   margin-top: 100px;
-
   margin-bottom: 100px;
 
   .seasonalPromoImg {
     width: 1250px;
-
     height: 590px;
   }
 
@@ -176,41 +126,30 @@
 
     .onlinePromoTxt {
       display: inline-block;
-
       padding-top: 20px;
-
       padding-bottom: 10px;
-
       text-decoration: none;
-
-      // @include titleH1;
+      @include titleH1;
     }
 
     .productDetailPg {
       display: inline-block;
-
       padding-top: 10px;
-
       padding-bottom: 5px;
-
       border-bottom: 0.8px solid black;
-
-      // @include titleH4;
-
+      @include titleH4;
       text-decoration: none;
     }
   }
 }
 
 .listTitle {
-  // @include titleH1;
-
+  @include titleH1;
   text-align: center;
 }
 
 .dualProductWrap {
   display: flex;
-
   justify-content: center;
 
   .productContainer {
@@ -218,9 +157,7 @@
 
     .productImgLrg {
       width: 500px;
-
       height: 600px;
-
       object-fit: cover;
     }
   }
@@ -230,27 +167,18 @@
 
     .productName {
       display: inline-block;
-
       padding-top: 30px;
-
       padding-bottom: 10px;
-
-      // @include titleH2;
-
+      @include titleH2;
       text-decoration: none;
     }
 
     .productDetailPg {
       display: inline-block;
-
       padding-top: 10px;
-
       padding-bottom: 5px;
-
       border-bottom: 0.8px solid black;
-
-      // @include titleH4;
-
+      @include titleH4;
       text-decoration: none;
     }
   }
@@ -258,28 +186,20 @@
 
 .extraServiceWrap {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   height: 495px;
-
   margin: 0;
-
   text-align: center;
 
   .extraService {
     width: 30vw;
-
     height: 71px;
-
     padding-right: 20px;
-
     padding-left: 20px;
 
     .serviceDetail {
-      // @include bodyText;
+      @include bodyText;
     }
 
     .serviceTitle {
@@ -287,58 +207,46 @@
     }
 
     .serviceLink {
-      // @include titleH2;
-
+      @include titleH2;
       text-decoration: none;
     }
   }
 
   .extraServiceMiddle {
     width: 30vw;
-
     height: 71px;
-
     padding-right: 20px;
-
     padding-left: 20px;
-
     border-right: 0.8px solid lightgray;
-
     border-left: 0.8px solid lightgray;
 
     .serviceTitle {
       margin-bottom: 30px;
 
-      // @include titleH2;
+      @include titleH2;
     }
 
     .serviceLink {
-      // @include titleH2;
+      @include titleH2;
 
       text-decoration: none;
     }
 
     .serviceDetail {
-      // @include bodyText;
+      @include bodyText;
     }
   }
 }
 
 .toTop {
   position: fixed;
-
   right: 30px;
-
   bottom: 80px;
-
   width: 30px;
-
   height: 30px;
   border: none;
   background-color: transparent;
   background-image: url(../../../public/images/main/up-arrow.png);
-
   background-size: cover;
-
   cursor: pointer;
 }

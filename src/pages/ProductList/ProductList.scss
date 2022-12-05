@@ -4,6 +4,11 @@ body {
   background-color: $background-color;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .productList {
   display: flex;
   position: relative;
@@ -138,14 +143,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 359px;
-    height: 359px;
+    width: 330px;
+    height: 330px;
     cursor: pointer;
-    object-fit: cover;
 
     img {
       width: 300px;
       height: 300px;
+      object-fit: scale-down;
     }
   }
 

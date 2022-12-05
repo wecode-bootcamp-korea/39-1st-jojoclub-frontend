@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { APIS } from '../../config';
 import Shoppinglist from './Shoppinglist';
 import './Shopping.scss';
 
@@ -8,10 +9,10 @@ function Shopping() {
   const [itemInfo, setItemInfo] = useState([]);
 
   useEffect(() => {
-    fetch('http://10.58.52.180:3000/carts', {
+    fetch(`${APIS.carts}`, {
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('accessToken'),
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(response => response.json())
@@ -95,8 +96,15 @@ function Shopping() {
           <Link to="/" className="continueshop">
             쇼핑 계속하기
           </Link>
-          <Link to="/pay">
-            <button className="buybutton">결제하기</button>
+          <Link to="/">
+            <button
+              className="buybutton"
+              onClick={() => {
+                alert('축하합니다. 향기로워지셨습니다!');
+              }}
+            >
+              결제하기
+            </button>
           </Link>
         </div>
         <div className="recommendtitle">추천 상품</div>

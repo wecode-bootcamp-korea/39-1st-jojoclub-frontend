@@ -7,11 +7,11 @@ import ProductList from './pages/ProductList/ProductList';
 import Products from './pages/Products/Products';
 import ScentList from './pages/ScentList/ScentList';
 import Shopping from './pages/Shopping/Shopping';
-import Pay from './pages/Pay/Pay';
 import Story from './pages/Story/Story';
 import Mypage from './pages/Mypage/Mypage';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+import AllProductList from './pages/ProductList/AllProductList';
 
 const Router = () => {
   return (
@@ -25,9 +25,9 @@ const Router = () => {
         <Route path="/products/:id" element={<Products />} />
         <Route path="/scentList/:id" element={<ScentList />} />
         <Route path="/shopping" element={<Shopping />} />
-        <Route path="/pay" element={<Pay />} />
         <Route path="/story" element={<Story />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/allProductList" element={<AllProductList />} />
       </Routes>
       <Footer />
     </BrowserRouter>
